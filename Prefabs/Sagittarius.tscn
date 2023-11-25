@@ -1,15 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7bhnlpb6dm1d"]
+[gd_scene load_steps=9 format=3 uid="uid://bnn7s6xgm101c"]
 
 [ext_resource type="PackedScene" uid="uid://y1eqpa7ff1uq" path="res://Prefabs/Enemy.tscn" id="1_pb6sn"]
 [ext_resource type="Script" path="res://ScriptsNew/SagittariusEnemy.gd" id="2_bpb02"]
 [ext_resource type="PackedScene" uid="uid://lf7koccski54" path="res://Prefabs/BulletSpawner.tscn" id="3_d8e2k"]
+[ext_resource type="PackedScene" uid="uid://b771avbshbenu" path="res://Assets/Models/Sagittarius.glb" id="3_sjicb"]
 [ext_resource type="Script" path="res://ScriptsNew/SagiBulletSpawner.gd" id="4_q1mn2"]
-[ext_resource type="PackedScene" uid="uid://csrxqup5toluh" path="res://Prefabs/SagiBullet.tscn" id="5_n5ey0"]
+[ext_resource type="PackedScene" uid="uid://c7lovbdee2ggp" path="res://Prefabs/SagiBullet.tscn" id="5_n5ey0"]
 [ext_resource type="Material" uid="uid://iamf6dkl4p2" path="res://Assets/enemy_bullet_material_3d.tres" id="5_ngcuh"]
 
-[node name="Sagittarius" instance=ExtResource("1_pb6sn")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yj835"]
+albedo_color = Color(1, 0.101961, 0.909804, 1)
+emission_enabled = true
+emission = Color(0.533333, 0.2, 0.588235, 1)
+emission_energy_multiplier = 3.0
+
+[node name="Enemy" instance=ExtResource("1_pb6sn")]
 script = ExtResource("2_bpb02")
-SniperPositions = Array[Vector3]([Vector3(-0.9, 1.9, -0.5), Vector3(-6.5, 1.5, 40), Vector3(30, 1.5, 25), Vector3(45, 2.8, -1.5), Vector3(28, 1.5, -25), Vector3(-5, 3, -45), Vector3(-35, 1.5, 20), Vector3(-33, 1.5, 12), Vector3(-5, 1.5, 38)])
+SniperPositions = Array[Vector3]([])
 ShotChargeRate = 0.5
 ShotCooldown = 5.0
 RotationSpeed = 0.85
@@ -18,6 +25,14 @@ JumpMovementSpeed = 1.5
 SniperCollisionMask = 4
 selects_random_position = false
 
+[node name="Visual" parent="." index="1"]
+mesh = null
+
+[node name="Sagittarius" parent="Visual" index="0" instance=ExtResource("3_sjicb")]
+
+[node name="9_SAGITTARIUS" parent="Visual/Sagittarius" index="0"]
+material_override = SubResource("StandardMaterial3D_yj835")
+
 [node name="BulletSpawnersContainer" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.994825)
 
@@ -25,3 +40,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.994825)
 script = ExtResource("4_q1mn2")
 BulletScene = ExtResource("5_n5ey0")
 BulletMaterial = ExtResource("5_ngcuh")
+
+[editable path="Visual/Sagittarius"]

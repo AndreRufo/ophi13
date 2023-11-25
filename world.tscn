@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c2wbfm15y6g84" path="res://Prefabs/Battleground.tscn" id="7_jpi8t"]
 [ext_resource type="PackedScene" uid="uid://bigen8uemxgp" path="res://Prefabs/Gemini.tscn" id="9_bksfa"]
 [ext_resource type="PackedScene" uid="uid://c24flsme287t6" path="res://Prefabs/Cancer.tscn" id="9_ieg3u"]
-[ext_resource type="PackedScene" path="res://Prefabs/Sagittarius.tscn" id="10_pfp5q"]
+[ext_resource type="PackedScene" uid="uid://bnn7s6xgm101c" path="res://Prefabs/Sagittarius.tscn" id="10_pfp5q"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vbnwt"]
 panorama = ExtResource("1_3b43y")
