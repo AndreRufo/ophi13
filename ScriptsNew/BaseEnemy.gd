@@ -20,8 +20,11 @@ func _update(delta):
 
 func _physics_process(delta):
 	# Add the gravity.
-	if not is_on_floor():
+	if not is_on_floor() && position.y > 1.5:
 		velocity.y -= gravity * delta
+	
+	if position.y <= 1.5 :
+		velocity.y = 0
 	
 	player = Singletons.PlayerCharacter
 	if not player:
