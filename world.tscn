@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bupermobpg1sj"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ljksk"]
+sky_top_color = Color(0.160784, 0.184314, 0.231373, 1)
+sky_horizon_color = Color(0.231373, 0.0705882, 0.231373, 1)
+sky_cover_modulate = Color(0.619608, 0.192157, 0.576471, 1)
+ground_bottom_color = Color(0.0941176, 0.117647, 0.2, 1)
+ground_horizon_color = Color(0.217925, 0.0851, 0.23, 1)
+ground_curve = 0.12996
+
+[sub_resource type="Sky" id="Sky_x1gce"]
+sky_material = SubResource("ProceduralSkyMaterial_ljksk")
+
+[sub_resource type="Environment" id="Environment_jwc36"]
+background_mode = 2
+sky = SubResource("Sky_x1gce")
+glow_enabled = true
+glow_bloom = 0.04
+glow_blend_mode = 0
+glow_hdr_threshold = 0.03
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jwc36")

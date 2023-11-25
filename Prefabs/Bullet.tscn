@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://daa4scifdiejw"]
+
+[ext_resource type="Texture2D" uid="uid://b1ls1c1c62g3e" path="res://Assets/Particles/Kenney/magic_05.png" id="1_eqcsi"]
+
+[node name="Bullet" type="Node3D"]
+
+[node name="Visual" type="Sprite3D" parent="."]
+modulate = Color(1, 0.309804, 0.309804, 1)
+billboard = 1
+texture = ExtResource("1_eqcsi")
