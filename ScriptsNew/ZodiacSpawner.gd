@@ -15,6 +15,9 @@ func _on_timer_timeout():
 	if currentSign >= 12:
 		return;
 		
+	_spawn_new_enemy()
+
+func _spawn_new_enemy():
 	var new_sign : Node3D = Signs[currentSign].instantiate();
 	new_sign.position = Singletons.PlayerCharacter.position + Vector3(20, 0.5, 20);
 	
