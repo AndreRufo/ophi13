@@ -1,22 +1,19 @@
-[gd_scene load_steps=15 format=3 uid="uid://bupermobpg1sj"]
+[gd_scene load_steps=12 format=3 uid="uid://bupermobpg1sj"]
 
+[ext_resource type="Texture2D" uid="uid://d2xq5ndw02hs1" path="res://Assets/Models/Nebula.hdr" id="1_3b43y"]
 [ext_resource type="PackedScene" uid="uid://d4lp0doik3rtc" path="res://Prefabs/Character.tscn" id="1_tr0ag"]
 [ext_resource type="PackedScene" uid="uid://daa4scifdiejw" path="res://Prefabs/Bullet.tscn" id="3_n2sfi"]
 [ext_resource type="PackedScene" uid="uid://4j1jhl2ib1ff" path="res://Prefabs/UI/HUD.tscn" id="4_3n2ta"]
 [ext_resource type="PackedScene" uid="uid://hc6iqxwfym4h" path="res://Prefabs/Aries.tscn" id="4_jmyty"]
 [ext_resource type="PackedScene" uid="uid://7g2g3525ls68" path="res://Prefabs/Pisces.tscn" id="5_ul6xq"]
 [ext_resource type="Script" path="res://ScriptsNew/ZodiacSpawner.gd" id="6_fje5m"]
+[ext_resource type="PackedScene" uid="uid://c2wbfm15y6g84" path="res://Prefabs/Battleground.tscn" id="7_jpi8t"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ljksk"]
-sky_top_color = Color(0.160784, 0.184314, 0.231373, 1)
-sky_horizon_color = Color(0.231373, 0.0705882, 0.231373, 1)
-sky_cover_modulate = Color(0.619608, 0.192157, 0.576471, 1)
-ground_bottom_color = Color(0.0941176, 0.117647, 0.2, 1)
-ground_horizon_color = Color(0.217925, 0.0851, 0.23, 1)
-ground_curve = 0.12996
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vbnwt"]
+panorama = ExtResource("1_3b43y")
 
 [sub_resource type="Sky" id="Sky_x1gce"]
-sky_material = SubResource("ProceduralSkyMaterial_ljksk")
+sky_material = SubResource("PanoramaSkyMaterial_vbnwt")
 
 [sub_resource type="Environment" id="Environment_jwc36"]
 background_mode = 2
@@ -35,60 +32,17 @@ glow_blend_mode = 0
 glow_hdr_scale = 0.56
 glow_hdr_luminance_cap = 47.03
 fog_enabled = true
-fog_light_color = Color(0.411765, 0.0705882, 0.376471, 1)
+fog_light_color = Color(0.333333, 0.109804, 0.203922, 1)
 fog_density = 0.021
 fog_aerial_perspective = 0.61
 fog_sky_affect = 0.221
 fog_height_density = 1.3474
 volumetric_fog_density = 0.0079
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i24jt"]
-albedo_color = Color(0.520987, 0.266869, 0.0487699, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_iv3pv"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ns7rh"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m7boc"]
-albedo_color = Color(0.227451, 0.282353, 0.713726, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wv03q"]
-albedo_color = Color(0.258824, 0.282353, 0.698039, 1)
-
 [node name="World" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jwc36")
-
-[node name="Ground" type="MeshInstance3D" parent="."]
-transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_i24jt")
-mesh = SubResource("BoxMesh_iv3pv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
-shape = SubResource("BoxShape3D_ns7rh")
-
-[node name="Ground2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-07, -1, 0, 10, -4.37114e-08, 0, 0, 0, 50, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_m7boc")
-mesh = SubResource("BoxMesh_iv3pv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Ground2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground2/StaticBody3D"]
-shape = SubResource("BoxShape3D_ns7rh")
-
-[node name="Ground3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.91069e-14, 4.37114e-08, 50, 10, -4.37114e-08, 0, 4.37114e-07, 1, -2.18557e-06, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_wv03q")
-mesh = SubResource("BoxMesh_iv3pv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Ground3"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground3/StaticBody3D"]
-shape = SubResource("BoxShape3D_ns7rh")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.79873, -0.469215, 0.376653, 0, 0.625992, 0.77983, -0.60169, -0.622874, 0.499998, 28.5863, 14.657, -23.8253)
@@ -97,8 +51,7 @@ light_energy = 1.808
 light_indirect_energy = 1.808
 light_volumetric_fog_energy = 3.424
 shadow_enabled = true
-shadow_bias = 0.0
-shadow_normal_bias = 5.838
+shadow_bias = 0.101
 shadow_reverse_cull_face = true
 shadow_opacity = 0.87
 shadow_blur = 1.515
@@ -106,7 +59,7 @@ directional_shadow_blend_splits = true
 directional_shadow_max_distance = 40.2
 
 [node name="CameraAnchor" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.778353, 0.627827, 0, -0.627827, 0.778353, 8.18439, 2.81289, -28.679)
+transform = Transform3D(1, 0, 0, 0, 0.778353, 0.627827, 0, -0.627827, 0.778353, 0.873741, 3.72716, -37.1921)
 
 [node name="Camera3D" type="Camera3D" parent="CameraAnchor"]
 transform = Transform3D(1, 0, 0, 0, 0.983341, 0.181772, 0, -0.181772, 0.983341, -0.239708, 3.18741, 10.7707)
@@ -117,7 +70,7 @@ fov = 67.9572
 unique_name_in_owner = true
 
 [node name="Character" parent="." instance=ExtResource("1_tr0ag")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.18439, 2.81289, -28.679)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.873741, 3.72716, -37.1921)
 BulletScene = ExtResource("3_n2sfi")
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Character"]
@@ -135,5 +88,10 @@ Signs = Array[PackedScene]([ExtResource("5_ul6xq"), ExtResource("4_jmyty"), ExtR
 [node name="Timer" type="Timer" parent="ZodiacSpawner"]
 wait_time = 13.0
 autostart = true
+
+[node name="SpaceBattleground" parent="." instance=ExtResource("7_jpi8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.668417, 0.5, -0.514328)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 
 [connection signal="timeout" from="ZodiacSpawner/Timer" to="ZodiacSpawner" method="_on_timer_timeout"]

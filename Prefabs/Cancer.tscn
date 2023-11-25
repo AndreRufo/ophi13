@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c24flsme287t6"]
+
+[ext_resource type="PackedScene" uid="uid://y1eqpa7ff1uq" path="res://Prefabs/Enemy.tscn" id="1_x0jva"]
+
+[node name="Cancer" instance=ExtResource("1_x0jva")]
