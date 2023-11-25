@@ -10,6 +10,7 @@ radius = 0.23171
 [sub_resource type="BoxMesh" id="BoxMesh_8jwdv"]
 
 [node name="Character" type="CharacterBody3D" groups=["Character"]]
+collision_mask = 3
 script = ExtResource("1_tl3q1")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
