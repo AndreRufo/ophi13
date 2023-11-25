@@ -4,7 +4,8 @@ extends Node3D
 var currentSign = 0;
 
 func _ready():
-	pass # Replace with function body.
+	var timer_label = Singletons.Hud.timer_label;
+	timer_label.timer = $Timer;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

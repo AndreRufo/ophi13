@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+@export var timer_label : Label;
 @onready var bullseye_scene = load("res://Prefabs/UI/hud_bullseye.tscn");
 
 func _ready():

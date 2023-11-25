@@ -11,6 +11,9 @@ var charge_timer = 0
 var currentCurveVal = 0;
 
 func _ready():
+	
+	self.ChargeSpeed = 10
+	self.TriggerChargeDistance = 5
 	self.Speed = 0.2
 	pass # Replace with function body.
 

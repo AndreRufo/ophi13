@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c18wam7fk88qa"]
+
+[ext_resource type="Script" path="res://ScriptsNew/CameraBehavior.gd" id="1_5qka4"]
+
+[node name="CameraAnchor" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.778353, 0.627827, 0, -0.627827, 0.778353, 0.873741, 3.72716, -37.1921)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.983341, 0.181772, 0, -0.181772, 0.983341, -0.239708, 3.18741, 10.7707)
+current = true
+fov = 67.9572
+script = ExtResource("1_5qka4")
