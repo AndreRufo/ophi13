@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bupermobpg1sj"]
+[gd_scene load_steps=10 format=3 uid="uid://bupermobpg1sj"]
 
 [ext_resource type="PackedScene" uid="uid://d4lp0doik3rtc" path="res://Prefabs/Character.tscn" id="1_tr0ag"]
 [ext_resource type="Script" path="res://Scripts/Character.gd" id="2_h1gee"]
+[ext_resource type="PackedScene" uid="uid://daa4scifdiejw" path="res://Prefabs/Bullet.tscn" id="3_n2sfi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ljksk"]
 sky_top_color = Color(0.160784, 0.184314, 0.231373, 1)
@@ -24,9 +25,12 @@ ssao_enabled = true
 sdfgi_enabled = true
 sdfgi_use_occlusion = true
 glow_enabled = true
-glow_bloom = 0.04
+glow_normalized = true
+glow_intensity = 4.01
+glow_strength = 1.32
 glow_blend_mode = 0
-glow_hdr_threshold = 0.03
+glow_hdr_scale = 0.56
+glow_hdr_luminance_cap = 47.03
 fog_enabled = true
 fog_light_color = Color(0.411765, 0.0705882, 0.376471, 1)
 fog_density = 0.021
@@ -60,6 +64,7 @@ shape = SubResource("BoxShape3D_ns7rh")
 [node name="Character" parent="." instance=ExtResource("1_tr0ag")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9715, 9.71853, -33.0815)
 script = ExtResource("2_h1gee")
+BulletScene = ExtResource("3_n2sfi")
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Character"]
 transform = Transform3D(1, 0, 0, 0, 0.778353, 0.627827, 0, -0.627827, 0.778353, 0, 0, 0)
@@ -88,3 +93,6 @@ transform = Transform3D(1, 0, 0, 0, 0.778353, 0.627827, 0, -0.627827, 0.778353, 
 [node name="Camera3D" type="Camera3D" parent="CameraAnchor"]
 transform = Transform3D(1, 0, 0, 0, 0.983341, 0.181772, 0, -0.181772, 0.983341, -0.239708, 3.18741, 10.7707)
 fov = 67.9572
+
+[node name="Bullets" type="Node3D" parent="."]
+unique_name_in_owner = true

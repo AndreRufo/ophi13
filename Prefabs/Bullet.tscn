@@ -1,10 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://daa4scifdiejw"]
+[gd_scene load_steps=5 format=3 uid="uid://daa4scifdiejw"]
 
+[ext_resource type="Script" path="res://Scripts/Bullet.gd" id="1_2u12l"]
 [ext_resource type="Texture2D" uid="uid://b1ls1c1c62g3e" path="res://Assets/Particles/Kenney/magic_05.png" id="1_eqcsi"]
+[ext_resource type="Material" uid="uid://t6xfnvp357jr" path="res://Assets/bullet_material_3d.tres" id="2_7e2gd"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1ypvu"]
 
 [node name="Bullet" type="Node3D"]
+script = ExtResource("1_2u12l")
 
 [node name="Visual" type="Sprite3D" parent="."]
-modulate = Color(1, 0.309804, 0.309804, 1)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+material_override = ExtResource("2_7e2gd")
+modulate = Color(10, 0.31, 0.31, 1)
 billboard = 1
 texture = ExtResource("1_eqcsi")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_1ypvu")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
