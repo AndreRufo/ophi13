@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d4lp0doik3rtc" path="res://Prefabs/Character.tscn" id="1_tr0ag"]
 [ext_resource type="PackedScene" uid="uid://daa4scifdiejw" path="res://Prefabs/Bullet.tscn" id="3_n2sfi"]
-[ext_resource type="PackedScene" uid="uid://4j1jhl2ib1ff" path="res://Prefabs/HUD.tscn" id="4_3n2ta"]
+[ext_resource type="PackedScene" uid="uid://4j1jhl2ib1ff" path="res://Prefabs/UI/HUD.tscn" id="4_3n2ta"]
 [ext_resource type="PackedScene" uid="uid://hc6iqxwfym4h" path="res://Prefabs/Aries.tscn" id="4_jmyty"]
 [ext_resource type="PackedScene" uid="uid://7g2g3525ls68" path="res://Prefabs/Pisces.tscn" id="5_ul6xq"]
 [ext_resource type="Script" path="res://ScriptsNew/ZodiacSpawner.gd" id="6_fje5m"]
