@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://hc6iqxwfym4h"]
+
+[ext_resource type="PackedScene" uid="uid://y1eqpa7ff1uq" path="res://Prefabs/Enemy.tscn" id="1_qi0ms"]
+[ext_resource type="Script" path="res://scripts/Aries.gd" id="2_054md"]
+
+[node name="Aries" instance=ExtResource("1_qi0ms")]
+script = ExtResource("2_054md")
