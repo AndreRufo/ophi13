@@ -5,6 +5,8 @@ extends Node3D
 @export var BulletMaterial : StandardMaterial3D
 @export var AngleDeviation : float = 5
 
+@export var disableShooting : bool = false;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$BulletSpawnInterval.start();
@@ -28,6 +30,9 @@ func ShootBullet(direction):
 
 
 func _on_bullet_spawn_interval_timeout():
+	if disableShooting:
+		$BulletSpawnInterval.start();
+		return;
 	var angle = randf_range(-AngleDeviation, AngleDeviation);
 	var shootDir = global_transform.basis.z;
 	var rotatedDir = shootDir.rotated(Vector3.UP, deg_to_rad(angle))
