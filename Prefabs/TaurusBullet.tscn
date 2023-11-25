@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4kd7xdc0socd"]
+
+[ext_resource type="PackedScene" uid="uid://daa4scifdiejw" path="res://Prefabs/Bullet.tscn" id="1_mmvpa"]
+
+[node name="TaurusBullet" instance=ExtResource("1_mmvpa")]
+
+[node name="Area3D" parent="." index="2"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
