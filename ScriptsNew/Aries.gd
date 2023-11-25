@@ -6,6 +6,10 @@ var Charging : bool = false
 var charge_velocity : Vector3
 var charge_timer = 0
 
+@export var AngleCurve : Curve;
+
+var currentCurveVal = 0;
+
 func _update(delta):
 	$BulletSpawnersContainer.rotate_y(deg_to_rad(0.5));
 	if Charging :

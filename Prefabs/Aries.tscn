@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://hc6iqxwfym4h"]
+[gd_scene load_steps=7 format=3 uid="uid://hc6iqxwfym4h"]
 
 [ext_resource type="PackedScene" uid="uid://y1eqpa7ff1uq" path="res://Prefabs/Enemy.tscn" id="1_qi0ms"]
 [ext_resource type="Script" path="res://ScriptsNew/Aries.gd" id="2_qyowq"]
@@ -6,26 +6,33 @@
 [ext_resource type="PackedScene" uid="uid://daa4scifdiejw" path="res://Prefabs/Bullet.tscn" id="4_1vi8u"]
 [ext_resource type="Material" uid="uid://iamf6dkl4p2" path="res://Assets/enemy_bullet_material_3d.tres" id="5_6u17x"]
 
+[sub_resource type="Curve" id="Curve_3j06l"]
+min_value = -1.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(0.75, -1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
 [node name="Aries" instance=ExtResource("1_qi0ms")]
 script = ExtResource("2_qyowq")
 ChargeSpeed = 1.0
 TriggerChargeDistance = 1.0
+AngleCurve = SubResource("Curve_3j06l")
 
 [node name="BulletSpawner" parent="BulletSpawnersContainer" index="0" instance=ExtResource("3_ivmvv")]
+transform = Transform3D(0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, 0.766044, 0, 0, 0)
 BulletScene = ExtResource("4_1vi8u")
 BulletMaterial = ExtResource("5_6u17x")
 
 [node name="BulletSpawner2" parent="BulletSpawnersContainer" index="1" instance=ExtResource("3_ivmvv")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(0.939693, 0, -0.34202, 0, 1, 0, 0.34202, 0, 0.939693, 0, 0, 0)
 BulletScene = ExtResource("4_1vi8u")
 BulletMaterial = ExtResource("5_6u17x")
 
 [node name="BulletSpawner3" parent="BulletSpawnersContainer" index="2" instance=ExtResource("3_ivmvv")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, 0, 0, 0)
 BulletScene = ExtResource("4_1vi8u")
 BulletMaterial = ExtResource("5_6u17x")
 
 [node name="BulletSpawner4" parent="BulletSpawnersContainer" index="3" instance=ExtResource("3_ivmvv")]
-transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, 0)
+transform = Transform3D(0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, 0.766044, 0, 0, 0)
 BulletScene = ExtResource("4_1vi8u")
 BulletMaterial = ExtResource("5_6u17x")
