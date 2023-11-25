@@ -23,6 +23,12 @@ Singletons="*res://ScriptsNew/Singletons.gd"
 
 import/fbx/enabled=false
 
+[layer_names]
+
+3d_physics/layer_1="World"
+3d_physics/layer_2="Projectile"
+3d_physics/layer_3="Character"
+
 [rendering]
 
 renderer/rendering_method.mobile="gl_compatibility"

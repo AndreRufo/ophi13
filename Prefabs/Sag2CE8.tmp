@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://c7bhnlpb6dm1d"]
+
+[ext_resource type="PackedScene" uid="uid://y1eqpa7ff1uq" path="res://Prefabs/Enemy.tscn" id="1_pb6sn"]
+[ext_resource type="Script" path="res://ScriptsNew/SagittariusEnemy.gd" id="2_bpb02"]
+[ext_resource type="PackedScene" uid="uid://lf7koccski54" path="res://Prefabs/BulletSpawner.tscn" id="3_d8e2k"]
+[ext_resource type="Script" path="res://ScriptsNew/SagiBulletSpawner.gd" id="4_q1mn2"]
+[ext_resource type="PackedScene" uid="uid://csrxqup5toluh" path="res://Prefabs/SagiBullet.tscn" id="5_n5ey0"]
+[ext_resource type="Material" uid="uid://iamf6dkl4p2" path="res://Assets/enemy_bullet_material_3d.tres" id="5_ngcuh"]
+
+[node name="Enemy" instance=ExtResource("1_pb6sn")]
+collision_layer = 4
+script = ExtResource("2_bpb02")
+SniperPositions = Array[Vector3]([])
+ShotChargeRate = 0.5
+ShotCooldown = 5.0
+RotationSpeed = 0.85
+TopHeightOfJump = 10.0
+JumpMovementSpeed = 1.5
+SniperCollisionMask = 4
+
+[node name="BulletSpawnersContainer" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.994825)
+
+[node name="BulletSpawner" parent="BulletSpawnersContainer" index="0" instance=ExtResource("3_d8e2k")]
+script = ExtResource("4_q1mn2")
+BulletScene = ExtResource("5_n5ey0")
+BulletMaterial = ExtResource("5_ngcuh")

@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfjs3orvliptv"]
+
+[ext_resource type="Texture2D" uid="uid://271qccecm1k4" path="res://Assets/sagi-bullseye.png" id="1_o1bnw"]
+[ext_resource type="Script" path="res://ScriptsNew/UI/BullseyeBehavior.gd" id="2_a5xob"]
+[ext_resource type="Texture2D" uid="uid://c2c35nvi5hetj" path="res://Assets/bullseye-lock.png" id="3_gce2k"]
+[ext_resource type="Script" path="res://ScriptsNew/UI/BullseyeLockBehavior.gd" id="4_wt7g5"]
+
+[node name="bullseye-tex" type="TextureRect"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -512.0
+offset_bottom = -260.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_o1bnw")
+script = ExtResource("2_a5xob")
+
+[node name="bullseye-lock-topleft" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 20.0
+texture = ExtResource("3_gce2k")
+script = ExtResource("4_wt7g5")
+TargetDirection = Vector2(1, 1)
+
+[node name="bullseye-lock-topright" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 48.0
+offset_right = 66.0
+offset_bottom = 20.0
+texture = ExtResource("3_gce2k")
+flip_h = true
+script = ExtResource("4_wt7g5")
+TargetDirection = Vector2(-1, 1)
+
+[node name="bullseye-lock-botleft" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_top = 48.0
+offset_right = 18.0
+offset_bottom = 68.0
+texture = ExtResource("3_gce2k")
+flip_v = true
+script = ExtResource("4_wt7g5")
+TargetDirection = Vector2(1, -1)
+
+[node name="bullseye-lock-botright" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 66.0
+offset_bottom = 68.0
+texture = ExtResource("3_gce2k")
+flip_h = true
+flip_v = true
+script = ExtResource("4_wt7g5")
+TargetDirection = Vector2(-1, -1)

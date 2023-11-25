@@ -1,3 +1,4 @@
+class_name BulletSpawner
 extends Node3D
 
 @export var BulletScene : PackedScene
@@ -22,7 +23,6 @@ func ShootBullet(direction):
 	new_bullet.direction = direction;
 	new_bullet.is_player_bullet = false;
 	new_bullet.SetColor(BulletMaterial);
-	new_bullet.speed = 10;
 	
 	get_node("../../../Bullets").add_child(new_bullet);
 

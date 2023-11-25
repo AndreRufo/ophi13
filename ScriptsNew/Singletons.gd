@@ -1,6 +1,8 @@
 extends Node
 
 var PlayerCharacter : CharacterBody3D;
+var CameraObject : Camera3D;
+var Hud : CanvasLayer;
 
 signal player_damaged(hp_after_dmg);
 
