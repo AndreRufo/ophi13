@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 class_name BaseEnemy
 
+@export var Speed : float = 1
 @export var MaxHealth : int = 10 
 var currentHealth : int = MaxHealth
 
