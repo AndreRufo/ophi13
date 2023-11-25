@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var direction : Vector3
+@export var speed : float = 50;
 
 @export var is_player_bullet : bool = true;
 
@@ -13,7 +14,7 @@ func SetColor(color : StandardMaterial3D):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position += direction * delta * 50;
+	position += direction * delta * speed;
 
 
 func _on_timer_timeout():

@@ -3,10 +3,11 @@ extends BaseEnemy
 @export var ChargeSpeed : float = 1
 @export var TriggerChargeDistance : float = 1
 var Charging : bool = false
-var charge_velocity : Vector3 
+var charge_velocity : Vector3
 var charge_timer = 0
 
 func _update(delta):
+	$BulletSpawnersContainer.rotate_y(deg_to_rad(0.5));
 	if Charging :
 		_charge(delta)
 	else :
@@ -17,8 +18,8 @@ func _update(delta):
 			Charging = true
 			var normalized_dir = direction.normalized()
 			charge_velocity = normalized_dir * ChargeSpeed
-		else : 
-			var new_velocity = (player.position - position) * Speed	
+		else :
+			var new_velocity = (player.position - position) * Speed
 			velocity.x = new_velocity.x
 			velocity.z = new_velocity.z
 

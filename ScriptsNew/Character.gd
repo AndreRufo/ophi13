@@ -56,7 +56,8 @@ func _physics_process(delta):
 	
 	var new_look_dir = position + direction
 	
-	look_at(new_look_dir, Vector3.UP, true)
+	if (direction.length() > 0):
+		look_at(new_look_dir, Vector3.UP, true)
 
 	move_and_slide()
 

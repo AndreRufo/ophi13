@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://4j1jhl2ib1ff"]
+
+[ext_resource type="Texture2D" uid="uid://cnc6h7bwucv36" path="res://icon.svg" id="1_472ud"]
+[ext_resource type="Script" path="res://ScriptsNew/UI/timer_display.gd" id="2_l2j0v"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="hp" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 46.0
+offset_bottom = 50.0
+text = "HP
+"
+
+[node name="bar" type="TextureProgressBar" parent="hp"]
+layout_mode = 0
+offset_left = 56.0
+offset_right = 184.0
+offset_bottom = 128.0
+scale = Vector2(1.418, 0.2)
+value = 100.0
+texture_under = ExtResource("1_472ud")
+texture_progress = ExtResource("1_472ud")
+tint_under = Color(0, 0.419608, 0.458824, 1)
+tint_progress = Color(0, 0.819608, 0, 1)
+
+[node name="time" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 58.0
+offset_right = 64.0
+offset_bottom = 84.0
+text = "Time"
+
+[node name="Timer" type="Timer" parent="time"]
+wait_time = 60.0
+autostart = true
+
+[node name="timer label" type="Label" parent="time"]
+layout_mode = 0
+offset_left = 56.0
+offset_right = 96.0
+offset_bottom = 26.0
+text = "99:99
+"
+script = ExtResource("2_l2j0v")
