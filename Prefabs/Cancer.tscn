@@ -42,6 +42,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.937658, 0, 0)
 [node name="BulletSpawner" parent="BulletSpawnersContainer" index="0" instance=ExtResource("3_h2r5r")]
 BulletScene = ExtResource("5_1r2av")
 BulletMaterial = ExtResource("6_kv7sb")
+AngleDeviation = 15.0
 
 [node name="BulletSpawnersContainer2" type="Node3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.964452, 0, 0)
@@ -49,5 +50,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.964452, 0, 0)
 [node name="BulletSpawner" parent="BulletSpawnersContainer2" index="0" instance=ExtResource("3_h2r5r")]
 BulletScene = ExtResource("5_1r2av")
 BulletMaterial = ExtResource("6_kv7sb")
+AngleDeviation = 15.0
 
 [editable path="Visual/Cancer"]
