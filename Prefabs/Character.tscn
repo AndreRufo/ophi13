@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4lp0doik3rtc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gf1nm"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_pc6ix"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8jwdv"]
+
+[node name="Character" type="CharacterBody3D"]
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_gf1nm")
+
+[node name="Visual" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_pc6ix")
+
+[node name="Gun" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, 0.76)
+mesh = SubResource("BoxMesh_8jwdv")

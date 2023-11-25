@@ -64,8 +64,6 @@ script = ExtResource("2_h1gee")
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Character"]
 transform = Transform3D(1, 0, 0, 0, 0.778353, 0.627827, 0, -0.627827, 0.778353, 0, 0, 0)
 remote_path = NodePath("../../CameraAnchor")
-update_rotation = false
-update_scale = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.79873, -0.469215, 0.376653, 0, 0.625992, 0.77983, -0.60169, -0.622874, 0.499998, 28.5863, 14.657, -23.8253)
