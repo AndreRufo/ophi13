@@ -8,6 +8,8 @@
 
 [node name="Aries" instance=ExtResource("1_qi0ms")]
 script = ExtResource("2_qyowq")
+ChargeSpeed = 1.0
+TriggerChargeDistance = 1.0
 
 [node name="BulletSpawner" parent="BulletSpawnersContainer" index="0" instance=ExtResource("3_ivmvv")]
 BulletScene = ExtResource("4_1vi8u")
