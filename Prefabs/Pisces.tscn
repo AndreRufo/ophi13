@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://7g2g3525ls68"]
+[gd_scene load_steps=9 format=3 uid="uid://7g2g3525ls68"]
 
 [ext_resource type="PackedScene" uid="uid://y1eqpa7ff1uq" path="res://Prefabs/Enemy.tscn" id="1_24d6r"]
 [ext_resource type="Script" path="res://ScriptsNew/Pisces.gd" id="2_b6bjs"]
 [ext_resource type="PackedScene" uid="uid://lf7koccski54" path="res://Prefabs/BulletSpawner.tscn" id="3_gge50"]
+[ext_resource type="PackedScene" uid="uid://rds72okqyjnr" path="res://Assets/Models/Pisces.glb" id="3_mrgne"]
 [ext_resource type="PackedScene" uid="uid://daa4scifdiejw" path="res://Prefabs/Bullet.tscn" id="4_j1kfe"]
 [ext_resource type="Material" uid="uid://iamf6dkl4p2" path="res://Assets/enemy_bullet_material_3d.tres" id="5_27rpp"]
 
@@ -11,9 +12,24 @@ min_value = -1.0
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(0.75, -1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0xjp"]
+albedo_color = Color(0.380392, 1, 0.572549, 1)
+emission_enabled = true
+emission = Color(0.321569, 0.768627, 0.254902, 1)
+emission_energy_multiplier = 1.5
+
 [node name="Pisces" instance=ExtResource("1_24d6r")]
 script = ExtResource("2_b6bjs")
 AngleCurve = SubResource("Curve_jqqk7")
+
+[node name="Visual" parent="." index="1"]
+material_override = SubResource("StandardMaterial3D_j0xjp")
+mesh = null
+
+[node name="Pisces" parent="Visual" index="0" instance=ExtResource("3_mrgne")]
+
+[node name="12_PISCES" parent="Visual/Pisces" index="0"]
+material_override = SubResource("StandardMaterial3D_j0xjp")
 
 [node name="BulletSpawner" parent="BulletSpawnersContainer" index="0" instance=ExtResource("3_gge50")]
 BulletScene = ExtResource("4_j1kfe")
@@ -85,3 +101,5 @@ transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0, 0, 0)
 BulletScene = ExtResource("4_j1kfe")
 BulletMaterial = ExtResource("5_27rpp")
 AngleDeviation = 2.0
+
+[editable path="Visual/Pisces"]
