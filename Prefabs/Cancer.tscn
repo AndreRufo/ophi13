@@ -1,7 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://c24flsme287t6"]
+[gd_scene load_steps=10 format=3 uid="uid://c24flsme287t6"]
 
 [ext_resource type="PackedScene" uid="uid://y1eqpa7ff1uq" path="res://Prefabs/Enemy.tscn" id="1_x0jva"]
 [ext_resource type="PackedScene" uid="uid://1sggh2xa0i7g" path="res://Assets/Models/Cancer.glb" id="2_7fv5x"]
+[ext_resource type="Script" path="res://Prefabs/Cancer.gd" id="2_wk4gn"]
+[ext_resource type="PackedScene" uid="uid://lf7koccski54" path="res://Prefabs/BulletSpawner.tscn" id="3_h2r5r"]
+[ext_resource type="PackedScene" uid="uid://daa4scifdiejw" path="res://Prefabs/Bullet.tscn" id="5_1r2av"]
+[ext_resource type="Material" uid="uid://iamf6dkl4p2" path="res://Assets/enemy_bullet_material_3d.tres" id="6_kv7sb"]
+
+[sub_resource type="Curve" id="Curve_ln144"]
+min_value = -1.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(0.75, -1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_gbbrn"]
+min_value = -1.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(0.75, -1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_30wvi"]
 albedo_color = Color(0.568627, 0.568627, 0.568627, 1)
@@ -10,6 +24,9 @@ emission = Color(0.580392, 0.580392, 0.580392, 1)
 emission_energy_multiplier = 2.5
 
 [node name="Cancer" instance=ExtResource("1_x0jva")]
+script = ExtResource("2_wk4gn")
+AngleCurve = SubResource("Curve_ln144")
+AngleCurve2 = SubResource("Curve_gbbrn")
 
 [node name="Visual" parent="." index="1"]
 mesh = null
@@ -18,5 +35,19 @@ mesh = null
 
 [node name="4_CANCER" parent="Visual/Cancer" index="0"]
 material_override = SubResource("StandardMaterial3D_30wvi")
+
+[node name="BulletSpawnersContainer" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.937658, 0, 0)
+
+[node name="BulletSpawner" parent="BulletSpawnersContainer" index="0" instance=ExtResource("3_h2r5r")]
+BulletScene = ExtResource("5_1r2av")
+BulletMaterial = ExtResource("6_kv7sb")
+
+[node name="BulletSpawnersContainer2" type="Node3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.964452, 0, 0)
+
+[node name="BulletSpawner" parent="BulletSpawnersContainer2" index="0" instance=ExtResource("3_h2r5r")]
+BulletScene = ExtResource("5_1r2av")
+BulletMaterial = ExtResource("6_kv7sb")
 
 [editable path="Visual/Cancer"]
