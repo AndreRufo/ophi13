@@ -37,7 +37,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		var new_bullet = BulletScene.instantiate();
-		new_bullet.position = position + transform.basis.z + Vector3(0, 0.5, 0);
+		new_bullet.position = $BulletOrigin.global_position;
 		new_bullet.direction = transform.basis.z;
 		get_node("../Bullets").add_child(new_bullet);
  
@@ -49,12 +49,12 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
-		if !$Visual/Ophiucus_Anim/AnimationPlayer.is_playing():
-			$Visual/Ophiucus_Anim/AnimationPlayer.play("Armature|mixamo_com|Layer0");
+		if !$Visual/Ophiucus_Anim2/AnimationPlayer.is_playing():
+			$Visual/Ophiucus_Anim2/AnimationPlayer.play("Armature|mixamo_com|Layer0");
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-		$Visual/Ophiucus_Anim/AnimationPlayer.pause()
+		$Visual/Ophiucus_Anim2/AnimationPlayer.pause()
 	
 	var new_look_dir = position + direction
 	

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ScriptsNew/Character.gd" id="1_tl3q1"]
 [ext_resource type="PackedScene" uid="uid://cplbtlniv8tgh" path="res://Prefabs/PlayerBullet.tscn" id="2_5tvyk"]
-[ext_resource type="PackedScene" uid="uid://ht78aj7k6bwc" path="res://Assets/Models/Ophiucus_Anim.glb" id="3_x0sj4"]
+[ext_resource type="PackedScene" uid="uid://clsav3p0qp40q" path="res://Assets/Models/Ophiucus_Anim2.glb" id="3_1w8es"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gf1nm"]
 radius = 0.23171
@@ -25,44 +25,51 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, 0.76)
 visible = false
 mesh = SubResource("BoxMesh_8jwdv")
 
-[node name="Ophiucus_Anim" parent="Visual" instance=ExtResource("3_x0sj4")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.67966, 0)
+[node name="Ophiucus_Anim2" parent="Visual" instance=ExtResource("3_1w8es")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.94511, 0)
 
-[node name="Skeleton3D" parent="Visual/Ophiucus_Anim/Armature" index="0"]
-bones/0/position = Vector3(0.00330636, 0.0052603, -0.588043)
-bones/0/rotation = Quaternion(-0.684247, 0.0621695, -0.0238162, 0.726205)
-bones/1/rotation = Quaternion(-0.0266803, 0.000543108, -0.0149403, 0.999532)
-bones/2/rotation = Quaternion(-0.000543687, -0.00661879, -0.0149782, 0.999866)
-bones/3/rotation = Quaternion(-0.000457168, -0.00659424, -0.0149323, 0.999867)
-bones/4/rotation = Quaternion(-0.00599884, -0.0164577, 0.0311429, 0.999361)
-bones/5/rotation = Quaternion(-0.0358047, -0.0396458, 0.00471708, 0.998561)
-bones/7/rotation = Quaternion(0.592789, 0.379748, -0.616909, 0.351875)
-bones/8/rotation = Quaternion(0.277495, 0.2198, 0.134772, 0.925484)
-bones/9/rotation = Quaternion(0.136259, -0.066049, 0.842196, 0.517472)
-bones/10/rotation = Quaternion(-0.0567593, 0.220955, 0.274087, 0.934256)
-bones/11/rotation = Quaternion(-0.100949, 0.667749, -0.0365701, 0.736603)
-bones/12/rotation = Quaternion(0.390493, -3.25561e-08, -0.0976225, 0.915415)
-bones/13/rotation = Quaternion(0.137671, -0.024119, -0.0572231, 0.98853)
-bones/15/rotation = Quaternion(0.567262, -0.408579, 0.622435, 0.351924)
-bones/16/rotation = Quaternion(0.376263, 0.226412, 0.173397, 0.881531)
-bones/17/rotation = Quaternion(0.0197717, 0.00817629, -0.500058, 0.865728)
-bones/18/rotation = Quaternion(0.00469925, 0.601226, -0.13876, 0.786925)
-bones/19/rotation = Quaternion(-0.0256966, -0.965878, -0.02047, 0.256907)
-bones/20/rotation = Quaternion(-0.0241529, -5.19638e-06, -0.139335, 0.989951)
-bones/21/rotation = Quaternion(0.10779, 0.0371069, -0.12308, 0.985827)
-bones/23/rotation = Quaternion(0.056336, 0.0121694, 0.995643, 0.0732993)
-bones/24/rotation = Quaternion(-0.248394, -0.0201846, -0.0502148, 0.967146)
-bones/25/rotation = Quaternion(0.655903, -0.00478265, 0.0889037, 0.749576)
-bones/26/rotation = Quaternion(0.378258, -0.00297013, -0.00629705, 0.925674)
-bones/28/rotation = Quaternion(0.0150742, 0.236545, 0.969081, 0.06857)
-bones/29/rotation = Quaternion(-0.687464, 0.0127226, 0.0323378, 0.725387)
-bones/30/rotation = Quaternion(0.40321, 0.0302862, -0.0557851, 0.912904)
-bones/31/rotation = Quaternion(0.314998, 0.0247904, 0.0113399, 0.948701)
+[node name="Skeleton3D" parent="Visual/Ophiucus_Anim2/Armature" index="0"]
+bones/0/position = Vector3(0.00261638, 0.00567282, -0.586062)
+bones/0/rotation = Quaternion(-0.68732, 0.0650767, -0.0237594, 0.723044)
+bones/1/rotation = Quaternion(-0.0241879, -0.00158732, -0.0119805, 0.999634)
+bones/2/rotation = Quaternion(0.00266961, 0.00665739, -0.0179597, 0.999813)
+bones/3/rotation = Quaternion(0.00348028, 0.00637077, -0.0179455, 0.999813)
+bones/4/rotation = Quaternion(-0.00427425, -0.02038, 0.033925, 0.999207)
+bones/5/rotation = Quaternion(-0.0324152, -0.0563096, 0.0102343, 0.997834)
+bones/7/rotation = Quaternion(0.573872, 0.386188, -0.633019, 0.347586)
+bones/8/rotation = Quaternion(0.269239, 0.221305, 0.145033, 0.926013)
+bones/9/rotation = Quaternion(0.138491, -0.0630631, 0.855997, 0.494077)
+bones/10/rotation = Quaternion(-0.0746857, 0.193031, 0.23844, 0.948845)
+bones/11/rotation = Quaternion(-0.106624, 0.667298, -0.0386259, 0.736106)
+bones/12/rotation = Quaternion(0.390493, -2.17719e-07, -0.0976227, 0.915415)
+bones/13/rotation = Quaternion(0.137671, -0.024119, -0.057223, 0.988529)
+bones/15/rotation = Quaternion(0.591722, -0.389704, 0.602464, 0.367469)
+bones/16/rotation = Quaternion(0.490864, 0.607225, -0.461025, 0.421643)
+bones/17/rotation = Quaternion(0.0246362, 0.0309605, -0.103509, 0.993839)
+bones/18/rotation = Quaternion(-0.020436, 0.597568, -0.1273, 0.791384)
+bones/19/rotation = Quaternion(-0.0297694, -0.965699, -0.0237155, 0.25686)
+bones/20/rotation = Quaternion(-0.0241533, -5.31315e-06, -0.139334, 0.989951)
+bones/21/rotation = Quaternion(0.10779, 0.037107, -0.123081, 0.985827)
+bones/23/rotation = Quaternion(0.0514748, 0.0389805, 0.995208, 0.0734282)
+bones/24/rotation = Quaternion(-0.289132, -0.0421993, -0.044809, 0.955309)
+bones/25/rotation = Quaternion(0.661295, -0.00298627, 0.0786323, 0.745987)
+bones/26/rotation = Quaternion(0.372739, -0.00234193, -0.00610885, 0.927913)
+bones/28/rotation = Quaternion(0.0149288, 0.225231, 0.971958, 0.065916)
+bones/29/rotation = Quaternion(-0.721567, 0.0179777, 0.030327, 0.691446)
+bones/30/rotation = Quaternion(0.419223, 0.0325473, -0.0506119, 0.905887)
+bones/31/rotation = Quaternion(0.273071, 0.00988223, 0.00700662, 0.961918)
 
 [node name="StunTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 0.5
 
+[node name="BulletOrigin" type="BoneAttachment3D" parent="."]
+transform = Transform3D(-1.7255, -0.723093, -0.706957, -0.918178, 0.534297, 1.69454, -0.423794, 1.78652, -0.792929, -0.467083, 0.96735, 0.939627)
+bone_name = "mixamorig_RightHand"
+bone_idx = 18
+use_external_skeleton = true
+external_skeleton = NodePath("../Visual/Ophiucus_Anim2/Armature/Skeleton3D")
+
 [connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]
 
-[editable path="Visual/Ophiucus_Anim"]
+[editable path="Visual/Ophiucus_Anim2"]
