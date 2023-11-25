@@ -19,8 +19,10 @@ emission = Color(0.321569, 0.768627, 0.254902, 1)
 emission_energy_multiplier = 2.5
 
 [node name="Pisces" instance=ExtResource("1_24d6r")]
+wall_min_slide_angle = 0.349066
 script = ExtResource("2_b6bjs")
 AngleCurve = SubResource("Curve_jqqk7")
+MaxHealth = 15
 
 [node name="Visual" parent="." index="1"]
 material_override = SubResource("StandardMaterial3D_j0xjp")

@@ -8,6 +8,8 @@ var lock_progress : float = 0;
 var visual_lock_progress : float = 0;
 
 func _process(delta):
+	if !Singletons.PlayerCharacter:
+		return;
 	position = Singletons.CameraObject.unproject_position((Singletons.PlayerCharacter.position)) - Vector2(32, 32);
 	var progress_speed = 0;
 	if(lock_progress < 0.5):

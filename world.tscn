@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bupermobpg1sj"]
+[gd_scene load_steps=16 format=3 uid="uid://bupermobpg1sj"]
 
 [ext_resource type="Texture2D" uid="uid://d2xq5ndw02hs1" path="res://Assets/Models/Nebula.hdr" id="1_3b43y"]
 [ext_resource type="PackedScene" uid="uid://d4lp0doik3rtc" path="res://Prefabs/Character.tscn" id="1_tr0ag"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://hc6iqxwfym4h" path="res://Prefabs/Aries.tscn" id="4_jmyty"]
 [ext_resource type="PackedScene" uid="uid://7g2g3525ls68" path="res://Prefabs/Pisces.tscn" id="5_ul6xq"]
 [ext_resource type="Script" path="res://ScriptsNew/ZodiacSpawner.gd" id="6_fje5m"]
+[ext_resource type="PackedScene" uid="uid://nlarhrwqb002" path="res://Prefabs/Leo.tscn" id="6_grg37"]
 [ext_resource type="PackedScene" uid="uid://c2wbfm15y6g84" path="res://Prefabs/Battleground.tscn" id="7_jpi8t"]
 [ext_resource type="PackedScene" uid="uid://bigen8uemxgp" path="res://Prefabs/Gemini.tscn" id="9_bksfa"]
 [ext_resource type="PackedScene" uid="uid://c24flsme287t6" path="res://Prefabs/Cancer.tscn" id="9_ieg3u"]
@@ -80,7 +81,7 @@ update_scale = false
 
 [node name="ZodiacSpawner" type="Node3D" parent="."]
 script = ExtResource("6_fje5m")
-Signs = Array[PackedScene]([ExtResource("9_ieg3u"), ExtResource("5_ul6xq"), ExtResource("4_jmyty"), ExtResource("9_bksfa"), ExtResource("10_pfp5q"), ExtResource("4_jmyty"), ExtResource("5_ul6xq"), ExtResource("4_jmyty"), ExtResource("5_ul6xq"), ExtResource("4_jmyty"), ExtResource("5_ul6xq"), ExtResource("4_jmyty")])
+Signs = Array[PackedScene]([ExtResource("9_ieg3u"), ExtResource("5_ul6xq"), ExtResource("4_jmyty"), ExtResource("9_bksfa"), ExtResource("6_grg37"), ExtResource("10_pfp5q"), ExtResource("5_ul6xq"), ExtResource("4_jmyty"), ExtResource("5_ul6xq"), ExtResource("4_jmyty"), ExtResource("5_ul6xq"), ExtResource("4_jmyty")])
 
 [node name="Timer" type="Timer" parent="ZodiacSpawner"]
 wait_time = 13.0

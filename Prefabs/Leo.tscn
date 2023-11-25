@@ -1,0 +1,120 @@
+[gd_scene load_steps=11 format=3 uid="uid://nlarhrwqb002"]
+
+[ext_resource type="PackedScene" uid="uid://y1eqpa7ff1uq" path="res://Prefabs/Enemy.tscn" id="1_rpj8e"]
+[ext_resource type="Script" path="res://Prefabs/Leo.gd" id="2_cokle"]
+[ext_resource type="PackedScene" uid="uid://b2lqj7dpdnmh4" path="res://Assets/Models/Leo.glb" id="3_b26w2"]
+[ext_resource type="PackedScene" uid="uid://lf7koccski54" path="res://Prefabs/BulletSpawner.tscn" id="3_vy1x0"]
+[ext_resource type="PackedScene" uid="uid://d38tvm32j7lms" path="res://Prefabs/PiscesBullet.tscn" id="4_nw88g"]
+[ext_resource type="Material" uid="uid://iamf6dkl4p2" path="res://Assets/enemy_bullet_material_3d.tres" id="5_4yicm"]
+
+[sub_resource type="Curve" id="Curve_sw362"]
+min_value = -1.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(0.75, -1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xu67y"]
+albedo_color = Color(1, 0.603922, 0.278431, 1)
+emission_enabled = true
+emission = Color(0.788235, 0.513726, 0.172549, 1)
+emission_energy_multiplier = 0.2
+
+[sub_resource type="Animation" id="Animation_l5of0"]
+resource_name = "leoshoot"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BulletSpawnersContainer/BulletSpawner:disableShooting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BulletSpawnersContainer/BulletSpawner2:disableShooting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BulletSpawnersContainer/BulletSpawner3:disableShooting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BulletSpawnersContainer/BulletSpawner4:disableShooting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4q834"]
+_data = {
+"leoshoot": SubResource("Animation_l5of0")
+}
+
+[node name="Leo" instance=ExtResource("1_rpj8e")]
+script = ExtResource("2_cokle")
+AngleCurve = SubResource("Curve_sw362")
+
+[node name="Visual" parent="." index="1"]
+mesh = null
+
+[node name="Leo" parent="Visual" index="0" instance=ExtResource("3_b26w2")]
+
+[node name="5_LEO" parent="Visual/Leo" index="0"]
+material_override = SubResource("StandardMaterial3D_xu67y")
+
+[node name="BulletSpawner" parent="BulletSpawnersContainer" index="0" instance=ExtResource("3_vy1x0")]
+BulletScene = ExtResource("4_nw88g")
+BulletMaterial = ExtResource("5_4yicm")
+AngleDeviation = 2.0
+
+[node name="BulletSpawner2" parent="BulletSpawnersContainer" index="1" instance=ExtResource("3_vy1x0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+BulletScene = ExtResource("4_nw88g")
+BulletMaterial = ExtResource("5_4yicm")
+AngleDeviation = 2.0
+disableShooting = true
+
+[node name="BulletSpawner3" parent="BulletSpawnersContainer" index="2" instance=ExtResource("3_vy1x0")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+BulletScene = ExtResource("4_nw88g")
+BulletMaterial = ExtResource("5_4yicm")
+AngleDeviation = 2.0
+
+[node name="BulletSpawner4" parent="BulletSpawnersContainer" index="3" instance=ExtResource("3_vy1x0")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, 0)
+BulletScene = ExtResource("4_nw88g")
+BulletMaterial = ExtResource("5_4yicm")
+AngleDeviation = 2.0
+disableShooting = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+libraries = {
+"": SubResource("AnimationLibrary_4q834")
+}
+
+[editable path="Visual/Leo"]

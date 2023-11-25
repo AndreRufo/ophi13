@@ -60,6 +60,7 @@ _data = {
 script = ExtResource("2_wk4gn")
 AngleCurve = SubResource("Curve_ln144")
 AngleCurve2 = SubResource("Curve_gbbrn")
+MaxHealth = 20
 
 [node name="Visual" parent="." index="1"]
 mesh = null

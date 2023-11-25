@@ -5,7 +5,7 @@ extends BaseEnemy
 var currentCurveVal = 0;
 
 func _ready():
-	Speed = 0.1
+	Speed = 0.2
 	
 	var spawners = $BulletSpawnersContainer.get_children();
 	for spawner in spawners:
