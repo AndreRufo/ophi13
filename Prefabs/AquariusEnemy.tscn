@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://t8d40b16hlit"]
+
+[ext_resource type="PackedScene" uid="uid://y1eqpa7ff1uq" path="res://Prefabs/Enemy.tscn" id="1_n8yv5"]
+[ext_resource type="Script" path="res://ScriptsNew/AquariusEnemy.gd" id="2_sekms"]
+[ext_resource type="PackedScene" uid="uid://d1bsrkspstdgp" path="res://Prefabs/AquariusBullet.tscn" id="3_6iukg"]
+[ext_resource type="Material" uid="uid://iamf6dkl4p2" path="res://Assets/enemy_bullet_material_3d.tres" id="4_delum"]
+
+[node name="AquariusEnemy" instance=ExtResource("1_n8yv5")]
+script = ExtResource("2_sekms")
+BulletScene = ExtResource("3_6iukg")
+BulletMaterial = ExtResource("4_delum")
+DelayBetweenLocationGeneration = 2.0
+MaxDistanceFromPlayer = 30
+BulletsInnerRing = 10
+BulletsMedRing = 20
+BulletsOuterRing = 60
+Speed = 5.0
+
+[node name="InnerRing" type="Node3D" parent="BulletSpawnersContainer" index="0"]
+
+[node name="MedRing" type="Node3D" parent="BulletSpawnersContainer" index="1"]
+
+[node name="OuterRing" type="Node3D" parent="BulletSpawnersContainer" index="2"]
