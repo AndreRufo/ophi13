@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://daa4scifdiejw"]
+[gd_scene load_steps=6 format=3 uid="uid://daa4scifdiejw"]
 
 [ext_resource type="Texture2D" uid="uid://b1ls1c1c62g3e" path="res://Assets/Particles/Kenney/magic_05.png" id="1_eqcsi"]
 [ext_resource type="Script" path="res://ScriptsNew/Bullet.gd" id="1_r132y"]
 [ext_resource type="Material" uid="uid://t6xfnvp357jr" path="res://Assets/bullet_material_3d.tres" id="2_7e2gd"]
+[ext_resource type="AudioStream" uid="uid://cmokau76jst5o" path="res://Assets/Audio/alienshoot1.wav" id="4_2f8ep"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1ypvu"]
 radius = 0.328462
@@ -28,6 +29,9 @@ collision_mask = 13
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_1ypvu")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2f8ep")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

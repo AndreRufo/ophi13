@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://d4lp0doik3rtc"]
 
 [ext_resource type="Script" path="res://ScriptsNew/Character.gd" id="1_tl3q1"]
-[ext_resource type="PackedScene" uid="uid://cplbtlniv8tgh" path="res://Prefabs/PlayerBullet.tscn" id="2_yk4v1"]
+[ext_resource type="PackedScene" uid="uid://cm38bcvi0qrus" path="res://Prefabs/PlayerBullet.tscn" id="2_5tvyk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gf1nm"]
 radius = 0.23171
@@ -14,7 +14,7 @@ radius = 0.23171
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_tl3q1")
-BulletScene = ExtResource("2_yk4v1")
+BulletScene = ExtResource("2_5tvyk")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_gf1nm")

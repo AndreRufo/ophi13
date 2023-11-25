@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cplbtlniv8tgh"]
+[gd_scene load_steps=3 format=3 uid="uid://cm38bcvi0qrus"]
 
 [ext_resource type="PackedScene" uid="uid://daa4scifdiejw" path="res://Prefabs/Bullet.tscn" id="1_27ti0"]
+[ext_resource type="AudioStream" uid="uid://vqr2jnwq3l7m" path="res://Assets/Audio/alien-blaster.wav" id="2_c10sw"]
 
-[node name="Bullet" instance=ExtResource("1_27ti0")]
+[node name="PlayerBullet" instance=ExtResource("1_27ti0")]
 speed = 50.0
+
+[node name="AudioStreamPlayer" parent="." index="3"]
+stream = ExtResource("2_c10sw")
+autoplay = true
