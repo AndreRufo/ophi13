@@ -7,10 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://csrxqup5toluh" path="res://Prefabs/SagiBullet.tscn" id="5_n5ey0"]
 [ext_resource type="Material" uid="uid://iamf6dkl4p2" path="res://Assets/enemy_bullet_material_3d.tres" id="5_ngcuh"]
 
-[node name="Enemy" instance=ExtResource("1_pb6sn")]
-collision_layer = 4
+[node name="Sagittarius" instance=ExtResource("1_pb6sn")]
 script = ExtResource("2_bpb02")
-SniperPositions = Array[Vector3]([])
+SniperPositions = Array[Vector3]([Vector3(-0.9, 1.9, -0.5), Vector3(-6.5, 1.5, 40), Vector3(30, 1.5, 25), Vector3(45, 2.8, -1.5), Vector3(28, 1.5, -25), Vector3(-5, 3, -45), Vector3(-35, 1.5, 20), Vector3(-33, 1.5, 12), Vector3(-5, 1.5, 38)])
 ShotChargeRate = 0.5
 ShotCooldown = 5.0
 RotationSpeed = 0.85
