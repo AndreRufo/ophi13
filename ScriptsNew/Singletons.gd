@@ -2,6 +2,7 @@ extends Node
 
 var PlayerCharacter : CharacterBody3D;
 
+signal player_damaged(hp_after_dmg);
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

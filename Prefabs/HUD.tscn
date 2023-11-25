@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://4j1jhl2ib1ff"]
+[gd_scene load_steps=4 format=3 uid="uid://4j1jhl2ib1ff"]
 
 [ext_resource type="Texture2D" uid="uid://cnc6h7bwucv36" path="res://icon.svg" id="1_472ud"]
+[ext_resource type="Script" path="res://ScriptsNew/UI/health_bar.gd" id="2_bk4sp"]
 [ext_resource type="Script" path="res://ScriptsNew/UI/timer_display.gd" id="2_l2j0v"]
 
 [node name="HUD" type="CanvasLayer"]
@@ -24,6 +25,7 @@ texture_under = ExtResource("1_472ud")
 texture_progress = ExtResource("1_472ud")
 tint_under = Color(0, 0.419608, 0.458824, 1)
 tint_progress = Color(0, 0.819608, 0, 1)
+script = ExtResource("2_bk4sp")
 
 [node name="time" type="Label" parent="."]
 offset_left = 24.0

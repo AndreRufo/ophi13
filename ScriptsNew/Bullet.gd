@@ -35,6 +35,7 @@ func _on_area_3d_body_entered(body):
 		
 	if !is_player_bullet && body.is_in_group("Character"):
 		body.currentHealth -= 1;
+		Singletons.player_damaged.emit(body.currentHealth);
 		if (body.currentHealth <= 0):
 			body.queue_free();
 		

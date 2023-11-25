@@ -40,6 +40,7 @@ func _on_damage_area_body_entered(body):
 		var player : CharacterBody3D = body;
 		player.Stun((player.position - position)*10);
 		player.currentHealth -= 1;
+		Singletons.player_damaged.emit(player.currentHealth);
 		if (player.currentHealth <= 0):
 			player.queue_free();
 	pass # Replace with function body.
