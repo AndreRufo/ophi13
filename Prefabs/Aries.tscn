@@ -13,8 +13,8 @@ point_count = 4
 
 [node name="Aries" instance=ExtResource("1_qi0ms")]
 script = ExtResource("2_qyowq")
-ChargeSpeed = 1.0
-TriggerChargeDistance = 1.0
+ChargeSpeed = 10.0
+TriggerChargeDistance = 5.0
 AngleCurve = SubResource("Curve_3j06l")
 
 [node name="BulletSpawner" parent="BulletSpawnersContainer" index="0" instance=ExtResource("3_ivmvv")]

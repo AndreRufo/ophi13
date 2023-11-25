@@ -1,7 +1,7 @@
 extends BaseEnemy
 
-@export var ChargeSpeed : float = 1
-@export var TriggerChargeDistance : float = 1
+@export var ChargeSpeed : float = 10
+@export var TriggerChargeDistance : float = 5
 var Charging : bool = false
 var charge_velocity : Vector3
 var charge_timer = 0
