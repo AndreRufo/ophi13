@@ -35,6 +35,8 @@ shape = SubResource("CylinderShape3D_bvxsd")
 [node name="BulletSpawnersContainer" type="Node3D" parent="."]
 
 [node name="BulletCaptureArea" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BulletCaptureArea"]
 shape = SubResource("SphereShape3D_1tii0")

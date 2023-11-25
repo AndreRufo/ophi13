@@ -10,11 +10,13 @@ func _ready():
 	
 	var spawners = $BulletSpawnersContainer.get_children();
 	for spawner in spawners:
-		spawner.SetSpawnInterval(0.1);
+		spawner.SetSpawnInterval(0.05);
 		
 	var spawners2 = $BulletSpawnersContainer2.get_children();
 	for spawner in spawners2:
-		spawner.SetSpawnInterval(0.1);
+		spawner.SetSpawnInterval(0.05);
+		
+	$AnimationPlayer.play("cancershoot")
 
 func _update(delta):
 	var rotAngle = AngleCurve.sample(currentCurveVal);

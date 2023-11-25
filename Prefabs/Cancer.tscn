@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c24flsme287t6"]
+[gd_scene load_steps=12 format=3 uid="uid://c24flsme287t6"]
 
 [ext_resource type="PackedScene" uid="uid://y1eqpa7ff1uq" path="res://Prefabs/Enemy.tscn" id="1_x0jva"]
 [ext_resource type="PackedScene" uid="uid://1sggh2xa0i7g" path="res://Assets/Models/Cancer.glb" id="2_7fv5x"]
 [ext_resource type="Script" path="res://Prefabs/Cancer.gd" id="2_wk4gn"]
 [ext_resource type="PackedScene" uid="uid://lf7koccski54" path="res://Prefabs/BulletSpawner.tscn" id="3_h2r5r"]
-[ext_resource type="PackedScene" uid="uid://daa4scifdiejw" path="res://Prefabs/Bullet.tscn" id="5_1r2av"]
+[ext_resource type="PackedScene" uid="uid://d38tvm32j7lms" path="res://Prefabs/PiscesBullet.tscn" id="5_je3ro"]
 [ext_resource type="Material" uid="uid://iamf6dkl4p2" path="res://Assets/enemy_bullet_material_3d.tres" id="6_kv7sb"]
 
 [sub_resource type="Curve" id="Curve_ln144"]
@@ -22,6 +22,39 @@ albedo_color = Color(0.568627, 0.568627, 0.568627, 1)
 emission_enabled = true
 emission = Color(0.580392, 0.580392, 0.580392, 1)
 emission_energy_multiplier = 2.5
+
+[sub_resource type="Animation" id="Animation_er5tg"]
+resource_name = "cancershoot"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BulletSpawnersContainer2/BulletSpawner:disableShooting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BulletSpawnersContainer/BulletSpawner:disableShooting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tx4ru"]
+_data = {
+"cancershoot": SubResource("Animation_er5tg")
+}
 
 [node name="Cancer" instance=ExtResource("1_x0jva")]
 script = ExtResource("2_wk4gn")
@@ -41,17 +74,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38863, 0, 0)
 
 [node name="BulletSpawner" parent="BulletSpawnersContainer" index="0" instance=ExtResource("3_h2r5r")]
 transform = Transform3D(0.939693, 0, -0.34202, 0, 1, 0, 0.34202, 0, 0.939693, 0, 0, 0)
-BulletScene = ExtResource("5_1r2av")
+BulletScene = ExtResource("5_je3ro")
 BulletMaterial = ExtResource("6_kv7sb")
-AngleDeviation = 15.0
+AngleDeviation = 10.0
 
 [node name="BulletSpawnersContainer2" type="Node3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3181, 0, 0)
 
 [node name="BulletSpawner" parent="BulletSpawnersContainer2" index="0" instance=ExtResource("3_h2r5r")]
 transform = Transform3D(0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, 0, 0, 0)
-BulletScene = ExtResource("5_1r2av")
+BulletScene = ExtResource("5_je3ro")
 BulletMaterial = ExtResource("6_kv7sb")
-AngleDeviation = 15.0
+AngleDeviation = 10.0
+disableShooting = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+libraries = {
+"": SubResource("AnimationLibrary_tx4ru")
+}
 
 [editable path="Visual/Cancer"]
