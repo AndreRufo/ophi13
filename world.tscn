@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bupermobpg1sj"]
+[gd_scene load_steps=12 format=3 uid="uid://bupermobpg1sj"]
 
 [ext_resource type="PackedScene" uid="uid://d4lp0doik3rtc" path="res://Prefabs/Character.tscn" id="1_tr0ag"]
 [ext_resource type="Script" path="res://Scripts/Character.gd" id="2_h1gee"]
@@ -46,19 +46,45 @@ albedo_color = Color(0.520987, 0.266869, 0.0487699, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ns7rh"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m7boc"]
+albedo_color = Color(0.227451, 0.282353, 0.713726, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wv03q"]
+albedo_color = Color(0.258824, 0.282353, 0.698039, 1)
+
 [node name="World" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jwc36")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Ground" type="MeshInstance3D" parent="."]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_i24jt")
 mesh = SubResource("BoxMesh_iv3pv")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+shape = SubResource("BoxShape3D_ns7rh")
+
+[node name="Ground2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-07, -1, 0, 10, -4.37114e-08, 0, 0, 0, 50, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_m7boc")
+mesh = SubResource("BoxMesh_iv3pv")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground2/StaticBody3D"]
+shape = SubResource("BoxShape3D_ns7rh")
+
+[node name="Ground3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.91069e-14, 4.37114e-08, 50, 10, -4.37114e-08, 0, 4.37114e-07, 1, -2.18557e-06, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_wv03q")
+mesh = SubResource("BoxMesh_iv3pv")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground3/StaticBody3D"]
 shape = SubResource("BoxShape3D_ns7rh")
 
 [node name="Character" parent="." instance=ExtResource("1_tr0ag")]

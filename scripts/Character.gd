@@ -9,6 +9,10 @@ const JUMP_VELOCITY = 4.5
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+func _onready():
+	var singletons = Singletons;
+	singletons.PlayerCharacter = self;
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -38,6 +42,6 @@ func _physics_process(delta):
 	
 	var new_look_dir = position + direction
 	
-	look_at(lerp(position + transform.basis.z, new_look_dir, 0.1), Vector3.UP, true)
+	look_at(lerp(position + transform.basis.z, new_look_dir, 0.5), Vector3.UP, true)
 
 	move_and_slide()

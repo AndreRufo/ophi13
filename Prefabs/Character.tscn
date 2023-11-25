@@ -6,7 +6,7 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_8jwdv"]
 
-[node name="Character" type="CharacterBody3D"]
+[node name="Character" type="CharacterBody3D" groups=["Character"]]
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_gf1nm")
