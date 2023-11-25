@@ -59,3 +59,9 @@ func _on_bullet_capture_area_area_exited(area):
 	if area.is_in_group("Bullet") && area.get_parent().is_player_bullet:
 		area.get_parent().enemy = null
 	pass # Replace with function body.
+
+func on_take_damage():
+	pass;
+	
+func on_die():
+	pass;

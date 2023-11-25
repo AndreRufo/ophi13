@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://yu8moa5ln3hf"]
+
+[ext_resource type="PackedScene" uid="uid://ht78aj7k6bwc" path="res://Assets/Models/Ophiucus_Anim.glb" id="1_0oh6q"]
+
+[node name="Ophiucus_Anim" instance=ExtResource("1_0oh6q")]

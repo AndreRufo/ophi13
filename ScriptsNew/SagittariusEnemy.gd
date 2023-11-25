@@ -29,6 +29,8 @@ func _ready():
 	add_child(shot_cooldown_timer);
 	
 func _physics_process(delta):
+	if !Singletons.PlayerCharacter:
+		return;
 	var new_forward = (Singletons.PlayerCharacter.position - position).normalized();
 	new_forward.y = 0;
 	transform.basis.z = new_forward;
