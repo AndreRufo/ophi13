@@ -49,9 +49,12 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
+		if !$Visual/Ophiucus_Anim/AnimationPlayer.is_playing():
+			$Visual/Ophiucus_Anim/AnimationPlayer.play("Armature|mixamo_com|Layer0");
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+		$Visual/Ophiucus_Anim/AnimationPlayer.pause()
 	
 	var new_look_dir = position + direction
 	
