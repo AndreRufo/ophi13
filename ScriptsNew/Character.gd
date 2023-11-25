@@ -23,6 +23,9 @@ func Stun(bumpDir):
 	%StunTimer.start();
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("ui_cancel"):
+		get_tree().quit()
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
