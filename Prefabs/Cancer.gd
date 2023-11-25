@@ -10,11 +10,11 @@ func _ready():
 	
 	var spawners = $BulletSpawnersContainer.get_children();
 	for spawner in spawners:
-		spawner.SetSpawnInterval(0.2);
+		spawner.SetSpawnInterval(0.1);
 		
 	var spawners2 = $BulletSpawnersContainer2.get_children();
 	for spawner in spawners2:
-		spawner.SetSpawnInterval(0.2);
+		spawner.SetSpawnInterval(0.1);
 
 func _update(delta):
 	var rotAngle = AngleCurve.sample(currentCurveVal);
@@ -27,4 +27,9 @@ func _update(delta):
 	var new_velocity = (player.position - position) * Speed
 	velocity.x = new_velocity.x
 	velocity.z = new_velocity.z
+	
+	var new_look_dir = position + direction
+	
+	if (direction.length() > 0):
+		look_at(new_look_dir, Vector3.UP, true)
 	pass

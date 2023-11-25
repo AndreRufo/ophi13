@@ -14,8 +14,8 @@ point_count = 4
 
 [sub_resource type="Curve" id="Curve_gbbrn"]
 min_value = -1.0
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(0.75, -1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 4
+_data = [Vector2(0.0103093, -1), 0.0, 0.0, 0, 0, Vector2(0.505155, 0.978947), 0.0, 0.0, 0, 0, Vector2(0.99999, -1), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_30wvi"]
 albedo_color = Color(0.568627, 0.568627, 0.568627, 1)
@@ -37,17 +37,19 @@ mesh = null
 material_override = SubResource("StandardMaterial3D_30wvi")
 
 [node name="BulletSpawnersContainer" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.937658, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38863, 0, 0)
 
 [node name="BulletSpawner" parent="BulletSpawnersContainer" index="0" instance=ExtResource("3_h2r5r")]
+transform = Transform3D(0.939693, 0, -0.34202, 0, 1, 0, 0.34202, 0, 0.939693, 0, 0, 0)
 BulletScene = ExtResource("5_1r2av")
 BulletMaterial = ExtResource("6_kv7sb")
 AngleDeviation = 15.0
 
 [node name="BulletSpawnersContainer2" type="Node3D" parent="." index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.964452, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3181, 0, 0)
 
 [node name="BulletSpawner" parent="BulletSpawnersContainer2" index="0" instance=ExtResource("3_h2r5r")]
+transform = Transform3D(0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, 0, 0, 0)
 BulletScene = ExtResource("5_1r2av")
 BulletMaterial = ExtResource("6_kv7sb")
 AngleDeviation = 15.0

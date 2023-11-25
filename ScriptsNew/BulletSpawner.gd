@@ -19,7 +19,7 @@ func _process(delta):
 	
 func ShootBullet(direction):
 	var new_bullet : Node3D = BulletScene.instantiate();
-	new_bullet.position = get_parent().get_parent().position + Vector3(0, 0.5, 0);
+	new_bullet.position = global_position;
 	new_bullet.direction = direction;
 	new_bullet.is_player_bullet = false;
 	new_bullet.SetColor(BulletMaterial);

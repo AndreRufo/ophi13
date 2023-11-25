@@ -82,7 +82,7 @@ update_scale = false
 
 [node name="ZodiacSpawner" type="Node3D" parent="."]
 script = ExtResource("6_fje5m")
-Signs = Array[PackedScene]([ExtResource("5_ul6xq"), ExtResource("4_jmyty"), ExtResource("9_ieg3u"), ExtResource("4_jmyty"), ExtResource("5_ul6xq"), ExtResource("4_jmyty"), ExtResource("5_ul6xq"), ExtResource("4_jmyty"), ExtResource("5_ul6xq"), ExtResource("4_jmyty"), ExtResource("5_ul6xq"), ExtResource("4_jmyty")])
+Signs = Array[PackedScene]([ExtResource("9_ieg3u"), ExtResource("5_ul6xq"), ExtResource("4_jmyty"), ExtResource("4_jmyty"), ExtResource("5_ul6xq"), ExtResource("4_jmyty"), ExtResource("5_ul6xq"), ExtResource("4_jmyty"), ExtResource("5_ul6xq"), ExtResource("4_jmyty"), ExtResource("5_ul6xq"), ExtResource("4_jmyty")])
 
 [node name="Timer" type="Timer" parent="ZodiacSpawner"]
 wait_time = 13.0
