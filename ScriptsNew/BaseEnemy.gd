@@ -43,3 +43,15 @@ func _on_damage_area_body_entered(body):
 		if (player.currentHealth <= 0):
 			player.queue_free();
 	pass # Replace with function body.
+
+
+func _on_bullet_capture_area_area_entered(area):
+	if area.is_in_group("Bullet") && area.get_parent().is_player_bullet:
+		area.get_parent().enemy = self
+	pass # Replace with function body.
+
+
+func _on_bullet_capture_area_area_exited(area):
+	if area.is_in_group("Bullet") && area.get_parent().is_player_bullet:
+		area.get_parent().enemy = null
+	pass # Replace with function body.

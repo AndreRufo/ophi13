@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://bupermobpg1sj"]
+[gd_scene load_steps=15 format=3 uid="uid://bupermobpg1sj"]
 
 [ext_resource type="PackedScene" uid="uid://d4lp0doik3rtc" path="res://Prefabs/Character.tscn" id="1_tr0ag"]
 [ext_resource type="PackedScene" uid="uid://daa4scifdiejw" path="res://Prefabs/Bullet.tscn" id="3_n2sfi"]
-[ext_resource type="PackedScene" path="res://Prefabs/HUD.tscn" id="4_3n2ta"]
+[ext_resource type="PackedScene" uid="uid://4j1jhl2ib1ff" path="res://Prefabs/HUD.tscn" id="4_3n2ta"]
 [ext_resource type="PackedScene" uid="uid://hc6iqxwfym4h" path="res://Prefabs/Aries.tscn" id="4_jmyty"]
+[ext_resource type="PackedScene" uid="uid://7g2g3525ls68" path="res://Prefabs/Pisces.tscn" id="5_ul6xq"]
+[ext_resource type="Script" path="res://ScriptsNew/ZodiacSpawner.gd" id="6_fje5m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ljksk"]
 sky_top_color = Color(0.160784, 0.184314, 0.231373, 1)
@@ -108,16 +110,11 @@ transform = Transform3D(1, 0, 0, 0, 0.778353, 0.627827, 0, -0.627827, 0.778353, 
 
 [node name="Camera3D" type="Camera3D" parent="CameraAnchor"]
 transform = Transform3D(1, 0, 0, 0, 0.983341, 0.181772, 0, -0.181772, 0.983341, -0.239708, 3.18741, 10.7707)
+current = true
 fov = 67.9572
 
 [node name="Bullets" type="Node3D" parent="."]
 unique_name_in_owner = true
-
-[node name="Aries" parent="." instance=ExtResource("4_jmyty")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.35814, 3.37027, -12.3455)
-ChargeSpeed = 10.0
-TriggerChargeDistance = 5.0
-Speed = 0.2
 
 [node name="Character" parent="." instance=ExtResource("1_tr0ag")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.18439, 2.81289, -28.679)
@@ -130,3 +127,13 @@ update_rotation = false
 update_scale = false
 
 [node name="HUD" parent="." instance=ExtResource("4_3n2ta")]
+
+[node name="ZodiacSpawner" type="Node3D" parent="."]
+script = ExtResource("6_fje5m")
+Signs = Array[PackedScene]([ExtResource("5_ul6xq"), ExtResource("4_jmyty"), ExtResource("5_ul6xq"), ExtResource("4_jmyty"), ExtResource("5_ul6xq"), ExtResource("4_jmyty"), ExtResource("5_ul6xq"), ExtResource("4_jmyty"), ExtResource("5_ul6xq"), ExtResource("4_jmyty"), ExtResource("5_ul6xq"), ExtResource("4_jmyty")])
+
+[node name="Timer" type="Timer" parent="ZodiacSpawner"]
+wait_time = 13.0
+autostart = true
+
+[connection signal="timeout" from="ZodiacSpawner/Timer" to="ZodiacSpawner" method="_on_timer_timeout"]

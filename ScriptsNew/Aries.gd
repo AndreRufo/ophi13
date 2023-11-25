@@ -10,10 +10,22 @@ var charge_timer = 0
 
 var currentCurveVal = 0;
 
+func _ready():
+	self.Speed = 0.2
+	pass # Replace with function body.
+
 func _update(delta):
-	$BulletSpawnersContainer.rotate_y(deg_to_rad(0.5));
 	if Charging :
 		_charge(delta)
+		var rotAngle = AngleCurve.sample(currentCurveVal);
+		$BulletSpawnersContainer.rotate_y(deg_to_rad(rotAngle));
+	
+		var new_look_dir = position + charge_velocity
+	
+		if (charge_velocity.length() > 0):
+			look_at(new_look_dir, Vector3.UP, true)
+		
+		currentCurveVal += delta * 0.1;
 	else :
 		var direction : Vector3 = (player.position - position)
 		var length : float = direction.length()
@@ -26,6 +38,15 @@ func _update(delta):
 			var new_velocity = (player.position - position) * Speed
 			velocity.x = new_velocity.x
 			velocity.z = new_velocity.z
+			
+		var rotAngle = AngleCurve.sample(currentCurveVal);
+		$BulletSpawnersContainer.rotate_y(deg_to_rad(rotAngle));
+	
+		var new_look_dir = position + direction
+	
+		if (direction.length() > 0):
+			look_at(new_look_dir, Vector3.UP, true)
+		currentCurveVal += delta * 0.1;
 
 func _charge(delta):
 	charge_timer+=1

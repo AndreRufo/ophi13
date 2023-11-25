@@ -5,6 +5,8 @@ extends Node3D
 
 @export var is_player_bullet : bool = true;
 
+var enemy : CharacterBody3D = null;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -14,7 +16,15 @@ func SetColor(color : StandardMaterial3D):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position += direction * delta * speed;
+	var newDir = direction;
+	
+	if is_player_bullet:
+		if enemy:
+			var diffToTarget = (enemy.position - position).normalized();
+			var lerpFactor = $Timer.time_left / $Timer.wait_time;
+			newDir = lerp(direction, diffToTarget, lerpFactor*0.3);
+		
+	position += newDir * delta * speed;
 
 
 func _on_timer_timeout():
