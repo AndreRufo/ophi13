@@ -1,0 +1,88 @@
+[gd_scene load_steps=11 format=3 uid="uid://ixgiugm0yrvm"]
+
+[ext_resource type="Texture2D" uid="uid://d2xq5ndw02hs1" path="res://Assets/Models/Nebula.hdr" id="1_3fimp"]
+[ext_resource type="PackedScene" uid="uid://c18wam7fk88qa" path="res://Prefabs/Camera_anchor.tscn" id="2_h1u5o"]
+[ext_resource type="PackedScene" uid="uid://d4lp0doik3rtc" path="res://Prefabs/Character.tscn" id="3_q5nw0"]
+[ext_resource type="PackedScene" uid="uid://4j1jhl2ib1ff" path="res://Prefabs/UI/HUD.tscn" id="4_jggoo"]
+[ext_resource type="Script" path="res://ScriptsNew/ZodiacSpawner.gd" id="5_66vdy"]
+[ext_resource type="PackedScene" uid="uid://b26hs4kftxail" path="res://Prefabs/Taurus.tscn" id="6_0rs87"]
+[ext_resource type="PackedScene" uid="uid://c2wbfm15y6g84" path="res://Prefabs/Battleground.tscn" id="7_eses1"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vbnwt"]
+panorama = ExtResource("1_3fimp")
+
+[sub_resource type="Sky" id="Sky_x1gce"]
+sky_material = SubResource("PanoramaSkyMaterial_vbnwt")
+
+[sub_resource type="Environment" id="Environment_jwc36"]
+background_mode = 2
+sky = SubResource("Sky_x1gce")
+ambient_light_source = 3
+reflected_light_source = 2
+tonemap_mode = 3
+ssao_enabled = true
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 4.01
+glow_strength = 1.32
+glow_blend_mode = 0
+glow_hdr_scale = 0.56
+glow_hdr_luminance_cap = 47.03
+fog_enabled = true
+fog_light_color = Color(0.333333, 0.109804, 0.203922, 1)
+fog_density = 0.021
+fog_aerial_perspective = 0.61
+fog_sky_affect = 0.221
+fog_height_density = 1.3474
+volumetric_fog_density = 0.0079
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jwc36")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.79873, -0.469215, 0.376653, 0, 0.625992, 0.77983, -0.60169, -0.622874, 0.499998, 28.5863, 14.657, -23.8253)
+light_color = Color(0.929412, 0.568627, 0.905882, 1)
+light_energy = 1.808
+light_indirect_energy = 1.808
+light_volumetric_fog_energy = 3.424
+shadow_enabled = true
+shadow_bias = 0.101
+shadow_reverse_cull_face = true
+shadow_opacity = 0.87
+shadow_blur = 1.515
+directional_shadow_blend_splits = true
+directional_shadow_max_distance = 40.2
+
+[node name="CameraAnchor" parent="." instance=ExtResource("2_h1u5o")]
+
+[node name="Bullets" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Character" parent="." instance=ExtResource("3_q5nw0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.873741, 3.72716, -37.1921)
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Character"]
+transform = Transform3D(1, 0, 0, 0, 0.778353, 0.627827, 0, -0.627827, 0.778353, 0, 0, 0)
+remote_path = NodePath("../../CameraAnchor")
+update_rotation = false
+update_scale = false
+
+[node name="HUD" parent="." instance=ExtResource("4_jggoo")]
+
+[node name="ZodiacSpawner" type="Node3D" parent="."]
+script = ExtResource("5_66vdy")
+Signs = Array[PackedScene]([ExtResource("6_0rs87")])
+
+[node name="Timer" type="Timer" parent="ZodiacSpawner"]
+autostart = true
+
+[node name="SpaceBattleground" parent="." instance=ExtResource("7_eses1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.668417, 0.5, -0.514328)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[connection signal="timeout" from="ZodiacSpawner/Timer" to="ZodiacSpawner" method="_on_timer_timeout"]
