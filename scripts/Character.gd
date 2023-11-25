@@ -40,8 +40,8 @@ func _physics_process(delta):
 		var new_bullet = BulletScene.instantiate();
 		new_bullet.position = position + transform.basis.z + Vector3(0, 0.5, 0);
 		new_bullet.direction = transform.basis.z;
-		%Bullets.add_child(new_bullet);
-
+		get_node("../Bullets").add_child(new_bullet);
+ 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
