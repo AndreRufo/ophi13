@@ -6,18 +6,32 @@ const JUMP_VELOCITY = 4.5
 
 @export var BulletScene : PackedScene
 
+@export var MaxHealth : int = 10;
+
+var currentHealth : int = MaxHealth
+var isStunned : bool = false;
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-func _onready():
+func _ready():
 	var singletons = Singletons;
 	singletons.PlayerCharacter = self;
+	
+func Stun(bumpDir):
+	isStunned = true;
+	velocity = bumpDir;
+	%StunTimer.start();
 
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
+
+	if isStunned:
+		move_and_slide()
+		return;
 	# Handle Jump.
 	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 	#	velocity.y = JUMP_VELOCITY
@@ -42,6 +56,10 @@ func _physics_process(delta):
 	
 	var new_look_dir = position + direction
 	
-	look_at(lerp(position + transform.basis.z, new_look_dir, 0.5), Vector3.UP, true)
+	look_at(new_look_dir, Vector3.UP, true)
 
 	move_and_slide()
+
+
+func _on_stun_timer_timeout():
+	isStunned = false;

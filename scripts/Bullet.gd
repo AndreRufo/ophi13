@@ -21,4 +21,15 @@ func _on_timer_timeout():
 func _on_area_3d_body_entered(body):
 	if is_player_bullet && body.is_in_group("Character"):
 		return;
+		
+	if is_player_bullet && body.is_in_group("Enemy"):
+		body.currentHealth -= 1;
+		if (body.currentHealth <= 0):
+			body.queue_free();
+		
+	if !is_player_bullet && body.is_in_group("Character"):
+		body.currentHealth -= 1;
+		if (body.currentHealth <= 0):
+			body.queue_free();
+		
 	queue_free()

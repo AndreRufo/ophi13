@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://y1eqpa7ff1uq"]
+[gd_scene load_steps=6 format=3 uid="uid://y1eqpa7ff1uq"]
 
-[ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_x6f54"]
+[ext_resource type="Script" path="res://Scripts/BaseEnemy.gd" id="1_iebi6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gf1nm"]
 
@@ -9,8 +9,11 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ol51q"]
 albedo_color = Color(0.705882, 0.247059, 0.360784, 1)
 
-[node name="Enemy" type="CharacterBody3D"]
-script = ExtResource("1_x6f54")
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bvxsd"]
+radius = 1.0
+
+[node name="Enemy" type="CharacterBody3D" groups=["Enemy"]]
+script = ExtResource("1_iebi6")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_gf1nm")
@@ -18,3 +21,10 @@ shape = SubResource("CapsuleShape3D_gf1nm")
 [node name="Visual" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_pc6ix")
 surface_material_override/0 = SubResource("StandardMaterial3D_ol51q")
+
+[node name="DamageArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DamageArea"]
+shape = SubResource("CylinderShape3D_bvxsd")
+
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]

@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4lp0doik3rtc"]
+[gd_scene load_steps=5 format=3 uid="uid://d4lp0doik3rtc"]
+
+[ext_resource type="Script" path="res://Scripts/Character.gd" id="1_dhoan"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gf1nm"]
 
@@ -7,6 +9,7 @@
 [sub_resource type="BoxMesh" id="BoxMesh_8jwdv"]
 
 [node name="Character" type="CharacterBody3D" groups=["Character"]]
+script = ExtResource("1_dhoan")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_gf1nm")
@@ -17,3 +20,9 @@ mesh = SubResource("CapsuleMesh_pc6ix")
 [node name="Gun" type="MeshInstance3D" parent="Visual"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, 0.76)
 mesh = SubResource("BoxMesh_8jwdv")
+
+[node name="StunTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5
+
+[connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]
