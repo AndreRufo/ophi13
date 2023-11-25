@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d4lp0doik3rtc"]
 
-[ext_resource type="Script" path="res://Scripts/Character.gd" id="1_dhoan"]
+[ext_resource type="Script" path="res://ScriptsNew/Character.gd" id="1_tl3q1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gf1nm"]
 
@@ -9,7 +9,7 @@
 [sub_resource type="BoxMesh" id="BoxMesh_8jwdv"]
 
 [node name="Character" type="CharacterBody3D" groups=["Character"]]
-script = ExtResource("1_dhoan")
+script = ExtResource("1_tl3q1")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_gf1nm")

@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://daa4scifdiejw"]
 
-[ext_resource type="Script" path="res://Scripts/Bullet.gd" id="1_2u12l"]
 [ext_resource type="Texture2D" uid="uid://b1ls1c1c62g3e" path="res://Assets/Particles/Kenney/magic_05.png" id="1_eqcsi"]
+[ext_resource type="Script" path="res://ScriptsNew/Bullet.gd" id="1_r132y"]
 [ext_resource type="Material" uid="uid://t6xfnvp357jr" path="res://Assets/bullet_material_3d.tres" id="2_7e2gd"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1ypvu"]
 
 [node name="Bullet" type="Node3D"]
-script = ExtResource("1_2u12l")
+script = ExtResource("1_r132y")
 
 [node name="Visual" type="Sprite3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

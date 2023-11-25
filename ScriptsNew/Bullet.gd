@@ -8,6 +8,8 @@ extends Node3D
 func _ready():
 	pass # Replace with function body.
 
+func SetColor(color : StandardMaterial3D):
+	$Visual.material_override = color;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -20,6 +22,9 @@ func _on_timer_timeout():
 
 func _on_area_3d_body_entered(body):
 	if is_player_bullet && body.is_in_group("Character"):
+		return;
+		
+	if !is_player_bullet && body.is_in_group("Enemy"):
 		return;
 		
 	if is_player_bullet && body.is_in_group("Enemy"):

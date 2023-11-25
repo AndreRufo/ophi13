@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://iamf6dkl4p2"]
+
+[ext_resource type="Texture2D" uid="uid://b1ls1c1c62g3e" path="res://Assets/Particles/Kenney/magic_05.png" id="1_npj6y"]
+
+[resource]
+transparency = 1
+blend_mode = 1
+albedo_texture = ExtResource("1_npj6y")
+emission_enabled = true
+emission = Color(0, 0.054902, 0.85098, 1)
+emission_energy_multiplier = 4.6
+billboard_mode = 1
+billboard_keep_scale = true
