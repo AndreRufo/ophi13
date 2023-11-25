@@ -57,7 +57,7 @@ data = PackedVector3Array(-1.7375, -0.6421, 0.2758, -2.7442, -0.2407, 0.2758, -1
 material_override = ExtResource("2_bx3mk")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_002" index="0"]
-collision_layer = 2
+collision_layer = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_002/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_fqutw")
@@ -85,7 +85,7 @@ material_override = ExtResource("2_bx3mk")
 material_override = ExtResource("2_bx3mk")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Axis/Cylinder" index="0"]
-collision_layer = 2
+collision_layer = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Axis/Cylinder/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_gdaww")
@@ -132,7 +132,7 @@ material_override = ExtResource("2_bx3mk")
 material_override = ExtResource("2_bx3mk")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Axis_001/Cylinder_001" index="0"]
-collision_layer = 2
+collision_layer = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Axis_001/Cylinder_001/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_4bk1d")
@@ -141,7 +141,7 @@ shape = SubResource("ConcavePolygonShape3D_4bk1d")
 material_override = ExtResource("2_bx3mk")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Platform_Axis/Cube_001" index="0"]
-collision_layer = 2
+collision_layer = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Platform_Axis/Cube_001/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_fygmw")

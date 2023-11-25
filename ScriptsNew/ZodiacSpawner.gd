@@ -18,6 +18,9 @@ func _on_timer_timeout():
 	_spawn_new_enemy()
 
 func _spawn_new_enemy():
+	if !Singletons.PlayerCharacter:
+		return;
+		
 	var new_sign : Node3D = Signs[currentSign].instantiate();
 	new_sign.position = Singletons.PlayerCharacter.position + Vector3(20, 0.5, 20);
 	
