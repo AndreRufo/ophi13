@@ -5,8 +5,9 @@
 [ext_resource type="Script" path="res://ScriptsNew/UI/HealthBar.gd" id="2_bk4sp"]
 [ext_resource type="Script" path="res://ScriptsNew/UI/TimerDisplay.gd" id="2_l2j0v"]
 
-[node name="HUD" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("timer_label")]
 script = ExtResource("1_u137f")
+timer_label = NodePath("time/timer label")
 
 [node name="hp" type="Label" parent="."]
 offset_left = 24.0
@@ -35,10 +36,6 @@ offset_top = 58.0
 offset_right = 64.0
 offset_bottom = 84.0
 text = "Time"
-
-[node name="Timer" type="Timer" parent="time"]
-wait_time = 60.0
-autostart = true
 
 [node name="timer label" type="Label" parent="time"]
 layout_mode = 0

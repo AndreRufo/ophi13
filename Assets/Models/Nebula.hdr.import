@@ -3,15 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2xq5ndw02hs1"
-path="res://.godot/imported/Nebula.hdr-53067485c68ea80643aa23676ea82263.ctex"
+path.bptc="res://.godot/imported/Nebula.hdr-53067485c68ea80643aa23676ea82263.bptc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Models/Nebula.hdr"
-dest_files=["res://.godot/imported/Nebula.hdr-53067485c68ea80643aa23676ea82263.ctex"]
+dest_files=["res://.godot/imported/Nebula.hdr-53067485c68ea80643aa23676ea82263.bptc.ctex"]
 
 [params]
 

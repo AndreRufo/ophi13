@@ -16,12 +16,12 @@ point_count = 4
 albedo_color = Color(0.792157, 0.141176, 0.141176, 1)
 emission_enabled = true
 emission = Color(1, 0, 0, 1)
-emission_energy_multiplier = 0.4
+emission_energy_multiplier = 0.94
 
 [node name="Aries" instance=ExtResource("1_qi0ms")]
 script = ExtResource("2_qyowq")
-ChargeSpeed = 10.0
-TriggerChargeDistance = 5.0
+ChargeSpeed = 1.0
+TriggerChargeDistance = 1.0
 AngleCurve = SubResource("Curve_3j06l")
 
 [node name="Visual" parent="." index="1"]

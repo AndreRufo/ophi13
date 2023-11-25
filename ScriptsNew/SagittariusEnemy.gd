@@ -85,6 +85,7 @@ func get_next_position():
 	if(!selects_random_position):
 		#Get Viable Firing Position
 		var idx = 0;
+		var closest_dist = 0;
 		var visible_player_idx : int = -1;
 		var space_state = get_world_3d().direct_space_state;
 
@@ -93,8 +94,10 @@ func get_next_position():
 			ray.exclude = [self];
 			var result = space_state.intersect_ray(ray);
 			if(result && result.collider == Singletons.PlayerCharacter):
-				visible_player_idx = idx;
-				break;
+				var dist_to_player = p.distance_to(Singletons.PlayerCharacter.position);
+				if(dist_to_player < closest_dist || visible_player_idx == -1):
+					visible_player_idx = idx;
+					closest_dist = dist_to_player;
 			idx += 1;
 		
 		if(visible_player_idx != -1):

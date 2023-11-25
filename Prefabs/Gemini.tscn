@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cp66h3scskcom"]
+[gd_scene load_steps=9 format=3 uid="uid://bigen8uemxgp"]
 
 [ext_resource type="PackedScene" uid="uid://y1eqpa7ff1uq" path="res://Prefabs/Enemy.tscn" id="1_verso"]
 [ext_resource type="Script" path="res://ScriptsNew/Gemini.gd" id="2_g5v8n"]
+[ext_resource type="PackedScene" uid="uid://lxxiqomv4csy" path="res://Assets/Models/Gemini.glb" id="3_ik7vc"]
 [ext_resource type="PackedScene" uid="uid://lf7koccski54" path="res://Prefabs/BulletSpawner.tscn" id="3_wwtjd"]
 [ext_resource type="PackedScene" uid="uid://daa4scifdiejw" path="res://Prefabs/Bullet.tscn" id="4_5gmut"]
 [ext_resource type="Material" uid="uid://iamf6dkl4p2" path="res://Assets/enemy_bullet_material_3d.tres" id="5_1vjka"]
@@ -11,9 +12,22 @@ min_value = -1.0
 _data = [Vector2(0.006, 0.486), 0.0, 0.0, 0, 0, Vector2(0.497059, 0.978947), 0.0, 0.0, 0, 0, Vector2(0.994118, 0.473684), 0.0, 0.0, 0, 0]
 point_count = 3
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0j8ji"]
+albedo_color = Color(1, 0.988235, 0.211765, 1)
+emission_enabled = true
+emission = Color(0.780392, 0.764706, 0.27451, 1)
+
 [node name="Gemini" instance=ExtResource("1_verso")]
 script = ExtResource("2_g5v8n")
 AngleCurve = SubResource("Curve_x6blc")
+
+[node name="Visual" parent="." index="1"]
+mesh = null
+
+[node name="Gemini" parent="Visual" index="0" instance=ExtResource("3_ik7vc")]
+
+[node name="3_GEMINI" parent="Visual/Gemini" index="0"]
+material_override = SubResource("StandardMaterial3D_0j8ji")
 
 [node name="BulletSpawner" parent="BulletSpawnersContainer" index="0" instance=ExtResource("3_wwtjd")]
 BulletScene = ExtResource("4_5gmut")
@@ -25,3 +39,5 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 BulletScene = ExtResource("4_5gmut")
 BulletMaterial = ExtResource("5_1vjka")
 AngleDeviation = 2.0
+
+[editable path="Visual/Gemini"]

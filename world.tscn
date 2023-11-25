@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://7g2g3525ls68" path="res://Prefabs/Pisces.tscn" id="5_ul6xq"]
 [ext_resource type="Script" path="res://ScriptsNew/ZodiacSpawner.gd" id="6_fje5m"]
 [ext_resource type="PackedScene" uid="uid://c2wbfm15y6g84" path="res://Prefabs/Battleground.tscn" id="7_jpi8t"]
-[ext_resource type="PackedScene" uid="uid://cp66h3scskcom" path="res://Prefabs/Gemini.tscn" id="9_bksfa"]
+[ext_resource type="PackedScene" uid="uid://bigen8uemxgp" path="res://Prefabs/Gemini.tscn" id="9_bksfa"]
 [ext_resource type="PackedScene" uid="uid://c24flsme287t6" path="res://Prefabs/Cancer.tscn" id="9_ieg3u"]
-[ext_resource type="PackedScene" uid="uid://c7bhnlpb6dm1d" path="res://Prefabs/Sagittarius.tscn" id="10_pfp5q"]
+[ext_resource type="PackedScene" uid="uid://bnn7s6xgm101c" path="res://Prefabs/Sagittarius.tscn" id="10_pfp5q"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vbnwt"]
 panorama = ExtResource("1_3b43y")
@@ -62,6 +62,7 @@ directional_shadow_blend_splits = true
 directional_shadow_max_distance = 40.2
 
 [node name="CameraAnchor" parent="." instance=ExtResource("2_qtt1b")]
+transform = Transform3D(1, 0, 0, 0, 0.778353, 0.627827, 0, -0.627827, 0.778353, 0.873741, 3.72716, -37.1921)
 
 [node name="Bullets" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -87,7 +88,5 @@ autostart = true
 
 [node name="SpaceBattleground" parent="." instance=ExtResource("7_jpi8t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.668417, 0.5, -0.514328)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 
 [connection signal="timeout" from="ZodiacSpawner/Timer" to="ZodiacSpawner" method="_on_timer_timeout"]

@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://ScriptsNew/CameraBehavior.gd" id="1_5qka4"]
 
 [node name="CameraAnchor" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.778353, 0.627827, 0, -0.627827, 0.778353, 0.873741, 3.72716, -37.1921)
+transform = Transform3D(1, 0, 0, 0, 0.778353, 0.627827, 0, -0.627827, 0.778353, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.983341, 0.181772, 0, -0.181772, 0.983341, -0.239708, 3.18741, 10.7707)
+transform = Transform3D(1, 0, 0, 0, 0.86851, 0.495671, 0, -0.495671, 0.86851, -0.239708, 8.24721, 14.852)
 current = true
 fov = 67.9572
 script = ExtResource("1_5qka4")
