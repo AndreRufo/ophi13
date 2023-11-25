@@ -1,7 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://hc6iqxwfym4h"]
+[gd_scene load_steps=6 format=3 uid="uid://hc6iqxwfym4h"]
 
 [ext_resource type="PackedScene" uid="uid://y1eqpa7ff1uq" path="res://Prefabs/Enemy.tscn" id="1_qi0ms"]
 [ext_resource type="Script" path="res://ScriptsNew/Aries.gd" id="2_qyowq"]
+[ext_resource type="PackedScene" uid="uid://lf7koccski54" path="res://Prefabs/BulletSpawner.tscn" id="3_ivmvv"]
+[ext_resource type="PackedScene" uid="uid://daa4scifdiejw" path="res://Prefabs/Bullet.tscn" id="4_1vi8u"]
+[ext_resource type="Material" uid="uid://iamf6dkl4p2" path="res://Assets/enemy_bullet_material_3d.tres" id="5_6u17x"]
 
 [node name="Aries" instance=ExtResource("1_qi0ms")]
 script = ExtResource("2_qyowq")
+
+[node name="BulletSpawner" parent="BulletSpawnersContainer" index="0" instance=ExtResource("3_ivmvv")]
+BulletScene = ExtResource("4_1vi8u")
+BulletMaterial = ExtResource("5_6u17x")
+
+[node name="BulletSpawner2" parent="BulletSpawnersContainer" index="1" instance=ExtResource("3_ivmvv")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+BulletScene = ExtResource("4_1vi8u")
+BulletMaterial = ExtResource("5_6u17x")
+
+[node name="BulletSpawner3" parent="BulletSpawnersContainer" index="2" instance=ExtResource("3_ivmvv")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+BulletScene = ExtResource("4_1vi8u")
+BulletMaterial = ExtResource("5_6u17x")
+
+[node name="BulletSpawner4" parent="BulletSpawnersContainer" index="3" instance=ExtResource("3_ivmvv")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, 0)
+BulletScene = ExtResource("4_1vi8u")
+BulletMaterial = ExtResource("5_6u17x")

@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://ScriptsNew/Character.gd" id="1_tl3q1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gf1nm"]
+radius = 0.23171
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_pc6ix"]
 

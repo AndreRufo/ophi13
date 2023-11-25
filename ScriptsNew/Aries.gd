@@ -5,3 +5,4 @@ func _update(delta):
 	velocity.x = new_velocity.x
 	velocity.z = new_velocity.z
 
+	$BulletSpawnersContainer.rotate_y(deg_to_rad(0.5));

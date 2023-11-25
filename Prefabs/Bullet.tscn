@@ -5,6 +5,7 @@
 [ext_resource type="Material" uid="uid://t6xfnvp357jr" path="res://Assets/bullet_material_3d.tres" id="2_7e2gd"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1ypvu"]
+radius = 0.328462
 
 [node name="Bullet" type="Node3D"]
 script = ExtResource("1_r132y")
@@ -17,7 +18,7 @@ billboard = 1
 texture = ExtResource("1_eqcsi")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 10.0
 
 [node name="Area3D" type="Area3D" parent="."]
 
