@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Singletons="*res://ScriptsNew/Singletons.gd"
 
+[filesystem]
+
+import/fbx/enabled=false
+
 [rendering]
 
 renderer/rendering_method.mobile="gl_compatibility"
