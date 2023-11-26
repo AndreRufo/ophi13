@@ -37,6 +37,8 @@ func get_action_from_key(genisys_key):
 		return "ui_right"
 	if genisys_key == "bet_1":
 		return "ui_cancel"
+	if genisys_key == "play_8":
+		return "Heal"
 	return null
 
 func _process_genisys_message(message):
