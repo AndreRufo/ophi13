@@ -27,4 +27,9 @@ material_override = SubResource("StandardMaterial3D_7xfdd")
 [node name="BulletSpawner" parent="BulletSpawnersContainer" index="0" instance=ExtResource("3_qg3wm")]
 BulletScene = ExtResource("4_4h13y")
 
+[node name="Timer" type="Timer" parent="." index="5"]
+wait_time = 2.5
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
 [editable path="Visual/Scorpio"]

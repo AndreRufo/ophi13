@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://btcjphvnejj8u"]
+
+[ext_resource type="PackedScene" uid="uid://y1eqpa7ff1uq" path="res://Prefabs/Enemy.tscn" id="1_qm6pj"]
+[ext_resource type="Script" path="res://ScriptsNew/LibraEnemy.gd" id="2_kors5"]
+[ext_resource type="PackedScene" uid="uid://defqgenu7gobb" path="res://Prefabs/LibraBullet.tscn" id="3_popa1"]
+[ext_resource type="Material" uid="uid://iamf6dkl4p2" path="res://Assets/enemy_bullet_material_3d.tres" id="4_coc11"]
+
+[node name="LibraEnemy" instance=ExtResource("1_qm6pj")]
+script = ExtResource("2_kors5")
+BulletScene = ExtResource("3_popa1")
+BulletMaterial = ExtResource("4_coc11")
+BulletsToGenerate = 15
+DelayBetweenLocationGeneration = 2.0
+MaxDistanceFromPlayer = 30
+Speed = 5.0
+
+[node name="Visual" parent="." index="1"]
+mesh = null
