@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://bhfisb5h4u2n3"]
+
+[ext_resource type="PackedScene" uid="uid://y1eqpa7ff1uq" path="res://Prefabs/Enemy.tscn" id="1_sj4gw"]
+[ext_resource type="Script" path="res://ScriptsNew/Capricorn.gd" id="2_gyo0t"]
+[ext_resource type="PackedScene" uid="uid://dt3pmgp0sskcj" path="res://Assets/Models/Capricorn.glb" id="2_jag7j"]
+[ext_resource type="PackedScene" uid="uid://lf7koccski54" path="res://Prefabs/BulletSpawner.tscn" id="4_snr6o"]
+[ext_resource type="PackedScene" uid="uid://d38tvm32j7lms" path="res://Prefabs/PiscesBullet.tscn" id="5_gnnkg"]
+[ext_resource type="Material" uid="uid://iamf6dkl4p2" path="res://Assets/enemy_bullet_material_3d.tres" id="6_8co50"]
+
+[sub_resource type="Curve" id="Curve_i3rko"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.448916, 0.610526), 0.0, 0.0, 0, 0, Vector2(0.501548, 0.926316), 0.0, 0.0, 0, 0, Vector2(0.569659, 0.610526), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgi7d"]
+albedo_color = Color(0, 0.819608, 0.823529, 1)
+emission_enabled = true
+emission = Color(0, 0.819608, 0.823529, 1)
+emission_energy_multiplier = 1.61
+
+[node name="Capricorn" instance=ExtResource("1_sj4gw")]
+script = ExtResource("2_gyo0t")
+AngleCurve = SubResource("Curve_i3rko")
+ChargeSpeed = 8.0
+
+[node name="Visual" parent="." index="1"]
+mesh = null
+
+[node name="Capricorn" parent="Visual" index="0" instance=ExtResource("2_jag7j")]
+
+[node name="10_CAPRICORN" parent="Visual/Capricorn" index="0"]
+material_override = SubResource("StandardMaterial3D_sgi7d")
+
+[node name="BulletSpawner" parent="BulletSpawnersContainer" index="0" instance=ExtResource("4_snr6o")]
+BulletScene = ExtResource("5_gnnkg")
+BulletMaterial = ExtResource("6_8co50")
+
+[node name="BulletSpawner2" parent="BulletSpawnersContainer" index="1" instance=ExtResource("4_snr6o")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+BulletScene = ExtResource("5_gnnkg")
+BulletMaterial = ExtResource("6_8co50")
+
+[node name="BulletSpawner3" parent="BulletSpawnersContainer" index="2" instance=ExtResource("4_snr6o")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+BulletScene = ExtResource("5_gnnkg")
+BulletMaterial = ExtResource("6_8co50")
+
+[node name="BulletSpawner4" parent="BulletSpawnersContainer" index="3" instance=ExtResource("4_snr6o")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+BulletScene = ExtResource("5_gnnkg")
+BulletMaterial = ExtResource("6_8co50")
+
+[editable path="Visual/Capricorn"]
