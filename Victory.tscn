@@ -11,73 +11,71 @@
 albedo_color = Color(0.792157, 0.141176, 0.141176, 1)
 emission_enabled = true
 emission = Color(1, 0, 0, 1)
-emission_energy_multiplier = 0.67
+emission_energy_multiplier = 0.33
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aoafe"]
 albedo_color = Color(0.788235, 0.235294, 0.235294, 1)
 emission_enabled = true
 emission = Color(0.788235, 0.235294, 0.235294, 1)
-emission_energy_multiplier = 0.65
+emission_energy_multiplier = 0.33
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8psre"]
 albedo_color = Color(1, 0.988235, 0.211765, 1)
 emission_enabled = true
 emission = Color(0.780392, 0.764706, 0.27451, 1)
-emission_energy_multiplier = 0.29
+emission_energy_multiplier = 0.15
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7by85"]
 albedo_color = Color(0.568627, 0.568627, 0.568627, 1)
 emission_enabled = true
 emission = Color(0.580392, 0.580392, 0.580392, 1)
-emission_energy_multiplier = 1.94
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wk8l5"]
 albedo_color = Color(1, 0.603922, 0.278431, 1)
 emission_enabled = true
 emission = Color(0.788235, 0.513726, 0.172549, 1)
-emission_energy_multiplier = 0.2
+emission_energy_multiplier = 0.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ir0rs"]
 albedo_color = Color(0.490196, 0.368627, 0.156863, 1)
 emission_enabled = true
 emission = Color(0.6, 0.407843, 0.121569, 1)
-emission_energy_multiplier = 1.88
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fvkyn"]
 albedo_color = Color(1, 0.529412, 0.952941, 1)
 emission_enabled = true
 emission = Color(0.662745, 0.317647, 0.678431, 1)
-emission_energy_multiplier = 0.47
+emission_energy_multiplier = 0.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nl6u4"]
 albedo_color = Color(1, 0.101961, 0.101961, 1)
 emission_enabled = true
 emission = Color(0.760784, 0, 0.0313726, 1)
-emission_energy_multiplier = 0.3
+emission_energy_multiplier = 0.15
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sebqw"]
 albedo_color = Color(1, 0.101961, 0.909804, 1)
 emission_enabled = true
 emission = Color(0.533333, 0.2, 0.588235, 1)
-emission_energy_multiplier = 1.59
+emission_energy_multiplier = 0.75
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uj0fx"]
 albedo_color = Color(0, 0.819608, 0.823529, 1)
 emission_enabled = true
 emission = Color(0, 0.819608, 0.823529, 1)
-emission_energy_multiplier = 1.61
+emission_energy_multiplier = 0.8
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qj8rt"]
 albedo_color = Color(0.160784, 0.243137, 1, 1)
 emission_enabled = true
 emission = Color(0.113725, 0.227451, 0.74902, 1)
-emission_energy_multiplier = 1.09
+emission_energy_multiplier = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhtvi"]
 albedo_color = Color(0.380392, 1, 0.572549, 1)
 emission_enabled = true
 emission = Color(0.321569, 0.768627, 0.254902, 1)
-emission_energy_multiplier = 0.45
+emission_energy_multiplier = 0.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gjiv2"]
 emission_enabled = true
@@ -121,12 +119,12 @@ _data = {
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_10fji"]
 panorama = ExtResource("4_na5v5")
 
-[sub_resource type="Sky" id="Sky_x1gce"]
+[sub_resource type="Sky" id="Sky_vyyh1"]
 sky_material = SubResource("PanoramaSkyMaterial_10fji")
 
 [sub_resource type="Environment" id="Environment_qirls"]
 background_mode = 2
-sky = SubResource("Sky_x1gce")
+sky = SubResource("Sky_vyyh1")
 ambient_light_source = 3
 reflected_light_source = 2
 tonemap_mode = 3
@@ -152,7 +150,7 @@ volumetric_fog_density = 0.0079
 offsets = PackedFloat32Array(0, 0.74026, 1)
 colors = PackedColorArray(0.96, 1, 0.4, 1, 1, 0.515833, 0.17, 1, 0.37, 0.37, 0.37, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_sfqbp"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yf1w2"]
 gradient = SubResource("Gradient_m8g5e")
 
 [sub_resource type="Curve" id="Curve_eq3vq"]
@@ -160,7 +158,7 @@ max_value = 5.0
 _data = [Vector2(0.00294985, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.526316), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_s7ref"]
+[sub_resource type="CurveTexture" id="CurveTexture_b12lx"]
 curve = SubResource("Curve_eq3vq")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pi2a5"]
@@ -168,8 +166,8 @@ emission_shape = 1
 emission_sphere_radius = 1.0
 gravity = Vector3(0, 9.8, 0)
 scale_max = 5.0
-scale_curve = SubResource("CurveTexture_s7ref")
-color_ramp = SubResource("GradientTexture1D_sfqbp")
+scale_curve = SubResource("CurveTexture_b12lx")
+color_ramp = SubResource("GradientTexture1D_yf1w2")
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_wmj4f")
@@ -255,10 +253,6 @@ visible = false
 material_override = SubResource("StandardMaterial3D_ydmwc")
 mesh = SubResource("SphereMesh_3fs0k")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.484688, 0.574111, -0.659905, -1.35594e-08, 0.754446, 0.656362, 0.874687, -0.31813, 0.365671, 0, 3.50568, 0.554806)
-shadow_enabled = true
-
 [node name="CameraAnchor" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15738, 0)
 
@@ -336,6 +330,20 @@ transform = Transform3D(1.70818, 0, 2.46619, -0.173708, 2.99255, 0.120317, -2.46
 [node name="GPUParticles3D" parent="Torch7" index="1"]
 transform = Transform3D(1, -3.72529e-09, -1.19209e-07, 7.45058e-09, 1, -7.45058e-09, 0, 0, 1, -0.0516901, 4.59898, 1.51674)
 process_material = SubResource("ParticleProcessMaterial_pi2a5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.267204, 0.751475, -0.60323, 1.79318e-08, 0.625992, 0.77983, 0.96364, 0.208374, -0.167268, 28.5863, 14.657, -23.8253)
+light_color = Color(0.929412, 0.568627, 0.905882, 1)
+light_energy = 1.808
+light_indirect_energy = 1.808
+light_volumetric_fog_energy = 3.424
+shadow_enabled = true
+shadow_bias = 0.101
+shadow_reverse_cull_face = true
+shadow_opacity = 0.87
+shadow_blur = 1.515
+directional_shadow_blend_splits = true
+directional_shadow_max_distance = 40.2
 
 [editable path="SexyDance"]
 [editable path="Torch7"]
