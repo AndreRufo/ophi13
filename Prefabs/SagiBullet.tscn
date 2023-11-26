@@ -5,3 +5,4 @@
 [node name="SagiBullet" instance=ExtResource("1_v1m3q")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 speed = 50.0
+BulletDamage = 3

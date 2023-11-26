@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d4lp0doik3rtc" path="res://Prefabs/Character.tscn" id="3_q5nw0"]
 [ext_resource type="PackedScene" uid="uid://4j1jhl2ib1ff" path="res://Prefabs/UI/HUD.tscn" id="4_jggoo"]
 [ext_resource type="Script" path="res://ScriptsNew/ZodiacSpawner.gd" id="5_66vdy"]
-[ext_resource type="PackedScene" uid="uid://vrl5jhudoutw" path="res://Prefabs/Scorpio.tscn" id="6_c6b8n"]
+[ext_resource type="PackedScene" uid="uid://bhfisb5h4u2n3" path="res://Prefabs/Capricorn.tscn" id="6_c70v6"]
 [ext_resource type="PackedScene" uid="uid://c2wbfm15y6g84" path="res://Prefabs/Battleground.tscn" id="7_eses1"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vbnwt"]
@@ -76,7 +76,7 @@ update_scale = false
 
 [node name="ZodiacSpawner" type="Node3D" parent="."]
 script = ExtResource("5_66vdy")
-Signs = Array[PackedScene]([ExtResource("6_c6b8n")])
+Signs = Array[PackedScene]([ExtResource("6_c70v6")])
 
 [node name="Timer" type="Timer" parent="ZodiacSpawner"]
 autostart = true

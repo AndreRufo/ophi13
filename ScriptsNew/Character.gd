@@ -14,9 +14,20 @@ var isAlive : bool = true;
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+@export var MaxInvulnDuration : float = 0.5;
+var invuln_timer : Timer;
+var is_invuln : bool = false;
+
 func _ready():
 	var singletons = Singletons;
 	singletons.PlayerCharacter = self;
+	invuln_timer = Timer.new();
+	invuln_timer.one_shot = true;
+	invuln_timer.connect("timeout", on_invuln_timer_timeout);
+	add_child(invuln_timer);
+
+func on_invuln_timer_timeout():
+	is_invuln = false;
 	
 func Stun(bumpDir):
 	isStunned = true;
@@ -74,3 +85,11 @@ func _physics_process(delta):
 
 func _on_stun_timer_timeout():
 	isStunned = false;
+
+func on_hurt_character(dmg : int):
+	if(is_invuln):
+		return;
+	currentHealth -= 1;
+	is_invuln = true;
+	invuln_timer.start(MaxInvulnDuration);
+	Singletons.player_damaged.emit(currentHealth);
