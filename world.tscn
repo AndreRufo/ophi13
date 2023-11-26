@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bupermobpg1sj"]
+[gd_scene load_steps=20 format=3 uid="uid://bupermobpg1sj"]
 
 [ext_resource type="Texture2D" uid="uid://d2xq5ndw02hs1" path="res://Assets/Models/Nebula.hdr" id="1_3b43y"]
 [ext_resource type="PackedScene" uid="uid://d4lp0doik3rtc" path="res://Prefabs/Character.tscn" id="1_tr0ag"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bnn7s6xgm101c" path="res://Prefabs/Sagittarius.tscn" id="10_pfp5q"]
 [ext_resource type="PackedScene" uid="uid://vrl5jhudoutw" path="res://Prefabs/Scorpio.tscn" id="10_v23t3"]
 [ext_resource type="PackedScene" uid="uid://boyr8bllmfcup" path="res://Prefabs/AquariusEnemy.tscn" id="12_nd1ep"]
+[ext_resource type="PackedScene" uid="uid://by0e6y5nqpnff" path="res://Prefabs/torch.tscn" id="16_ijfbe"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vbnwt"]
 panorama = ExtResource("1_3b43y")
@@ -92,5 +93,53 @@ autostart = true
 
 [node name="SpaceBattleground" parent="." instance=ExtResource("7_jpi8t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.668417, 0.5, -0.514328)
+
+[node name="Torch" parent="." instance=ExtResource("16_ijfbe")]
+transform = Transform3D(0.00382224, 0, 0.999993, 0, 1, 0, -0.999993, 0, 0.00382224, 5.93392, 0.340085, 15.1022)
+
+[node name="Torch3" parent="." instance=ExtResource("16_ijfbe")]
+transform = Transform3D(0.00382224, 0, 0.999993, 0, 1, 0, -0.999993, 0, 0.00382224, 5.93392, 0.340085, 24.7687)
+
+[node name="Torch4" parent="." instance=ExtResource("16_ijfbe")]
+transform = Transform3D(0.00708601, 0, -0.999975, 0, 1, 0, 0.999975, 0, 0.00708601, -7.20465, 0.340085, 24.7687)
+
+[node name="Torch6" parent="." instance=ExtResource("16_ijfbe")]
+transform = Transform3D(0.00708601, 0, -0.999975, 0, 1, 0, 0.999975, 0, 0.00708601, -7.20465, 0.340085, 15.0413)
+
+[node name="Torch12" parent="." instance=ExtResource("16_ijfbe")]
+transform = Transform3D(0.00708601, 0, -0.999975, 0, 1, 0, 0.999975, 0, 0.00708601, -7.20465, 0.340085, -23.5055)
+
+[node name="Torch13" parent="." instance=ExtResource("16_ijfbe")]
+transform = Transform3D(0.00382224, 0, 0.999993, 0, 1, 0, -0.999993, 0, 0.00382224, 5.93392, 0.340085, -23.4447)
+
+[node name="Torch15" parent="." instance=ExtResource("16_ijfbe")]
+transform = Transform3D(0.00382224, 0, 0.999993, 0, 1, 0, -0.999993, 0, 0.00382224, 5.93392, 0.340085, -13.6576)
+
+[node name="Torch16" parent="." instance=ExtResource("16_ijfbe")]
+transform = Transform3D(0.00708601, 0, -0.999975, 0, 1, 0, 0.999975, 0, 0.00708601, -7.20465, 0.340085, -13.6576)
+
+[node name="Torch19" parent="." instance=ExtResource("16_ijfbe")]
+transform = Transform3D(0.999971, 0, -0.00766187, 0, 1, 0, 0.00766187, 0, 0.999971, 23.9487, 0.402394, 6.02944)
+
+[node name="Torch21" parent="." instance=ExtResource("16_ijfbe")]
+transform = Transform3D(0.999971, 0, -0.00766187, 0, 1, 0, 0.00766187, 0, 0.999971, 14.5335, 0.402394, 5.9849)
+
+[node name="Torch22" parent="." instance=ExtResource("16_ijfbe")]
+transform = Transform3D(-0.999995, 0, -0.00324637, 0, 1, 0, 0.00324637, 0, -0.999995, 14.584, 0.402394, -7.15357)
+
+[node name="Torch24" parent="." instance=ExtResource("16_ijfbe")]
+transform = Transform3D(-0.999995, 0, -0.00324637, 0, 1, 0, 0.00324637, 0, -0.999995, 24.0599, 0.402394, -7.1088)
+
+[node name="Torch25" parent="." instance=ExtResource("16_ijfbe")]
+transform = Transform3D(0.999971, 0, -0.00766187, 0, 1, 0, 0.00766187, 0, 0.999971, -14.891, 0.402394, 6.02944)
+
+[node name="Torch27" parent="." instance=ExtResource("16_ijfbe")]
+transform = Transform3D(0.999971, 0, -0.00766187, 0, 1, 0, 0.00766187, 0, 0.999971, -24.8084, 0.402394, 5.9849)
+
+[node name="Torch28" parent="." instance=ExtResource("16_ijfbe")]
+transform = Transform3D(-0.999995, 0, -0.00324637, 0, 1, 0, 0.00324637, 0, -0.999995, -24.758, 0.402394, -7.15357)
+
+[node name="Torch30" parent="." instance=ExtResource("16_ijfbe")]
+transform = Transform3D(-0.999995, 0, -0.00324637, 0, 1, 0, 0.00324637, 0, -0.999995, -14.7798, 0.402394, -7.1088)
 
 [connection signal="timeout" from="ZodiacSpawner/Timer" to="ZodiacSpawner" method="_on_timer_timeout"]
