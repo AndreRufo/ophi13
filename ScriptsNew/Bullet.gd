@@ -3,7 +3,7 @@ class_name Bullet
 extends Node3D
 
 @export var direction : Vector3
-@export var speed : float = 50;
+@export var speed : float = 10;
 
 @export var is_player_bullet : bool = true;
 
@@ -59,4 +59,4 @@ func on_hit_player(body):
 	body.currentHealth -= 1;
 	Singletons.player_damaged.emit(body.currentHealth);
 	if (body.currentHealth <= 0):
-		body.queue_free();
+		body.Kill();

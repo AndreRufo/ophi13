@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://7tfpnk5nsp0g"]
+
+[ext_resource type="PackedScene" uid="uid://y1eqpa7ff1uq" path="res://Prefabs/Enemy.tscn" id="1_30bpq"]
+[ext_resource type="Script" path="res://Prefabs/Virgo.gd" id="2_1imbq"]
+[ext_resource type="PackedScene" uid="uid://lf7koccski54" path="res://Prefabs/BulletSpawner.tscn" id="2_kw1jy"]
+[ext_resource type="PackedScene" uid="uid://cpnapbj8qkhgi" path="res://Prefabs/VirgoBullet.tscn" id="3_4pqcf"]
+[ext_resource type="PackedScene" uid="uid://cb1hqqhrqjapu" path="res://Assets/Models/Virgo.glb" id="3_t2q3m"]
+[ext_resource type="Material" uid="uid://iamf6dkl4p2" path="res://Assets/enemy_bullet_material_3d.tres" id="4_q7pyw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5varb"]
+albedo_color = Color(0.490196, 0.368627, 0.156863, 1)
+emission_enabled = true
+emission = Color(0.6, 0.407843, 0.121569, 1)
+emission_energy_multiplier = 1.88
+
+[node name="Virgo" instance=ExtResource("1_30bpq")]
+script = ExtResource("2_1imbq")
+DelayBetweenLocationGeneration = 2.0
+MaxDistanceFromPlayer = 30
+
+[node name="Visual" parent="." index="1"]
+material_override = SubResource("StandardMaterial3D_5varb")
+mesh = null
+
+[node name="Virgo" parent="Visual" index="0" instance=ExtResource("3_t2q3m")]
+
+[node name="6_VIRGO" parent="Visual/Virgo" index="0"]
+material_override = SubResource("StandardMaterial3D_5varb")
+
+[node name="BulletSpawner" parent="BulletSpawnersContainer" index="0" instance=ExtResource("2_kw1jy")]
+BulletScene = ExtResource("3_4pqcf")
+BulletMaterial = ExtResource("4_q7pyw")
+AngleDeviation = 2.0
+
+[node name="BulletSpawner3" parent="BulletSpawnersContainer" index="1" instance=ExtResource("2_kw1jy")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 0, 0, 0)
+BulletScene = ExtResource("3_4pqcf")
+BulletMaterial = ExtResource("4_q7pyw")
+AngleDeviation = 2.0
+
+[node name="BulletSpawner5" parent="BulletSpawnersContainer" index="2" instance=ExtResource("2_kw1jy")]
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 0, 0, 0)
+BulletScene = ExtResource("3_4pqcf")
+BulletMaterial = ExtResource("4_q7pyw")
+AngleDeviation = 2.0
+
+[node name="BulletSpawner7" parent="BulletSpawnersContainer" index="3" instance=ExtResource("2_kw1jy")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+BulletScene = ExtResource("3_4pqcf")
+BulletMaterial = ExtResource("4_q7pyw")
+AngleDeviation = 2.0
+
+[node name="BulletSpawner9" parent="BulletSpawnersContainer" index="4" instance=ExtResource("2_kw1jy")]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 0, 0, 0)
+BulletScene = ExtResource("3_4pqcf")
+BulletMaterial = ExtResource("4_q7pyw")
+AngleDeviation = 2.0
+
+[node name="BulletSpawner11" parent="BulletSpawnersContainer" index="5" instance=ExtResource("2_kw1jy")]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 0, 0, 0)
+BulletScene = ExtResource("3_4pqcf")
+BulletMaterial = ExtResource("4_q7pyw")
+AngleDeviation = 2.0
+
+[editable path="Visual/Virgo"]

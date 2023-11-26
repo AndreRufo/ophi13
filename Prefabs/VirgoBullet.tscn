@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpnapbj8qkhgi"]
+
+[ext_resource type="PackedScene" uid="uid://daa4scifdiejw" path="res://Prefabs/Bullet.tscn" id="1_58uac"]
+[ext_resource type="Script" path="res://ScriptsNew/VirgoBullet.gd" id="2_vsj5w"]
+
+[sub_resource type="Curve" id="Curve_kpilm"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.624041, -1), 0.0, 0.0, 0, 0, Vector2(1, 0.0105263), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_dsjrg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.255937, 0), 0.0, 0.0, 0, 0, Vector2(0.501319, 1), 0.0, 0.0, 0, 0, Vector2(0.751979, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[node name="VirgoBullet" instance=ExtResource("1_58uac")]
+script = ExtResource("2_vsj5w")
+SpeedCurveFront = SubResource("Curve_kpilm")
+SpeedCurveSideways = SubResource("Curve_dsjrg")
+is_player_bullet = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cpsdxotjj6yrr"]
+[gd_scene load_steps=32 format=3 uid="uid://cpsdxotjj6yrr"]
 
 [ext_resource type="PackedScene" uid="uid://bss2vdhlwj0kb" path="res://Assets/Models/SexyDance.glb" id="1_cu526"]
 [ext_resource type="Script" path="res://Victory.gd" id="1_wmj4f"]
@@ -36,6 +36,12 @@ albedo_color = Color(1, 0.603922, 0.278431, 1)
 emission_enabled = true
 emission = Color(0.788235, 0.513726, 0.172549, 1)
 emission_energy_multiplier = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ir0rs"]
+albedo_color = Color(0.490196, 0.368627, 0.156863, 1)
+emission_enabled = true
+emission = Color(0.6, 0.407843, 0.121569, 1)
+emission_energy_multiplier = 1.88
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fvkyn"]
 albedo_color = Color(1, 0.529412, 0.952941, 1)
@@ -210,6 +216,9 @@ material_override = SubResource("StandardMaterial3D_7by85")
 
 [node name="5_LEO" parent="SexyDance" index="5"]
 material_override = SubResource("StandardMaterial3D_wk8l5")
+
+[node name="6_VIRGO" parent="SexyDance" index="6"]
+material_override = SubResource("StandardMaterial3D_ir0rs")
 
 [node name="7_LIBRA" parent="SexyDance" index="7"]
 material_override = SubResource("StandardMaterial3D_fvkyn")
