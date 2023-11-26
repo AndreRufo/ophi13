@@ -27,6 +27,14 @@ func ShootBullet(direction):
 	new_bullet.SetColor(BulletMaterial);
 	
 	get_node("../../../Bullets").add_child(new_bullet);
+	
+	if Singletons.audioSourcesPlaying < Singletons.MAX_AUDIO_SOURCES :
+		# Get play sound chance
+		var rng = RandomNumberGenerator.new()
+		var my_random_number = rng.randi_range(0, 1)
+		if(my_random_number == 1) :
+			$AudioStreamPlayer.play()
+			Singletons.audioSourcesPlaying += 1
 
 
 func _on_bullet_spawn_interval_timeout():
@@ -39,3 +47,11 @@ func _on_bullet_spawn_interval_timeout():
 	ShootBullet(rotatedDir);
 	$BulletSpawnInterval.start();
 	pass # Replace with function body.
+
+
+func _on_audio_stream_player_finished():
+	Singletons.audioSourcesPlaying -= 1
+
+
+func _on_audio_stream_player_tree_exiting():
+	Singletons.audioSourcesPlaying -= 1

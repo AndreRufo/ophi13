@@ -8,6 +8,8 @@ var CameraObject : Camera3D;
 var Hud : CanvasLayer;
 var NumEnemiesDefeated = 0;
 var genisys_client = WebSocketClient.new();
+var audioSourcesPlaying : int = 0
+var MAX_AUDIO_SOURCES : int = 40
 
 signal player_damaged(hp_after_dmg);
 
