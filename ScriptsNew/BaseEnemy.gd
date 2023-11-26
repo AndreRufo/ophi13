@@ -4,6 +4,7 @@ class_name BaseEnemy
 
 @export var Speed : float = 1
 @export var MaxHealth : int = 10 
+@export var BulletDamage : int = 1;
 var currentHealth : int = MaxHealth
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -42,8 +43,7 @@ func _on_damage_area_body_entered(body):
 	if body.is_in_group("Character"):
 		var player : CharacterBody3D = body;
 		player.Stun((player.position - position)*10);
-		player.currentHealth -= 1;
-		Singletons.player_damaged.emit(player.currentHealth);
+		player.on_hurt_character(BulletDamage);
 		if (player.currentHealth <= 0):
 			player.queue_free();
 	pass # Replace with function body.
