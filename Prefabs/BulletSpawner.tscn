@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://lf7koccski54"]
+[gd_scene load_steps=3 format=3 uid="uid://lf7koccski54"]
 
 [ext_resource type="Script" path="res://ScriptsNew/BulletSpawner.gd" id="1_2shjb"]
+[ext_resource type="AudioStream" uid="uid://cmokau76jst5o" path="res://Assets/Audio/alienshoot1.wav" id="2_48obr"]
 
 [node name="BulletSpawner" type="Node3D"]
 script = ExtResource("1_2shjb")
@@ -8,4 +9,9 @@ script = ExtResource("1_2shjb")
 [node name="BulletSpawnInterval" type="Timer" parent="."]
 wait_time = 0.2
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_48obr")
+
 [connection signal="timeout" from="BulletSpawnInterval" to="." method="_on_bullet_spawn_interval_timeout"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="tree_exiting" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_tree_exiting"]
