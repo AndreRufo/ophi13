@@ -23,7 +23,11 @@ func _spawn_new_enemy():
 		return;
 		
 	var new_sign : Node3D = Signs[currentSign].instantiate();
-	new_sign.position = Singletons.PlayerCharacter.position + Vector3(20, 0.5, 20);
+	var distVector = Vector3(20,0,20);
+	var randomRotation = randf_range(0, 360);
+	var rotatedVector = distVector.rotated(Vector3.UP, deg_to_rad(randomRotation));
+	
+	new_sign.position = Singletons.PlayerCharacter.position + Vector3(0, 0.5, 0) + rotatedVector;
 	
 	get_parent().add_child(new_sign);
 	

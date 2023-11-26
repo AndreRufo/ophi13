@@ -9,6 +9,7 @@ radius = 0.328462
 
 [node name="Bullet" type="Node3D"]
 script = ExtResource("1_r132y")
+speed = 10.0
 
 [node name="Visual" type="Sprite3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

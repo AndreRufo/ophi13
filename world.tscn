@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bupermobpg1sj"]
+[gd_scene load_steps=24 format=3 uid="uid://bupermobpg1sj"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_0o0b0"]
 [ext_resource type="Texture2D" uid="uid://d2xq5ndw02hs1" path="res://Assets/Models/Nebula.hdr" id="1_3b43y"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://btcjphvnejj8u" path="res://Prefabs/LibraEnemy.tscn" id="11_8ydb4"]
 [ext_resource type="PackedScene" uid="uid://boyr8bllmfcup" path="res://Prefabs/AquariusEnemy.tscn" id="12_nd1ep"]
 [ext_resource type="PackedScene" uid="uid://by0e6y5nqpnff" path="res://Prefabs/torch.tscn" id="16_ijfbe"]
+[ext_resource type="PackedScene" uid="uid://c7bv16akl3wn8" path="res://Prefabs/Capricorn.tscn" id="16_qxj1i"]
 [ext_resource type="PackedScene" uid="uid://7tfpnk5nsp0g" path="res://Prefabs/Virgo.tscn" id="19_pg8xh"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vbnwt"]
@@ -89,7 +90,7 @@ update_scale = false
 
 [node name="ZodiacSpawner" type="Node3D" parent="."]
 script = ExtResource("6_fje5m")
-Signs = Array[PackedScene]([ExtResource("4_jmyty"), ExtResource("7_nqfsk"), ExtResource("9_bksfa"), ExtResource("9_ieg3u"), ExtResource("6_grg37"), ExtResource("19_pg8xh"), ExtResource("11_8ydb4"), ExtResource("10_v23t3"), ExtResource("10_pfp5q"), ExtResource("12_nd1ep"), ExtResource("5_ul6xq"), ExtResource("4_jmyty")])
+Signs = Array[PackedScene]([ExtResource("4_jmyty"), ExtResource("7_nqfsk"), ExtResource("9_bksfa"), ExtResource("9_ieg3u"), ExtResource("6_grg37"), ExtResource("19_pg8xh"), ExtResource("11_8ydb4"), ExtResource("10_v23t3"), ExtResource("10_pfp5q"), ExtResource("16_qxj1i"), ExtResource("12_nd1ep"), ExtResource("5_ul6xq")])
 
 [node name="Timer" type="Timer" parent="ZodiacSpawner"]
 wait_time = 13.0

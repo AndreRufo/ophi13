@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bhfisb5h4u2n3"]
+[gd_scene load_steps=9 format=3 uid="uid://c7bv16akl3wn8"]
 
 [ext_resource type="PackedScene" uid="uid://y1eqpa7ff1uq" path="res://Prefabs/Enemy.tscn" id="1_sj4gw"]
 [ext_resource type="Script" path="res://ScriptsNew/Capricorn.gd" id="2_gyo0t"]
