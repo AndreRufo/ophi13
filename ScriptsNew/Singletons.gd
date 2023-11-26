@@ -6,6 +6,7 @@ const GENISYS_PORT = 3333;
 var PlayerCharacter : CharacterBody3D;
 var CameraObject : Camera3D;
 var Hud : CanvasLayer;
+var NumEnemiesDefeated = 0;
 var genisys_client = WebSocketClient.new();
 
 signal player_damaged(hp_after_dmg);

@@ -64,4 +64,4 @@ func on_take_damage():
 	pass;
 	
 func on_death():
-	pass;
+	Singletons.NumEnemiesDefeated += 1;

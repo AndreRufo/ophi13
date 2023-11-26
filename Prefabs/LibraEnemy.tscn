@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://btcjphvnejj8u"]
+[gd_scene load_steps=7 format=3 uid="uid://btcjphvnejj8u"]
 
 [ext_resource type="PackedScene" uid="uid://y1eqpa7ff1uq" path="res://Prefabs/Enemy.tscn" id="1_qm6pj"]
 [ext_resource type="Script" path="res://ScriptsNew/LibraEnemy.gd" id="2_kors5"]
 [ext_resource type="PackedScene" uid="uid://defqgenu7gobb" path="res://Prefabs/LibraBullet.tscn" id="3_popa1"]
 [ext_resource type="Material" uid="uid://iamf6dkl4p2" path="res://Assets/enemy_bullet_material_3d.tres" id="4_coc11"]
+[ext_resource type="PackedScene" uid="uid://vk01afb7nogy" path="res://Assets/Models/Libra.glb" id="5_2k7gr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2elai"]
+albedo_color = Color(1, 0.529412, 0.952941, 1)
+emission_enabled = true
+emission = Color(0.662745, 0.317647, 0.678431, 1)
 
 [node name="LibraEnemy" instance=ExtResource("1_qm6pj")]
 script = ExtResource("2_kors5")
@@ -16,3 +22,10 @@ Speed = 5.0
 
 [node name="Visual" parent="." index="1"]
 mesh = null
+
+[node name="Libra" parent="Visual" index="0" instance=ExtResource("5_2k7gr")]
+
+[node name="7_LIBRA" parent="Visual/Libra" index="0"]
+material_override = SubResource("StandardMaterial3D_2elai")
+
+[editable path="Visual/Libra"]

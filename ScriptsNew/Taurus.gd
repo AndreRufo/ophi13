@@ -9,7 +9,7 @@ func _ready():
 	
 	var spawners = $BulletSpawnersContainer.get_children();
 	for spawner in spawners:
-		spawner.SetSpawnInterval(2);
+		spawner.SetSpawnInterval(3);
 
 func _update(delta):
 	# var rotAngle = AngleCurve.sample(currentCurveVal);

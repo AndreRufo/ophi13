@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=3 uid="uid://by0e6y5nqpnff"]
+
+[ext_resource type="PackedScene" uid="uid://b5y4ss2iaj1yt" path="res://Assets/Models/Torch.glb" id="1_yiqt4"]
+[ext_resource type="Texture2D" uid="uid://ckqodhqrlgit8" path="res://Assets/Particles/Kenney/flame_03.png" id="2_lnaop"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfmto"]
+albedo_color = Color(0.458824, 0.458824, 0.458824, 1)
+metallic = 0.57
+metallic_specular = 0.62
+
+[sub_resource type="Gradient" id="Gradient_m8g5e"]
+offsets = PackedFloat32Array(0, 0.74026, 1)
+colors = PackedColorArray(0.96, 1, 0.4, 1, 1, 0.515833, 0.17, 1, 0.37, 0.37, 0.37, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sfqbp"]
+gradient = SubResource("Gradient_m8g5e")
+
+[sub_resource type="Curve" id="Curve_eq3vq"]
+max_value = 5.0
+_data = [Vector2(0.00294985, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.526316), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_n78yw"]
+curve = SubResource("Curve_eq3vq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5gdxt"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 9.8, 0)
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_n78yw")
+color_ramp = SubResource("GradientTexture1D_sfqbp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oj64t"]
+transparency = 2
+alpha_scissor_threshold = 0.071
+alpha_antialiasing_mode = 0
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.8, 0.45098, 1)
+albedo_texture = ExtResource("2_lnaop")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_ydrxq"]
+material = SubResource("StandardMaterial3D_oj64t")
+
+[node name="Torch" instance=ExtResource("1_yiqt4")]
+
+[node name="Cylinder" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_vfmto")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.70851, 1.48094)
+amount = 10
+lifetime = 0.6
+process_material = SubResource("ParticleProcessMaterial_5gdxt")
+draw_pass_1 = SubResource("QuadMesh_ydrxq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.68515, 1.51264)
+light_color = Color(1, 0.85098, 0.439216, 1)
+light_energy = 4.937

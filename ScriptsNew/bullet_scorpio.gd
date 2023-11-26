@@ -11,7 +11,8 @@ func _ready():
 	startSpeed = speed
 	
 func _process(delta):
-	
+	if !Singletons.PlayerCharacter:
+		return;
 	var newDir
 	if chilling :
 		newDir = lerp(direction, oldDiffToTarget, 1);
