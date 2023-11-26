@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://d4kd7xdc0socd"]
+[gd_scene load_steps=2 format=3 uid="uid://b8syi7emhbr26"]
 
 [ext_resource type="PackedScene" uid="uid://daa4scifdiejw" path="res://Prefabs/Bullet.tscn" id="1_mmvpa"]
 

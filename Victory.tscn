@@ -1,0 +1,218 @@
+[gd_scene load_steps=23 format=3 uid="uid://cpsdxotjj6yrr"]
+
+[ext_resource type="PackedScene" uid="uid://bss2vdhlwj0kb" path="res://Assets/Models/SexyDance.glb" id="1_cu526"]
+[ext_resource type="Script" path="res://Victory.gd" id="1_wmj4f"]
+[ext_resource type="Texture2D" uid="uid://omdarxwrboo6" path="res://Assets/heaven.jpg" id="2_dqm8c"]
+[ext_resource type="Texture2D" uid="uid://d2xq5ndw02hs1" path="res://Assets/Models/Nebula.hdr" id="4_na5v5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dywg8"]
+albedo_color = Color(0.792157, 0.141176, 0.141176, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 0.85
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aoafe"]
+albedo_color = Color(0.788235, 0.235294, 0.235294, 1)
+emission_enabled = true
+emission = Color(0.788235, 0.235294, 0.235294, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8psre"]
+albedo_color = Color(1, 0.988235, 0.211765, 1)
+emission_enabled = true
+emission = Color(0.780392, 0.764706, 0.27451, 1)
+emission_energy_multiplier = 0.29
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7by85"]
+albedo_color = Color(0.568627, 0.568627, 0.568627, 1)
+emission_enabled = true
+emission = Color(0.580392, 0.580392, 0.580392, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wk8l5"]
+albedo_color = Color(1, 0.603922, 0.278431, 1)
+emission_enabled = true
+emission = Color(0.788235, 0.513726, 0.172549, 1)
+emission_energy_multiplier = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nl6u4"]
+albedo_color = Color(1, 0.101961, 0.101961, 1)
+emission_enabled = true
+emission = Color(0.760784, 0, 0.0313726, 1)
+emission_energy_multiplier = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sebqw"]
+albedo_color = Color(1, 0.101961, 0.909804, 1)
+emission_enabled = true
+emission = Color(0.533333, 0.2, 0.588235, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qj8rt"]
+albedo_color = Color(0.160784, 0.243137, 1, 1)
+emission_enabled = true
+emission = Color(0.113725, 0.227451, 0.74902, 1)
+emission_energy_multiplier = 1.71
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhtvi"]
+albedo_color = Color(0.380392, 1, 0.572549, 1)
+emission_enabled = true
+emission = Color(0.321569, 0.768627, 0.254902, 1)
+emission_energy_multiplier = 0.99
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gjiv2"]
+emission_enabled = true
+emission = Color(0.85098, 0.85098, 0.85098, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xovif"]
+size = Vector2(10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ydmwc"]
+cull_mode = 2
+shading_mode = 0
+diffuse_mode = 1
+albedo_texture = ExtResource("2_dqm8c")
+
+[sub_resource type="SphereMesh" id="SphereMesh_3fs0k"]
+radius = 10.0
+height = 20.0
+
+[sub_resource type="Animation" id="Animation_3htle"]
+resource_name = "loop"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraAnchor:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qevwk"]
+_data = {
+"loop": SubResource("Animation_3htle")
+}
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_10fji"]
+panorama = ExtResource("4_na5v5")
+
+[sub_resource type="Sky" id="Sky_x1gce"]
+sky_material = SubResource("PanoramaSkyMaterial_10fji")
+
+[sub_resource type="Environment" id="Environment_qirls"]
+background_mode = 2
+sky = SubResource("Sky_x1gce")
+ambient_light_source = 3
+reflected_light_source = 2
+tonemap_mode = 3
+ssao_enabled = true
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 4.01
+glow_strength = 1.32
+glow_blend_mode = 0
+glow_hdr_scale = 0.56
+glow_hdr_luminance_cap = 47.03
+fog_enabled = true
+fog_light_color = Color(0.333333, 0.109804, 0.203922, 1)
+fog_density = 0.021
+fog_aerial_perspective = 0.61
+fog_sky_affect = 0.221
+fog_height_density = 1.3474
+volumetric_fog_density = 0.0079
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_wmj4f")
+
+[node name="SexyDance" parent="." instance=ExtResource("1_cu526")]
+
+[node name="Skeleton3D" parent="SexyDance/Armature" index="0"]
+bones/0/position = Vector3(-0.176183, 0.0109201, -0.553089)
+bones/0/rotation = Quaternion(-0.790739, 0.11008, -0.0963571, 0.594415)
+bones/1/rotation = Quaternion(0.0958787, -0.00642652, -0.0161873, 0.995241)
+bones/2/rotation = Quaternion(0.0650564, -0.00119861, 0.000217436, 0.997881)
+bones/3/rotation = Quaternion(0.0650734, -0.00100756, 0.000136638, 0.99788)
+bones/4/rotation = Quaternion(0.00982514, -0.015476, 0.0163264, 0.999699)
+bones/5/rotation = Quaternion(-0.246483, -0.0391119, -0.105594, 0.962583)
+bones/7/rotation = Quaternion(0.58326, 0.42117, -0.524268, 0.455596)
+bones/8/rotation = Quaternion(0.343524, 0.267716, 0.10192, 0.894389)
+bones/9/rotation = Quaternion(0.0706492, -0.11355, 0.436674, 0.889624)
+bones/10/rotation = Quaternion(-0.0351297, 0.215792, 0.0169346, 0.97566)
+bones/11/rotation = Quaternion(-0.0293261, 0.669183, 0.0803467, 0.738159)
+bones/12/rotation = Quaternion(0.425313, 0.0330512, -0.0288468, 0.903983)
+bones/13/rotation = Quaternion(0.167628, 0.0444165, -0.0177727, 0.984689)
+bones/15/rotation = Quaternion(0.598148, -0.43223, 0.47988, 0.474458)
+bones/16/rotation = Quaternion(0.487734, -0.102074, 0.141995, 0.855298)
+bones/17/rotation = Quaternion(0.0185966, 0.0083323, -0.470334, 0.882253)
+bones/18/rotation = Quaternion(0.00222113, 0.395655, -0.0453069, 0.917278)
+bones/19/rotation = Quaternion(0.0935805, -0.960992, 0.0222331, 0.259312)
+bones/20/rotation = Quaternion(0.0249417, 0.00778528, -0.175439, 0.984143)
+bones/21/rotation = Quaternion(0.170534, 0.0603875, -0.171543, 0.968424)
+bones/23/rotation = Quaternion(-0.161013, -0.119029, -0.968482, 0.148151)
+bones/24/rotation = Quaternion(-0.491449, 0.0453927, -0.0113059, 0.869649)
+bones/25/rotation = Quaternion(0.654871, -0.0809684, -0.0339686, 0.750623)
+bones/26/rotation = Quaternion(0.314763, 0.00417347, -0.00414389, 0.949152)
+bones/28/rotation = Quaternion(-0.114081, 0.00359317, 0.992764, 0.0373195)
+bones/29/rotation = Quaternion(-0.457439, 0.0361693, -0.0270933, 0.888092)
+bones/30/rotation = Quaternion(0.732654, 0.0855535, 0.0359186, 0.674246)
+bones/31/rotation = Quaternion(0.262519, -0.00639537, 0.00177088, 0.964904)
+
+[node name="1_ARIES" parent="SexyDance" index="1"]
+material_override = SubResource("StandardMaterial3D_dywg8")
+
+[node name="2_TAURUS" parent="SexyDance" index="2"]
+material_override = SubResource("StandardMaterial3D_aoafe")
+
+[node name="3_GEMINI" parent="SexyDance" index="3"]
+material_override = SubResource("StandardMaterial3D_8psre")
+
+[node name="4_CANCER" parent="SexyDance" index="4"]
+material_override = SubResource("StandardMaterial3D_7by85")
+
+[node name="5_LEO" parent="SexyDance" index="5"]
+material_override = SubResource("StandardMaterial3D_wk8l5")
+
+[node name="8_SCORPIO" parent="SexyDance" index="8"]
+material_override = SubResource("StandardMaterial3D_nl6u4")
+
+[node name="9_SAGITTARIUS" parent="SexyDance" index="9"]
+material_override = SubResource("StandardMaterial3D_sebqw")
+
+[node name="11_AQUARIUS" parent="SexyDance" index="11"]
+material_override = SubResource("StandardMaterial3D_qj8rt")
+
+[node name="12_PISCES" parent="SexyDance" index="12"]
+material_override = SubResource("StandardMaterial3D_vhtvi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.89066, 0)
+material_override = SubResource("StandardMaterial3D_gjiv2")
+mesh = SubResource("PlaneMesh_xovif")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_ydmwc")
+mesh = SubResource("SphereMesh_3fs0k")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.909954, 0.272199, -0.312876, 0, 0.754446, 0.656362, 0.414709, -0.597259, 0.686511, 0, 2.65023, 0.554806)
+
+[node name="CameraAnchor" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraAnchor"]
+transform = Transform3D(1, 0, 0, 0, 0.903694, -0.428178, 0, 0.428178, 0.903694, 0, -0.350662, 1.98656)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qevwk")
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qirls")
+
+[editable path="SexyDance"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://y1eqpa7ff1uq" path="res://Prefabs/Enemy.tscn" id="1_n8yv5"]
 [ext_resource type="Script" path="res://ScriptsNew/AquariusEnemy.gd" id="2_sekms"]
-[ext_resource type="PackedScene" path="res://Prefabs/AquariusBullet.tscn" id="3_6iukg"]
+[ext_resource type="PackedScene" uid="uid://d1bsrkspstdgp" path="res://Prefabs/AquariusBullet.tscn" id="3_6iukg"]
 [ext_resource type="Material" uid="uid://iamf6dkl4p2" path="res://Assets/enemy_bullet_material_3d.tres" id="4_delum"]
 [ext_resource type="PackedScene" uid="uid://l11sh1n4w5iu" path="res://Assets/Models/Aquarius.glb" id="5_kvq8w"]
 

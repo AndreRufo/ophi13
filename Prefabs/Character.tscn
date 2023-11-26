@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://d4lp0doik3rtc"]
 
 [ext_resource type="Script" path="res://ScriptsNew/Character.gd" id="1_tl3q1"]
-[ext_resource type="PackedScene" uid="uid://cplbtlniv8tgh" path="res://Prefabs/PlayerBullet.tscn" id="2_5tvyk"]
+[ext_resource type="PackedScene" uid="uid://cwj2hm74gtiyf" path="res://Prefabs/PlayerBullet.tscn" id="2_5tvyk"]
 [ext_resource type="PackedScene" uid="uid://clsav3p0qp40q" path="res://Assets/Models/Ophiucus_Anim2.glb" id="3_1w8es"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gf1nm"]
@@ -64,7 +64,7 @@ unique_name_in_owner = true
 wait_time = 0.5
 
 [node name="BulletOrigin" type="BoneAttachment3D" parent="."]
-transform = Transform3D(-1.7255, -0.723093, -0.706957, -0.918178, 0.534297, 1.69454, -0.423794, 1.78652, -0.792929, -0.467083, 0.96735, 0.939627)
+transform = Transform3D(-1.7255, -0.723096, -0.706958, -0.91818, 0.534296, 1.69454, -0.423796, 1.78652, -0.79293, -0.467084, 0.967349, 0.939627)
 bone_name = "mixamorig_RightHand"
 bone_idx = 18
 use_external_skeleton = true

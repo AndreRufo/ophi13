@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bupermobpg1sj"]
+[gd_scene load_steps=19 format=3 uid="uid://bupermobpg1sj"]
 
 [ext_resource type="Texture2D" uid="uid://d2xq5ndw02hs1" path="res://Assets/Models/Nebula.hdr" id="1_3b43y"]
 [ext_resource type="PackedScene" uid="uid://d4lp0doik3rtc" path="res://Prefabs/Character.tscn" id="1_tr0ag"]
@@ -9,20 +9,22 @@
 [ext_resource type="Script" path="res://ScriptsNew/ZodiacSpawner.gd" id="6_fje5m"]
 [ext_resource type="PackedScene" uid="uid://nlarhrwqb002" path="res://Prefabs/Leo.tscn" id="6_grg37"]
 [ext_resource type="PackedScene" uid="uid://c2wbfm15y6g84" path="res://Prefabs/Battleground.tscn" id="7_jpi8t"]
+[ext_resource type="PackedScene" uid="uid://dmug2uw4akgi0" path="res://Prefabs/Taurus.tscn" id="7_nqfsk"]
 [ext_resource type="PackedScene" uid="uid://bigen8uemxgp" path="res://Prefabs/Gemini.tscn" id="9_bksfa"]
 [ext_resource type="PackedScene" uid="uid://c24flsme287t6" path="res://Prefabs/Cancer.tscn" id="9_ieg3u"]
 [ext_resource type="PackedScene" uid="uid://bnn7s6xgm101c" path="res://Prefabs/Sagittarius.tscn" id="10_pfp5q"]
+[ext_resource type="PackedScene" uid="uid://vrl5jhudoutw" path="res://Prefabs/Scorpio.tscn" id="10_v23t3"]
 [ext_resource type="PackedScene" uid="uid://boyr8bllmfcup" path="res://Prefabs/AquariusEnemy.tscn" id="12_nd1ep"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vbnwt"]
 panorama = ExtResource("1_3b43y")
 
-[sub_resource type="Sky" id="Sky_x1gce"]
+[sub_resource type="Sky" id="Sky_sj7l4"]
 sky_material = SubResource("PanoramaSkyMaterial_vbnwt")
 
 [sub_resource type="Environment" id="Environment_jwc36"]
 background_mode = 2
-sky = SubResource("Sky_x1gce")
+sky = SubResource("Sky_sj7l4")
 ambient_light_source = 3
 reflected_light_source = 2
 tonemap_mode = 3
@@ -82,7 +84,7 @@ update_scale = false
 
 [node name="ZodiacSpawner" type="Node3D" parent="."]
 script = ExtResource("6_fje5m")
-Signs = Array[PackedScene]([ExtResource("4_jmyty"), ExtResource("9_bksfa"), ExtResource("9_ieg3u"), ExtResource("6_grg37"), ExtResource("10_pfp5q"), ExtResource("12_nd1ep"), ExtResource("5_ul6xq"), ExtResource("4_jmyty"), ExtResource("5_ul6xq"), ExtResource("4_jmyty"), ExtResource("5_ul6xq"), ExtResource("4_jmyty")])
+Signs = Array[PackedScene]([ExtResource("4_jmyty"), ExtResource("7_nqfsk"), ExtResource("9_bksfa"), ExtResource("9_ieg3u"), ExtResource("6_grg37"), ExtResource("10_v23t3"), ExtResource("10_pfp5q"), ExtResource("12_nd1ep"), ExtResource("5_ul6xq"), ExtResource("4_jmyty"), ExtResource("5_ul6xq"), ExtResource("4_jmyty")])
 
 [node name="Timer" type="Timer" parent="ZodiacSpawner"]
 wait_time = 13.0
