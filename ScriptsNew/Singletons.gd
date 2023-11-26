@@ -12,6 +12,7 @@ var audioSourcesPlaying : int = 0
 var MAX_AUDIO_SOURCES : int = 40
 
 signal player_damaged(hp_after_dmg);
+signal player_healed(hp_after_heal);
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -10,6 +10,7 @@ const JUMP_VELOCITY = 4.5
 var currentHealth : int = MaxHealth
 var isStunned : bool = false;
 var isAlive : bool = true;
+var isDancing : bool = false;
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -33,6 +34,9 @@ func Stun(bumpDir):
 	isStunned = true;
 	velocity = bumpDir;
 	%StunTimer.start();
+	$Visual/Ophiucus_Anim2/AnimationPlayer.play("Armature|mixamo_com|Layer0");
+	$ExitHealTimer.start()
+	$HealTimer.stop()
 	
 func Kill():
 	isAlive = false;
@@ -53,6 +57,24 @@ func _physics_process(delta):
 	# Handle Jump.
 	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 	#	velocity.y = JUMP_VELOCITY
+	
+	if Input.is_action_just_pressed("Heal"):
+		isDancing = true;
+		$Visual/Ophiucus_Anim2/AnimationPlayer.pause()
+		$Visual/Ophiucus_Anim2/AnimationPlayer.play("anim_library/Armature|mixamo_com|Layer0_001")
+		$HealTimer.start()
+		$ExitHealTimer.stop()
+	
+	if Input.is_action_just_released("Heal"):
+		$Visual/Ophiucus_Anim2/AnimationPlayer.play("Armature|mixamo_com|Layer0");
+		$ExitHealTimer.start()
+		$HealTimer.stop()
+		
+	if (isDancing):
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+		move_and_slide()
+		return;
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		var new_bullet = BulletScene.instantiate();
@@ -93,3 +115,14 @@ func on_hurt_character(dmg : int):
 	is_invuln = true;
 	invuln_timer.start(MaxInvulnDuration);
 	Singletons.player_damaged.emit(currentHealth);
+
+
+func _on_heal_timer_timeout():
+	if currentHealth < MaxHealth:
+		currentHealth += 1;
+		$HealTimer.start()
+		Singletons.player_healed.emit(currentHealth);
+
+
+func _on_exit_heal_timer_timeout():
+	isDancing = false;
