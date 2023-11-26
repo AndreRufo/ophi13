@@ -42,7 +42,9 @@ func _on_area_3d_body_entered(body):
 		
 	if is_player_bullet && body.is_in_group("Enemy"):
 		body.currentHealth -= 1;
+		body.on_take_damage();
 		if (body.currentHealth <= 0):
+			body.on_death();
 			body.queue_free();
 		
 	if !is_player_bullet && body.is_in_group("Character"):

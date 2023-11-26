@@ -110,9 +110,13 @@ func get_next_position():
 			get_random_position();
 	else:
 		get_random_position();
+
 func get_random_position():
 	#Get random position
 	current_position_index = randi() % (SniperPositions.size() - 1);
 	var next_pos = SniperPositions[current_position_index];
 	SniperPositions.erase(next_pos);
 	SniperPositions.push_back(next_pos);
+
+func on_death():
+	hud_bullseye.visible = false;

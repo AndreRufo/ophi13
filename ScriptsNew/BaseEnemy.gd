@@ -63,5 +63,5 @@ func _on_bullet_capture_area_area_exited(area):
 func on_take_damage():
 	pass;
 	
-func on_die():
+func on_death():
 	pass;
