@@ -1,11 +1,12 @@
-[gd_scene load_steps=33 format=3 uid="uid://cpsdxotjj6yrr"]
+[gd_scene load_steps=34 format=3 uid="uid://cpsdxotjj6yrr"]
 
 [ext_resource type="PackedScene" uid="uid://bss2vdhlwj0kb" path="res://Assets/Models/SexyDance.glb" id="1_cu526"]
 [ext_resource type="Script" path="res://Victory.gd" id="1_wmj4f"]
 [ext_resource type="Texture2D" uid="uid://omdarxwrboo6" path="res://Assets/heaven.jpg" id="2_dqm8c"]
 [ext_resource type="Texture2D" uid="uid://d2xq5ndw02hs1" path="res://Assets/Models/Nebula.hdr" id="4_na5v5"]
 [ext_resource type="PackedScene" uid="uid://c2wbfm15y6g84" path="res://Prefabs/Battleground.tscn" id="5_ycwbn"]
-[ext_resource type="PackedScene" uid="uid://by0e6y5nqpnff" path="res://Prefabs/torch.tscn" id="6_ak0aj"]
+[ext_resource type="PackedScene" path="res://Prefabs/torch.tscn" id="6_ak0aj"]
+[ext_resource type="AudioStream" uid="uid://cqpmfg6lrioq2" path="res://Assets/Audio/Viktor Kraus - Victory!.wav" id="7_oxogg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dywg8"]
 albedo_color = Color(0.792157, 0.141176, 0.141176, 1)
@@ -344,6 +345,10 @@ shadow_opacity = 0.87
 shadow_blur = 1.515
 directional_shadow_blend_splits = true
 directional_shadow_max_distance = 40.2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_oxogg")
+autoplay = true
 
 [editable path="SexyDance"]
 [editable path="Torch7"]

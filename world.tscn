@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bupermobpg1sj"]
+[gd_scene load_steps=25 format=3 uid="uid://bupermobpg1sj"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_0o0b0"]
 [ext_resource type="Texture2D" uid="uid://d2xq5ndw02hs1" path="res://Assets/Models/Nebula.hdr" id="1_3b43y"]
@@ -17,9 +17,10 @@
 [ext_resource type="PackedScene" uid="uid://vrl5jhudoutw" path="res://Prefabs/Scorpio.tscn" id="10_v23t3"]
 [ext_resource type="PackedScene" uid="uid://btcjphvnejj8u" path="res://Prefabs/LibraEnemy.tscn" id="11_8ydb4"]
 [ext_resource type="PackedScene" uid="uid://boyr8bllmfcup" path="res://Prefabs/AquariusEnemy.tscn" id="12_nd1ep"]
-[ext_resource type="PackedScene" uid="uid://by0e6y5nqpnff" path="res://Prefabs/torch.tscn" id="16_ijfbe"]
+[ext_resource type="PackedScene" path="res://Prefabs/torch.tscn" id="16_ijfbe"]
 [ext_resource type="PackedScene" uid="uid://c7bv16akl3wn8" path="res://Prefabs/Capricorn.tscn" id="16_qxj1i"]
 [ext_resource type="PackedScene" uid="uid://7tfpnk5nsp0g" path="res://Prefabs/Virgo.tscn" id="19_pg8xh"]
+[ext_resource type="AudioStream" uid="uid://dyy42dnivd2w2" path="res://Assets/Audio/serpentario-004.wav" id="21_8dovc"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vbnwt"]
 panorama = ExtResource("1_3b43y")
@@ -146,5 +147,10 @@ transform = Transform3D(-0.999995, 0, -0.00324637, 0, 1, 0, 0.00324637, 0, -0.99
 
 [node name="Torch30" parent="." instance=ExtResource("16_ijfbe")]
 transform = Transform3D(-0.999995, 0, -0.00324637, 0, 1, 0, 0.00324637, 0, -0.999995, -14.7798, 0.402394, -7.1088)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_8dovc")
+volume_db = 3.0
+autoplay = true
 
 [connection signal="timeout" from="ZodiacSpawner/Timer" to="ZodiacSpawner" method="_on_timer_timeout"]
