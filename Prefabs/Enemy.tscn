@@ -28,6 +28,8 @@ mesh = SubResource("CapsuleMesh_pc6ix")
 surface_material_override/0 = SubResource("StandardMaterial3D_ol51q")
 
 [node name="DamageArea" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DamageArea"]
 shape = SubResource("CylinderShape3D_bvxsd")
