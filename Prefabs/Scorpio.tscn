@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://vrl5jhudoutw"]
+[gd_scene load_steps=8 format=3 uid="uid://vrl5jhudoutw"]
 
 [ext_resource type="PackedScene" uid="uid://y1eqpa7ff1uq" path="res://Prefabs/Enemy.tscn" id="1_ky7hd"]
 [ext_resource type="Script" path="res://ScriptsNew/Scorpio.gd" id="2_78g67"]
 [ext_resource type="PackedScene" uid="uid://bkeu4tc28vm22" path="res://Assets/Models/Scorpio.glb" id="3_1xb1e"]
 [ext_resource type="PackedScene" uid="uid://lf7koccski54" path="res://Prefabs/BulletSpawner.tscn" id="3_qg3wm"]
 [ext_resource type="PackedScene" uid="uid://c0ttln2kewc2m" path="res://Prefabs/ScorpioBullet.tscn" id="4_4h13y"]
+[ext_resource type="Material" uid="uid://iamf6dkl4p2" path="res://Assets/enemy_bullet_material_3d.tres" id="6_vi80c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xfdd"]
 albedo_color = Color(1, 0.101961, 0.101961, 1)
@@ -26,6 +27,7 @@ material_override = SubResource("StandardMaterial3D_7xfdd")
 
 [node name="BulletSpawner" parent="BulletSpawnersContainer" index="0" instance=ExtResource("3_qg3wm")]
 BulletScene = ExtResource("4_4h13y")
+BulletMaterial = ExtResource("6_vi80c")
 
 [node name="Timer" type="Timer" parent="." index="5"]
 wait_time = 2.5

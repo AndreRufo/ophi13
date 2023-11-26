@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bupermobpg1sj" path="res://world.tscn" id="3_kjbmx"]
 [ext_resource type="Texture2D" uid="uid://d2xq5ndw02hs1" path="res://Assets/Models/Nebula.hdr" id="4_xj6gm"]
 [ext_resource type="PackedScene" uid="uid://c2wbfm15y6g84" path="res://Prefabs/Battleground.tscn" id="5_cvq0m"]
-[ext_resource type="PackedScene" path="res://Prefabs/torch.tscn" id="6_a1jls"]
+[ext_resource type="PackedScene" uid="uid://by0e6y5nqpnff" path="res://Prefabs/torch.tscn" id="6_a1jls"]
 [ext_resource type="Texture2D" uid="uid://d11xh6poxhlsj" path="res://Assets/innerring.png" id="7_a3yb5"]
 [ext_resource type="Texture2D" uid="uid://d2hdlu5omr2n8" path="res://Assets/midring.png" id="8_0u3aj"]
 [ext_resource type="Texture2D" uid="uid://8elgucee56e4" path="res://Assets/outerring.png" id="9_41805"]
@@ -325,9 +325,18 @@ grow_vertical = 2
 pivot_offset = Vector2(640, 640)
 
 [node name="Inner" type="TextureRect" parent="Control"]
-layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 1279.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 704.0
+offset_bottom = 955.0
+grow_horizontal = 2
+grow_vertical = 2
 pivot_offset = Vector2(640, 639)
 texture = ExtResource("7_a3yb5")
 

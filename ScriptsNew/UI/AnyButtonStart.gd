@@ -31,4 +31,3 @@ func _process(delta):
 			input_wait_timer.start(2);
 			skipping = true;
 			TitleAnimationPlayer.seek(12);
-			
