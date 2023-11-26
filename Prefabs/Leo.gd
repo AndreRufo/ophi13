@@ -8,7 +8,7 @@ func _ready():
 	
 	var spawners = $BulletSpawnersContainer.get_children();
 	for spawner in spawners:
-		spawner.SetSpawnInterval(0.05);
+		spawner.SetSpawnInterval(0.1);
 		
 	$AnimationPlayer.play("leoshoot")
 

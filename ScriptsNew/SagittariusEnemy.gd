@@ -120,3 +120,4 @@ func get_random_position():
 
 func on_death():
 	hud_bullseye.visible = false;
+	super();

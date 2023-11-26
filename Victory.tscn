@@ -1,20 +1,23 @@
-[gd_scene load_steps=23 format=3 uid="uid://cpsdxotjj6yrr"]
+[gd_scene load_steps=31 format=3 uid="uid://cpsdxotjj6yrr"]
 
 [ext_resource type="PackedScene" uid="uid://bss2vdhlwj0kb" path="res://Assets/Models/SexyDance.glb" id="1_cu526"]
 [ext_resource type="Script" path="res://Victory.gd" id="1_wmj4f"]
 [ext_resource type="Texture2D" uid="uid://omdarxwrboo6" path="res://Assets/heaven.jpg" id="2_dqm8c"]
 [ext_resource type="Texture2D" uid="uid://d2xq5ndw02hs1" path="res://Assets/Models/Nebula.hdr" id="4_na5v5"]
+[ext_resource type="PackedScene" uid="uid://c2wbfm15y6g84" path="res://Prefabs/Battleground.tscn" id="5_ycwbn"]
+[ext_resource type="PackedScene" uid="uid://by0e6y5nqpnff" path="res://Prefabs/torch.tscn" id="6_ak0aj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dywg8"]
 albedo_color = Color(0.792157, 0.141176, 0.141176, 1)
 emission_enabled = true
 emission = Color(1, 0, 0, 1)
-emission_energy_multiplier = 0.85
+emission_energy_multiplier = 0.67
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aoafe"]
 albedo_color = Color(0.788235, 0.235294, 0.235294, 1)
 emission_enabled = true
 emission = Color(0.788235, 0.235294, 0.235294, 1)
+emission_energy_multiplier = 0.65
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8psre"]
 albedo_color = Color(1, 0.988235, 0.211765, 1)
@@ -26,13 +29,19 @@ emission_energy_multiplier = 0.29
 albedo_color = Color(0.568627, 0.568627, 0.568627, 1)
 emission_enabled = true
 emission = Color(0.580392, 0.580392, 0.580392, 1)
-emission_energy_multiplier = 3.0
+emission_energy_multiplier = 1.94
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wk8l5"]
 albedo_color = Color(1, 0.603922, 0.278431, 1)
 emission_enabled = true
 emission = Color(0.788235, 0.513726, 0.172549, 1)
 emission_energy_multiplier = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fvkyn"]
+albedo_color = Color(1, 0.529412, 0.952941, 1)
+emission_enabled = true
+emission = Color(0.662745, 0.317647, 0.678431, 1)
+emission_energy_multiplier = 0.47
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nl6u4"]
 albedo_color = Color(1, 0.101961, 0.101961, 1)
@@ -44,19 +53,19 @@ emission_energy_multiplier = 0.3
 albedo_color = Color(1, 0.101961, 0.909804, 1)
 emission_enabled = true
 emission = Color(0.533333, 0.2, 0.588235, 1)
-emission_energy_multiplier = 3.0
+emission_energy_multiplier = 1.59
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qj8rt"]
 albedo_color = Color(0.160784, 0.243137, 1, 1)
 emission_enabled = true
 emission = Color(0.113725, 0.227451, 0.74902, 1)
-emission_energy_multiplier = 1.71
+emission_energy_multiplier = 1.09
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhtvi"]
 albedo_color = Color(0.380392, 1, 0.572549, 1)
 emission_enabled = true
 emission = Color(0.321569, 0.768627, 0.254902, 1)
-emission_energy_multiplier = 0.99
+emission_energy_multiplier = 0.45
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gjiv2"]
 emission_enabled = true
@@ -77,7 +86,7 @@ height = 20.0
 
 [sub_resource type="Animation" id="Animation_3htle"]
 resource_name = "loop"
-length = 5.0
+length = 10.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -86,7 +95,7 @@ tracks/0/path = NodePath("CameraAnchor:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
+"times": PackedFloat32Array(0, 10),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
@@ -127,10 +136,34 @@ fog_sky_affect = 0.221
 fog_height_density = 1.3474
 volumetric_fog_density = 0.0079
 
+[sub_resource type="Gradient" id="Gradient_m8g5e"]
+offsets = PackedFloat32Array(0, 0.74026, 1)
+colors = PackedColorArray(0.96, 1, 0.4, 1, 1, 0.515833, 0.17, 1, 0.37, 0.37, 0.37, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sfqbp"]
+gradient = SubResource("Gradient_m8g5e")
+
+[sub_resource type="Curve" id="Curve_eq3vq"]
+max_value = 5.0
+_data = [Vector2(0.00294985, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.526316), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_s7ref"]
+curve = SubResource("Curve_eq3vq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pi2a5"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 9.8, 0)
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_s7ref")
+color_ramp = SubResource("GradientTexture1D_sfqbp")
+
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_wmj4f")
 
 [node name="SexyDance" parent="." instance=ExtResource("1_cu526")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44174, 0)
 
 [node name="Skeleton3D" parent="SexyDance/Armature" index="0"]
 bones/0/position = Vector3(-0.0808248, -0.0170946, -0.513063)
@@ -178,6 +211,9 @@ material_override = SubResource("StandardMaterial3D_7by85")
 [node name="5_LEO" parent="SexyDance" index="5"]
 material_override = SubResource("StandardMaterial3D_wk8l5")
 
+[node name="7_LIBRA" parent="SexyDance" index="7"]
+material_override = SubResource("StandardMaterial3D_fvkyn")
+
 [node name="8_SCORPIO" parent="SexyDance" index="8"]
 material_override = SubResource("StandardMaterial3D_nl6u4")
 
@@ -192,17 +228,21 @@ material_override = SubResource("StandardMaterial3D_vhtvi")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.89066, 0)
+visible = false
 material_override = SubResource("StandardMaterial3D_gjiv2")
 mesh = SubResource("PlaneMesh_xovif")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+visible = false
 material_override = SubResource("StandardMaterial3D_ydmwc")
 mesh = SubResource("SphereMesh_3fs0k")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.909954, 0.272199, -0.312876, 0, 0.754446, 0.656362, 0.414709, -0.597259, 0.686511, 0, 2.65023, 0.554806)
+transform = Transform3D(0.484688, 0.574111, -0.659905, -1.35594e-08, 0.754446, 0.656362, 0.874687, -0.31813, 0.365671, 0, 3.50568, 0.554806)
+shadow_enabled = true
 
 [node name="CameraAnchor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15738, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraAnchor"]
 transform = Transform3D(1, 0, 0, 0, 0.903694, -0.428178, 0, 0.428178, 0.903694, 0, -0.350662, 1.98656)
@@ -215,4 +255,69 @@ libraries = {
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qirls")
 
+[node name="SpaceBattleground" parent="." instance=ExtResource("5_ycwbn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.668417, 0.5, -0.514328)
+
+[node name="Torch" parent="." instance=ExtResource("6_ak0aj")]
+transform = Transform3D(0.00382224, 0, 0.999993, 0, 1, 0, -0.999993, 0, 0.00382224, 5.93392, 0.340085, 15.1022)
+
+[node name="Torch3" parent="." instance=ExtResource("6_ak0aj")]
+transform = Transform3D(0.00382224, 0, 0.999993, 0, 1, 0, -0.999993, 0, 0.00382224, 5.93392, 0.340085, 24.7687)
+
+[node name="Torch4" parent="." instance=ExtResource("6_ak0aj")]
+transform = Transform3D(0.00708601, 0, -0.999975, 0, 1, 0, 0.999975, 0, 0.00708601, -7.20465, 0.340085, 24.7687)
+
+[node name="Torch6" parent="." instance=ExtResource("6_ak0aj")]
+transform = Transform3D(0.00708601, 0, -0.999975, 0, 1, 0, 0.999975, 0, 0.00708601, -7.20465, 0.340085, 15.0413)
+
+[node name="Torch12" parent="." instance=ExtResource("6_ak0aj")]
+transform = Transform3D(0.00708601, 0, -0.999975, 0, 1, 0, 0.999975, 0, 0.00708601, -7.20465, 0.340085, -23.5055)
+
+[node name="Torch13" parent="." instance=ExtResource("6_ak0aj")]
+transform = Transform3D(0.00382224, 0, 0.999993, 0, 1, 0, -0.999993, 0, 0.00382224, 5.93392, 0.340085, -23.4447)
+
+[node name="Torch15" parent="." instance=ExtResource("6_ak0aj")]
+transform = Transform3D(0.00382224, 0, 0.999993, 0, 1, 0, -0.999993, 0, 0.00382224, 5.93392, 0.340085, -13.6576)
+
+[node name="Torch16" parent="." instance=ExtResource("6_ak0aj")]
+transform = Transform3D(0.00708601, 0, -0.999975, 0, 1, 0, 0.999975, 0, 0.00708601, -7.20465, 0.340085, -13.6576)
+
+[node name="Torch19" parent="." instance=ExtResource("6_ak0aj")]
+transform = Transform3D(0.999971, 0, -0.00766187, 0, 1, 0, 0.00766187, 0, 0.999971, 23.9487, 0.402394, 6.02944)
+
+[node name="Torch21" parent="." instance=ExtResource("6_ak0aj")]
+transform = Transform3D(0.999971, 0, -0.00766187, 0, 1, 0, 0.00766187, 0, 0.999971, 14.5335, 0.402394, 5.9849)
+
+[node name="Torch22" parent="." instance=ExtResource("6_ak0aj")]
+transform = Transform3D(-0.999995, 0, -0.00324637, 0, 1, 0, 0.00324637, 0, -0.999995, 14.584, 0.402394, -7.15357)
+
+[node name="Torch24" parent="." instance=ExtResource("6_ak0aj")]
+transform = Transform3D(-0.999995, 0, -0.00324637, 0, 1, 0, 0.00324637, 0, -0.999995, 24.0599, 0.402394, -7.1088)
+
+[node name="Torch25" parent="." instance=ExtResource("6_ak0aj")]
+transform = Transform3D(0.999971, 0, -0.00766187, 0, 1, 0, 0.00766187, 0, 0.999971, -14.891, 0.402394, 6.02944)
+
+[node name="Torch27" parent="." instance=ExtResource("6_ak0aj")]
+transform = Transform3D(0.999971, 0, -0.00766187, 0, 1, 0, 0.00766187, 0, 0.999971, -24.8084, 0.402394, 5.9849)
+
+[node name="Torch28" parent="." instance=ExtResource("6_ak0aj")]
+transform = Transform3D(-0.999995, 0, -0.00324637, 0, 1, 0, 0.00324637, 0, -0.999995, -24.758, 0.402394, -7.15357)
+
+[node name="Torch30" parent="." instance=ExtResource("6_ak0aj")]
+transform = Transform3D(-0.999995, 0, -0.00324637, 0, 1, 0, 0.00324637, 0, -0.999995, -14.7798, 0.402394, -7.1088)
+
+[node name="Torch2" parent="." instance=ExtResource("6_ak0aj")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.603832, 24.5586, 52.4133)
+
+[node name="Torch5" parent="." instance=ExtResource("6_ak0aj")]
+transform = Transform3D(1.4242, 0, -2.64039, 0, 3, 0, 2.64039, 0, 1.4242, -54.052, 23.2765, -2.59519)
+
+[node name="Torch7" parent="." instance=ExtResource("6_ak0aj")]
+transform = Transform3D(1.70818, 0, 2.46619, -0.173708, 2.99255, 0.120317, -2.46007, -0.211306, 1.70394, 52.7824, 23.2765, -2.077)
+
+[node name="GPUParticles3D" parent="Torch7" index="1"]
+transform = Transform3D(1, -3.72529e-09, -1.19209e-07, 7.45058e-09, 1, -7.45058e-09, 0, 0, 1, -0.0516901, 4.59898, 1.51674)
+process_material = SubResource("ParticleProcessMaterial_pi2a5")
+
 [editable path="SexyDance"]
+[editable path="Torch7"]

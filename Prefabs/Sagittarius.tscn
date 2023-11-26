@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://lf7koccski54" path="res://Prefabs/BulletSpawner.tscn" id="3_d8e2k"]
 [ext_resource type="PackedScene" uid="uid://b771avbshbenu" path="res://Assets/Models/Sagittarius.glb" id="3_sjicb"]
 [ext_resource type="Script" path="res://ScriptsNew/SagiBulletSpawner.gd" id="4_q1mn2"]
-[ext_resource type="PackedScene" uid="uid://csrxqup5toluh" path="res://Prefabs/SagiBullet.tscn" id="5_n5ey0"]
+[ext_resource type="PackedScene" uid="uid://c7lovbdee2ggp" path="res://Prefabs/SagiBullet.tscn" id="5_n5ey0"]
 [ext_resource type="Material" uid="uid://iamf6dkl4p2" path="res://Assets/enemy_bullet_material_3d.tres" id="5_ngcuh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yj835"]

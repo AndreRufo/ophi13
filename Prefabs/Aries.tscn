@@ -23,7 +23,7 @@ script = ExtResource("2_qyowq")
 ChargeSpeed = 1.0
 TriggerChargeDistance = 1.0
 AngleCurve = SubResource("Curve_3j06l")
-MaxHealth = 15
+MaxHealth = 20
 
 [node name="Visual" parent="." index="1"]
 mesh = null
