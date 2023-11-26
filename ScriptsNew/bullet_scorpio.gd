@@ -23,8 +23,8 @@ func _process(delta):
 		var lerpFactor = $Timer.time_left / $Timer.wait_time;
 		speed = (startSpeed/lerpFactor) * 12
 	
-		if realDifToTarget.length() < 2 :
-			print("high speed")
+		if realDifToTarget.length() < 3 :
+			#print("high speed")
 			oldDiffToTarget = diffToTarget;
 			chilling = true;
 		else :
