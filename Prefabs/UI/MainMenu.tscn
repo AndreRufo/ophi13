@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b6xrakob4vi4n"]
+[gd_scene load_steps=30 format=3 uid="uid://b6xrakob4vi4n"]
 
 [ext_resource type="FontFile" uid="uid://cqf7m2eufjgdm" path="res://Fonts/AstroSpace-0Wl3o.otf" id="1_7ii7b"]
 [ext_resource type="Script" path="res://ScriptsNew/UI/AnyButtonStart.gd" id="1_udm1p"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d11xh6poxhlsj" path="res://Assets/innerring.png" id="7_a3yb5"]
 [ext_resource type="Texture2D" uid="uid://d2hdlu5omr2n8" path="res://Assets/midring.png" id="8_0u3aj"]
 [ext_resource type="Texture2D" uid="uid://8elgucee56e4" path="res://Assets/outerring.png" id="9_41805"]
+[ext_resource type="AudioStream" uid="uid://ddc52tvkoa0cq" path="res://Assets/Audio/cannontube_loop_medium.ogg" id="10_gk3hr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hmdl3"]
 font = ExtResource("1_7ii7b")
@@ -380,5 +381,10 @@ autoplay = "rot"
 libraries = {
 "": SubResource("AnimationLibrary_rdk2v")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_gk3hr")
+volume_db = 2.0
+autoplay = true
 
 [editable path="SubViewport/Node3D/Torch7"]
