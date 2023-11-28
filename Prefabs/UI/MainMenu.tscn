@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://djxddsb7n673i"]
+[gd_scene load_steps=30 format=3 uid="uid://b6xrakob4vi4n"]
 
 [ext_resource type="FontFile" uid="uid://cqf7m2eufjgdm" path="res://Fonts/AstroSpace-0Wl3o.otf" id="1_7ii7b"]
 [ext_resource type="Script" path="res://ScriptsNew/UI/AnyButtonStart.gd" id="1_udm1p"]
@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://d2xq5ndw02hs1" path="res://Assets/Models/Nebula.hdr" id="4_xj6gm"]
 [ext_resource type="PackedScene" uid="uid://c2wbfm15y6g84" path="res://Prefabs/Battleground.tscn" id="5_cvq0m"]
 [ext_resource type="PackedScene" uid="uid://by0e6y5nqpnff" path="res://Prefabs/torch.tscn" id="6_a1jls"]
+[ext_resource type="Texture2D" uid="uid://d11xh6poxhlsj" path="res://Assets/innerring.png" id="7_a3yb5"]
+[ext_resource type="Texture2D" uid="uid://d2hdlu5omr2n8" path="res://Assets/midring.png" id="8_0u3aj"]
+[ext_resource type="Texture2D" uid="uid://8elgucee56e4" path="res://Assets/outerring.png" id="9_41805"]
+[ext_resource type="AudioStream" uid="uid://ddc52tvkoa0cq" path="res://Assets/Audio/cannontube_loop_medium.ogg" id="10_gk3hr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hmdl3"]
 font = ExtResource("1_7ii7b")
@@ -14,6 +18,27 @@ font_size = 175
 [sub_resource type="LabelSettings" id="LabelSettings_ao6sa"]
 font = ExtResource("1_7ii7b")
 font_size = 35
+
+[sub_resource type="Animation" id="Animation_3me8x"]
+resource_name = "appear"
+length = 12.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8, 12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4uioj"]
+_data = {
+"appear": SubResource("Animation_3me8x")
+}
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_7ffm5"]
 viewport_path = NodePath("SubViewport")
@@ -71,6 +96,83 @@ scale_max = 5.0
 scale_curve = SubResource("CurveTexture_s7ref")
 color_ramp = SubResource("GradientTexture1D_sfqbp")
 
+[sub_resource type="Animation" id="Animation_614gh"]
+resource_name = "scale"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(6, 6), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ryhrs"]
+_data = {
+"scale": SubResource("Animation_614gh")
+}
+
+[sub_resource type="Animation" id="Animation_0e88l"]
+resource_name = "rot"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Mid:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7fh47"]
+_data = {
+"rot": SubResource("Animation_0e88l")
+}
+
+[sub_resource type="Animation" id="Animation_8vebf"]
+resource_name = "rot"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rdk2v"]
+_data = {
+"rot": SubResource("Animation_8vebf")
+}
+
 [node name="Main menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -103,6 +205,12 @@ label_settings = SubResource("LabelSettings_ao6sa")
 horizontal_alignment = 1
 script = ExtResource("1_udm1p")
 main_world_scene = ExtResource("3_kjbmx")
+
+[node name="TitleAnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer"]
+autoplay = "appear"
+libraries = {
+"": SubResource("AnimationLibrary_4uioj")
+}
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -201,5 +309,91 @@ shadow_opacity = 0.87
 shadow_blur = 1.515
 directional_shadow_blend_splits = true
 directional_shadow_max_distance = 40.2
+
+[node name="Control" type="Control" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -320.0
+offset_right = -75.0
+offset_bottom = -320.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(640, 640)
+
+[node name="Inner" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 704.0
+offset_bottom = 955.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(640, 639)
+texture = ExtResource("7_a3yb5")
+
+[node name="InnerAnimationPlayer" type="AnimationPlayer" parent="Control"]
+autoplay = "scale"
+libraries = {
+"": SubResource("AnimationLibrary_ryhrs")
+}
+
+[node name="Mid" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 704.0
+offset_bottom = 955.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(640, 639)
+texture = ExtResource("8_0u3aj")
+
+[node name="MidAnimationPlayer" type="AnimationPlayer" parent="Control/Mid"]
+root_node = NodePath("../../..")
+autoplay = "rot"
+libraries = {
+"": SubResource("AnimationLibrary_7fh47")
+}
+
+[node name="Outer" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 704.0
+offset_bottom = 955.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(640, 639)
+texture = ExtResource("9_41805")
+
+[node name="MidAnimationPlayer" type="AnimationPlayer" parent="Control/Outer"]
+autoplay = "rot"
+libraries = {
+"": SubResource("AnimationLibrary_rdk2v")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_gk3hr")
+volume_db = 2.0
+autoplay = true
 
 [editable path="SubViewport/Node3D/Torch7"]

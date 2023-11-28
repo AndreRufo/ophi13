@@ -4,6 +4,7 @@ extends CanvasLayer
 @export var continue_btn : Button;
 @export var menu_btn : Button;
 @export var exit_btn : Button;
+@export var main_menu_scene = "res://Prefabs/UI/MainMenu.tscn";
 @onready var bullseye_scene = load("res://Prefabs/UI/hud_bullseye.tscn");
 
 func _ready():
@@ -14,7 +15,9 @@ func _ready():
 		$Control.visible = false;
 	continue_btn.button_down.connect(continue_fn);
 	var menu_fn = func():
-		pass
+		get_tree().change_scene_to_file(main_menu_scene);
+		Singletons.NumEnemiesDefeated = 0;
+		get_tree().paused = false;
 	menu_btn.button_down.connect(menu_fn);
 	var exit_fn = func():
 		get_tree().quit();
