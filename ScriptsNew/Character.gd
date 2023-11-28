@@ -115,6 +115,10 @@ func on_hurt_character(dmg : int):
 	is_invuln = true;
 	invuln_timer.start(MaxInvulnDuration);
 	Singletons.player_damaged.emit(currentHealth);
+	$AnimationPlayer.stop()
+	$AnimationPlayer.play("Hit")
+	$AudioStreamPlayer3D.stop()
+	$AudioStreamPlayer3D.play();
 
 
 func _on_heal_timer_timeout():

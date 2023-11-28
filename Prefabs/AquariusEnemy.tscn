@@ -37,4 +37,7 @@ material_override = SubResource("StandardMaterial3D_dnvgx")
 
 [node name="OuterRing" type="Node3D" parent="BulletSpawnersContainer" index="2"]
 
+[node name="AudioStreamPlayer3D" parent="." index="6"]
+volume_db = 1.0
+
 [editable path="Visual/Aquarius"]

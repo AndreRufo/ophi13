@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://4j1jhl2ib1ff"]
+[gd_scene load_steps=6 format=3 uid="uid://4j1jhl2ib1ff"]
 
 [ext_resource type="Texture2D" uid="uid://cnc6h7bwucv36" path="res://icon.svg" id="1_472ud"]
 [ext_resource type="Script" path="res://ScriptsNew/UI/HUDBehavior.gd" id="1_u137f"]
 [ext_resource type="Script" path="res://ScriptsNew/UI/HealthBar.gd" id="2_bk4sp"]
 [ext_resource type="Script" path="res://ScriptsNew/UI/TimerDisplay.gd" id="2_l2j0v"]
+[ext_resource type="Script" path="res://Prefabs/UI/HealBar.gd" id="4_vd4q0"]
 
 [node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("timer_label", "continue_btn", "menu_btn", "exit_btn")]
 process_mode = 3
@@ -14,10 +15,11 @@ menu_btn = NodePath("Control/CenterContainer/VBoxContainer/Menu")
 exit_btn = NodePath("Control/CenterContainer/VBoxContainer/Exit")
 
 [node name="hp" type="Label" parent="."]
-offset_left = 24.0
-offset_top = 24.0
-offset_right = 46.0
-offset_bottom = 50.0
+offset_left = 10.0
+offset_top = 7.0
+offset_right = 32.0
+offset_bottom = 33.0
+scale = Vector2(0.5, 0.5)
 text = "HP
 "
 
@@ -34,17 +36,42 @@ tint_under = Color(11.24, 0, 0, 1)
 tint_progress = Color(0, 12.43, 0, 1)
 script = ExtResource("2_bk4sp")
 
+[node name="heal" type="Label" parent="."]
+visible = false
+offset_left = 10.0
+offset_top = 22.0
+offset_right = 32.0
+offset_bottom = 48.0
+scale = Vector2(0.5, 0.5)
+text = "Heal
+"
+
+[node name="bar" type="TextureProgressBar" parent="heal"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 6.0
+offset_right = 184.0
+offset_bottom = 134.0
+scale = Vector2(1.418, 0.1)
+value = 100.0
+texture_under = ExtResource("1_472ud")
+texture_progress = ExtResource("1_472ud")
+tint_under = Color(0, 0, 0, 1)
+tint_progress = Color(10, 10, 0, 1)
+script = ExtResource("4_vd4q0")
+
 [node name="time" type="Label" parent="."]
-offset_left = 24.0
-offset_top = 58.0
-offset_right = 64.0
-offset_bottom = 84.0
-text = "Time"
+offset_left = 256.0
+offset_top = 6.0
+offset_right = 433.0
+offset_bottom = 32.0
+scale = Vector2(0.7, 0.7)
+text = "Time Until Next Enemy"
 
 [node name="timer label" type="Label" parent="time"]
 layout_mode = 0
-offset_left = 56.0
-offset_right = 96.0
+offset_left = 188.571
+offset_right = 229.571
 offset_bottom = 26.0
 text = "99:99
 "

@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://d4lp0doik3rtc"]
+[gd_scene load_steps=12 format=3 uid="uid://d4lp0doik3rtc"]
 
 [ext_resource type="Script" path="res://ScriptsNew/Character.gd" id="1_tl3q1"]
 [ext_resource type="PackedScene" uid="uid://cwj2hm74gtiyf" path="res://Prefabs/PlayerBullet.tscn" id="2_5tvyk"]
 [ext_resource type="PackedScene" uid="uid://clsav3p0qp40q" path="res://Assets/Models/Ophiucus_Anim2.glb" id="3_1w8es"]
 [ext_resource type="AnimationLibrary" uid="uid://bfgdwg34bpwgj" path="res://Assets/anim_library.res" id="4_ajkh3"]
+[ext_resource type="AudioStream" uid="uid://deeu25hhbl3gq" path="res://Assets/Audio/hit01.wav" id="5_rp6jf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gf1nm"]
 radius = 0.23171
@@ -223,6 +224,22 @@ _data = {
 "Armature|mixamo_com|Layer0": SubResource("Animation_3k0pb")
 }
 
+[sub_resource type="Animation" id="Animation_lr1ah"]
+resource_name = "Hit"
+length = 0.3
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.1, 1, 1.5, 1.5, 1.5, 0.3, 1, 1, 1, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wv8pq"]
+_data = {
+"Hit": SubResource("Animation_lr1ah")
+}
+
 [node name="Character" type="CharacterBody3D" groups=["Character"]]
 collision_layer = 4
 collision_mask = 15
@@ -284,7 +301,7 @@ unique_name_in_owner = true
 wait_time = 0.5
 
 [node name="BulletOrigin" type="BoneAttachment3D" parent="."]
-transform = Transform3D(-1.71765, -0.767877, -0.678275, -0.946912, 0.684219, 1.62333, -0.391214, 1.71529, -0.95118, -0.478019, 0.996983, 0.931637)
+transform = Transform3D(-1.71765, -0.767877, -0.678275, -0.946912, 0.684221, 1.62333, -0.391214, 1.71529, -0.951181, -0.47802, 0.996983, 0.931637)
 bone_name = "mixamorig_RightHand"
 bone_idx = 18
 use_external_skeleton = true
@@ -295,6 +312,16 @@ wait_time = 3.0
 
 [node name="ExitHealTimer" type="Timer" parent="."]
 wait_time = 0.3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wv8pq")
+}
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_rp6jf")
+volume_db = 6.0
+max_db = 6.0
 
 [connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]
 [connection signal="timeout" from="HealTimer" to="." method="_on_heal_timer_timeout"]

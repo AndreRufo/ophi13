@@ -10,7 +10,7 @@ func _ready():
 	for spawner in spawners:
 		spawner.SetSpawnInterval(0.1);
 		
-	$AnimationPlayer.play("leoshoot")
+	$AnimationPlayer2.play("leoshoot")
 
 func _update(delta):
 	$BulletSpawnersContainer.rotate_y(0.05);

@@ -18,7 +18,7 @@ emission_energy_multiplier = 3.0
 script = ExtResource("2_bpb02")
 SniperPositions = Array[Vector3]([Vector3(-0.9, 1.9, -0.5), Vector3(-6.5, 1.5, 40), Vector3(30, 1.5, 25), Vector3(45, 2.8, -1.5), Vector3(28, 1.5, -25), Vector3(-5, 3, -45), Vector3(-35, 1.5, 20), Vector3(-33, 1.5, 12), Vector3(-5, 1.5, 38)])
 ShotChargeRate = 0.5
-ShotCooldown = 5.0
+ShotCooldown = 3.0
 RotationSpeed = 0.85
 TopHeightOfJump = 10.0
 JumpMovementSpeed = 1.5
@@ -38,6 +38,7 @@ material_override = SubResource("StandardMaterial3D_yj835")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.994825)
 
 [node name="BulletSpawner" parent="BulletSpawnersContainer" index="0" instance=ExtResource("3_d8e2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.715045, 0)
 script = ExtResource("4_q1mn2")
 BulletScene = ExtResource("5_n5ey0")
 BulletMaterial = ExtResource("5_ngcuh")

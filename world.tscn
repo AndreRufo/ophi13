@@ -218,10 +218,11 @@ texture_albedo = ExtResource("20_miehg")
 
 [node name="Decal9" type="Decal" parent="SpaceBattleground"]
 transform = Transform3D(0.0440551, 0, 0.999029, 0, 1, 0, -0.999029, 0, 0.0440551, -12.7403, -1.78814e-06, -0.455026)
-size = Vector3(9.46071, 2, 13.8643)
+size = Vector3(9.46071, 0.410157, 13.8643)
 texture_albedo = ExtResource("20_miehg")
 
 [node name="Decal" type="Decal" parent="SpaceBattleground"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0)
 size = Vector3(9.62025, 2, 8.96286)
 texture_albedo = ExtResource("20_miehg")
 

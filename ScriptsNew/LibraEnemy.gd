@@ -38,6 +38,7 @@ func get_new_target_location():
 	target_location = Singletons.PlayerCharacter.position + direction_vec;
 
 func on_take_damage():
+	super()
 	var idx = 0;
 	for i in BulletsToGenerate:
 		var x = 2 * cos(deg_to_rad((360/BulletsToGenerate) * idx));

@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://y1eqpa7ff1uq"]
+[gd_scene load_steps=10 format=3 uid="uid://y1eqpa7ff1uq"]
 
 [ext_resource type="Script" path="res://ScriptsNew/BaseEnemy.gd" id="1_4eyig"]
+[ext_resource type="AudioStream" uid="uid://deeu25hhbl3gq" path="res://Assets/Audio/hit01.wav" id="2_gyhcm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gf1nm"]
 
@@ -14,6 +15,22 @@ radius = 1.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1tii0"]
 radius = 4.69969
+
+[sub_resource type="Animation" id="Animation_vd6dk"]
+resource_name = "Hit"
+length = 0.3
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.1, 1, 1.5, 1.5, 1.5, 0.3, 1, 1, 1, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7t5f3"]
+_data = {
+"Hit": SubResource("Animation_vd6dk")
+}
 
 [node name="Enemy" type="CharacterBody3D" groups=["Enemy"]]
 collision_layer = 4
@@ -42,6 +59,16 @@ collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BulletCaptureArea"]
 shape = SubResource("SphereShape3D_1tii0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7t5f3")
+}
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_gyhcm")
+volume_db = 6.0
+max_db = 6.0
 
 [connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
 [connection signal="area_entered" from="BulletCaptureArea" to="." method="_on_bullet_capture_area_area_entered"]

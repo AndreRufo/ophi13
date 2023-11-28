@@ -31,21 +31,22 @@ mesh = null
 material_override = SubResource("StandardMaterial3D_sgi7d")
 
 [node name="BulletSpawner" parent="BulletSpawnersContainer" index="0" instance=ExtResource("4_snr6o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.414565, 0)
 BulletScene = ExtResource("5_gnnkg")
 BulletMaterial = ExtResource("6_8co50")
 
 [node name="BulletSpawner2" parent="BulletSpawnersContainer" index="1" instance=ExtResource("4_snr6o")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.414565, 0)
 BulletScene = ExtResource("5_gnnkg")
 BulletMaterial = ExtResource("6_8co50")
 
 [node name="BulletSpawner3" parent="BulletSpawnersContainer" index="2" instance=ExtResource("4_snr6o")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.414565, 0)
 BulletScene = ExtResource("5_gnnkg")
 BulletMaterial = ExtResource("6_8co50")
 
 [node name="BulletSpawner4" parent="BulletSpawnersContainer" index="3" instance=ExtResource("4_snr6o")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.414565, 0)
 BulletScene = ExtResource("5_gnnkg")
 BulletMaterial = ExtResource("6_8co50")
 

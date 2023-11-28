@@ -16,7 +16,7 @@ func _ready():
 	for spawner in spawners2:
 		spawner.SetSpawnInterval(0.05);
 		
-	$AnimationPlayer.play("cancershoot")
+	$AnimationPlayer2.play("cancershoot")
 
 func _update(delta):
 	var rotAngle = AngleCurve.sample(currentCurveVal);

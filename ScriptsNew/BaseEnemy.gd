@@ -61,6 +61,10 @@ func _on_bullet_capture_area_area_exited(area):
 	pass # Replace with function body.
 
 func on_take_damage():
+	$AnimationPlayer.stop();
+	$AnimationPlayer.play("Hit")
+	$AudioStreamPlayer3D.stop()
+	$AudioStreamPlayer3D.play()
 	pass;
 	
 func on_death():
