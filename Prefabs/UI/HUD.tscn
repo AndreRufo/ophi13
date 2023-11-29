@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://4j1jhl2ib1ff"]
+[gd_scene load_steps=7 format=3 uid="uid://4j1jhl2ib1ff"]
 
 [ext_resource type="Texture2D" uid="uid://cnc6h7bwucv36" path="res://icon.svg" id="1_472ud"]
 [ext_resource type="Script" path="res://ScriptsNew/UI/HUDBehavior.gd" id="1_u137f"]
@@ -6,15 +6,55 @@
 [ext_resource type="Script" path="res://ScriptsNew/UI/TimerDisplay.gd" id="2_l2j0v"]
 [ext_resource type="Script" path="res://Prefabs/UI/HealBar.gd" id="4_vd4q0"]
 
-[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("timer_label", "continue_btn", "menu_btn", "exit_btn")]
+[sub_resource type="LabelSettings" id="LabelSettings_vp504"]
+
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("timer_label", "pause_menu", "continue_btn", "menu_btn", "exit_btn", "loss_screen")]
 process_mode = 3
 script = ExtResource("1_u137f")
-timer_label = NodePath("time/timer label")
-continue_btn = NodePath("Control/CenterContainer/VBoxContainer/Continue")
-menu_btn = NodePath("Control/CenterContainer/VBoxContainer/Menu")
-exit_btn = NodePath("Control/CenterContainer/VBoxContainer/Exit")
+timer_label = NodePath("Control/time/timer label")
+pause_menu = NodePath("Control/Pause Menu")
+continue_btn = NodePath("Control/Pause Menu/VBoxContainer/Continue")
+menu_btn = NodePath("Control/Pause Menu/VBoxContainer/Menu")
+exit_btn = NodePath("Control/Pause Menu/VBoxContainer/Exit")
+loss_screen = NodePath("Control/Loss Screen")
 
-[node name="hp" type="Label" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pause Menu" type="CenterContainer" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Pause Menu"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Continue" type="Button" parent="Control/Pause Menu/VBoxContainer"]
+layout_mode = 2
+text = "Continue"
+
+[node name="Menu" type="Button" parent="Control/Pause Menu/VBoxContainer"]
+layout_mode = 2
+text = "Back to main menu
+"
+
+[node name="Exit" type="Button" parent="Control/Pause Menu/VBoxContainer"]
+layout_mode = 2
+text = "Exit
+"
+
+[node name="hp" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 10.0
 offset_top = 7.0
 offset_right = 32.0
@@ -23,7 +63,7 @@ scale = Vector2(0.5, 0.5)
 text = "HP
 "
 
-[node name="bar" type="TextureProgressBar" parent="hp"]
+[node name="bar" type="TextureProgressBar" parent="Control/hp"]
 layout_mode = 0
 offset_left = 56.0
 offset_right = 184.0
@@ -36,17 +76,18 @@ tint_under = Color(11.24, 0, 0, 1)
 tint_progress = Color(0, 12.43, 0, 1)
 script = ExtResource("2_bk4sp")
 
-[node name="heal" type="Label" parent="."]
+[node name="heal" type="Label" parent="Control"]
 visible = false
+layout_mode = 0
 offset_left = 10.0
 offset_top = 22.0
-offset_right = 32.0
+offset_right = 45.0
 offset_bottom = 48.0
 scale = Vector2(0.5, 0.5)
 text = "Heal
 "
 
-[node name="bar" type="TextureProgressBar" parent="heal"]
+[node name="bar" type="TextureProgressBar" parent="Control/heal"]
 layout_mode = 0
 offset_left = 56.0
 offset_top = 6.0
@@ -60,7 +101,8 @@ tint_under = Color(0, 0, 0, 1)
 tint_progress = Color(10, 10, 0, 1)
 script = ExtResource("4_vd4q0")
 
-[node name="time" type="Label" parent="."]
+[node name="time" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 256.0
 offset_top = 6.0
 offset_right = 433.0
@@ -68,7 +110,7 @@ offset_bottom = 32.0
 scale = Vector2(0.7, 0.7)
 text = "Time Until Next Enemy"
 
-[node name="timer label" type="Label" parent="time"]
+[node name="timer label" type="Label" parent="Control/time"]
 layout_mode = 0
 offset_left = 188.571
 offset_right = 229.571
@@ -77,16 +119,8 @@ text = "99:99
 "
 script = ExtResource("2_l2j0v")
 
-[node name="Control" type="Control" parent="."]
+[node name="Loss Screen" type="CenterContainer" parent="Control"]
 visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="CenterContainer" type="CenterContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -94,20 +128,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Loss Screen"]
 layout_mode = 2
-metadata/_edit_use_anchors_ = true
 
-[node name="Continue" type="Button" parent="Control/CenterContainer/VBoxContainer"]
+[node name="ded" type="Label" parent="Control/Loss Screen/VBoxContainer"]
 layout_mode = 2
-text = "Continue"
-
-[node name="Menu" type="Button" parent="Control/CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "Back to main menu
-"
-
-[node name="Exit" type="Button" parent="Control/CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "Exit
-"
+text = "You died!
+Press escape to go to the main menu
+or enter to restart!"
+label_settings = SubResource("LabelSettings_vp504")
+horizontal_alignment = 1

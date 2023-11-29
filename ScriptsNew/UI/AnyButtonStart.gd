@@ -21,9 +21,9 @@ func _ready():
 func on_input_wait_timer_timeout():
 	allow_input = true;
 	skipping = false;
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if Input.is_anything_pressed():
+
+func _unhandled_input(event):
+	if not event.is_released():
 		if(allow_input):
 			get_tree().change_scene_to_packed(main_world_scene);
 		elif(!allow_input && !skipping):

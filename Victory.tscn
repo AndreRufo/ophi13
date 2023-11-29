@@ -1,14 +1,17 @@
-[gd_scene load_steps=36 format=3 uid="uid://cpsdxotjj6yrr"]
+[gd_scene load_steps=40 format=3 uid="uid://cpsdxotjj6yrr"]
 
 [ext_resource type="PackedScene" uid="uid://bss2vdhlwj0kb" path="res://Assets/Models/SexyDance.glb" id="1_cu526"]
 [ext_resource type="Script" path="res://Victory.gd" id="1_wmj4f"]
 [ext_resource type="Texture2D" uid="uid://omdarxwrboo6" path="res://Assets/heaven.jpg" id="2_dqm8c"]
+[ext_resource type="PackedScene" uid="uid://d1vjredt0b0cp" path="res://Prefabs/UI/MainMenu.tscn" id="2_wrkgl"]
+[ext_resource type="PackedScene" uid="uid://bupermobpg1sj" path="res://world.tscn" id="3_7lbpn"]
 [ext_resource type="AnimationLibrary" uid="uid://bfgdwg34bpwgj" path="res://Assets/anim_library.res" id="3_dsvyy"]
 [ext_resource type="Texture2D" uid="uid://d2xq5ndw02hs1" path="res://Assets/Models/Nebula.hdr" id="4_na5v5"]
 [ext_resource type="PackedScene" uid="uid://c2wbfm15y6g84" path="res://Prefabs/Battleground.tscn" id="5_ycwbn"]
 [ext_resource type="PackedScene" uid="uid://by0e6y5nqpnff" path="res://Prefabs/torch.tscn" id="6_ak0aj"]
 [ext_resource type="Texture2D" uid="uid://0wx21w4wqcyd" path="res://Assets/decal.png" id="7_buyi7"]
 [ext_resource type="AudioStream" uid="uid://cqpmfg6lrioq2" path="res://Assets/Audio/Viktor Kraus - Victory!.wav" id="7_oxogg"]
+[ext_resource type="FontFile" uid="uid://cqf7m2eufjgdm" path="res://Fonts/AstroSpace-0Wl3o.otf" id="10_siks0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dywg8"]
 albedo_color = Color(0.792157, 0.141176, 0.141176, 1)
@@ -172,8 +175,14 @@ scale_max = 5.0
 scale_curve = SubResource("CurveTexture_b12lx")
 color_ramp = SubResource("GradientTexture1D_yf1w2")
 
+[sub_resource type="LabelSettings" id="LabelSettings_5sb6n"]
+font = ExtResource("10_siks0")
+font_size = 20
+
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_wmj4f")
+main_menu_scene = ExtResource("2_wrkgl")
+main_world_scene = ExtResource("3_7lbpn")
 
 [node name="SexyDance" parent="." instance=ExtResource("1_cu526")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44174, 0)
@@ -520,6 +529,38 @@ directional_shadow_max_distance = 40.2
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_oxogg")
 autoplay = true
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 16
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Control/MarginContainer/CenterContainer"]
+layout_mode = 2
+text = "You won the game!
+Press escape to go to the
+main menu or enter to restart!"
+label_settings = SubResource("LabelSettings_5sb6n")
+horizontal_alignment = 1
 
 [editable path="SexyDance"]
 [editable path="Torch7"]
